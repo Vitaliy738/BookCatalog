@@ -1,0 +1,58 @@
+﻿<Window x:Class="Book_catalog.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Book_catalog"
+        xmlns:viewModel="clr-namespace:Book_catalog.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="920"
+        ResizeMode="NoResize">
+        
+        <Window.DataContext>
+                <viewModel:MainViewModel/>
+        </Window.DataContext>
+    
+        <Border Background="#EFF2F9">
+                <Grid>
+                        <Grid.RowDefinitions>
+                                <RowDefinition Height="0.15*"/>
+                                <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.20*"/>
+                                <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock Grid.Column="0" Grid.Row="0"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Margin="20 0 0 0"
+                                   Text="Book catalog"
+                                   FontSize="22"/>
+                        
+                        <StackPanel Grid.Column="0" Grid.Row="1">
+                                <RadioButton Style="{StaticResource MenuButtonTheme}"
+                                             FontSize="14"
+                                             Height="40"
+                                             Content="Home"
+                                             IsChecked="True"
+                                             Command="{Binding HomeViewCommand}"/>
+                                <RadioButton Style="{StaticResource MenuButtonTheme}"
+                                             FontSize="14"
+                                             Height="40"
+                                             Content="Catalog"
+                                             Command="{Binding CatalogViewCommand}"/>
+                                <RadioButton Style="{StaticResource MenuButtonTheme}"
+                                             FontSize="14"
+                                             Height="40"
+                                             Content="Another one"/>
+                        </StackPanel>
+                        
+                        <ContentControl Grid.Column="1" Grid.Row="1"
+                                        Margin="10"
+                                        Content="{Binding CurrentView}"/>
+                </Grid>
+        </Border>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Application x:Class="Book_catalog.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Book_catalog"
+             xmlns:viewModel="clr-namespace:Book_catalog.MVVM.ViewModel"
+             xmlns:view="clr-namespace:Book_catalog.MVVM.View"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         <ResourceDictionary>
+             <ResourceDictionary.MergedDictionaries>
+                 <ResourceDictionary Source="../Theme/MenuThemeButton.xaml"/>
+             </ResourceDictionary.MergedDictionaries>
+             
+             <DataTemplate DataType="{x:Type viewModel:CatalogViewModel}">
+                 <view:CatalogView/>
+             </DataTemplate>
+             
+             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                 <viewModel:HomeView/>
+             </DataTemplate>
+             
+         </ResourceDictionary>
+    </Application.Resources>
+</Application>

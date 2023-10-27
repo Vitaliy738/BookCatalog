@@ -1,0 +1,27 @@
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\bin\Debug\net7.0-windows\Book catalog.exe
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\bin\Debug\net7.0-windows\Book catalog.deps.json
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\bin\Debug\net7.0-windows\Book catalog.runtimeconfig.json
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\bin\Debug\net7.0-windows\Book catalog.dll
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\bin\Debug\net7.0-windows\Book catalog.pdb
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MainWindow.g.cs
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\App.g.cs
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog_MarkupCompile.cache
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog_MarkupCompile.lref
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MainWindow.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog.g.resources
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog.AssemblyInfoInputs.cache
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog.AssemblyInfo.cs
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog.csproj.CoreCompileInputs.cache
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog.dll
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\refint\Book catalog.dll
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog.pdb
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog.genruntimeconfig.cache
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\ref\Book catalog.dll
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\MenuThemeButton.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\App.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\HomeView.g.cs
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\HomeView.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\CatalogView.g.cs
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\CatalogView.baml
