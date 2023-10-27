@@ -50,6 +50,12 @@
                                              Content="Another one"/>
                         </StackPanel>
                         
+                        <TextBox Grid.Column="1"
+                                 HorizontalAlignment="Left"
+                                 HorizontalContentAlignment="Center"
+                                 Margin="105 0 0 0"
+                                 Style="{StaticResource SearchBoxTheme}"/>
+                        
                         <ContentControl Grid.Column="1" Grid.Row="1"
                                         Margin="10"
                                         Content="{Binding CurrentView}"/>

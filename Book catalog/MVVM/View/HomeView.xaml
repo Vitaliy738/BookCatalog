@@ -5,8 +5,121 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Book_catalog.MVVM.ViewModel"
              mc:Ignorable="d"
-             d:DesignHeight="600" d:DesignWidth="920">
-    <Grid>
-        
-    </Grid>
+             d:DesignHeight="600" d:DesignWidth="720">
+
+    <Border>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.30*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <Button Height="100" Width="100"
+                        Style="{StaticResource HomeUserIconTheme}"
+                        Margin="5" />
+
+                <TextBlock Margin="10"
+                           Text="UserName"
+                           TextAlignment="Center"
+                           FontSize="14" />
+
+            </StackPanel>
+
+            <Border Grid.Column="1">
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.09*"/>
+                        <RowDefinition Height="0.22*"/>
+                        <RowDefinition Height="0.22*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.50*"/>
+                        <ColumnDefinition Width="0.50*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBlock Margin="15 0 0 5"
+                               Text="Favorite books"
+                               FontSize="18"/>
+                    
+                    <!-- Favorite book panels -->
+                    <StackPanel Grid.Column="0"
+                                Grid.Row="1"
+                                Margin="0 0 3 0">
+                        
+                        <Border Background="#E4EBF1"
+                                CornerRadius="10"
+                                BorderThickness="1"
+                                BorderBrush="Black">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="../../Icons/BookIcon2.png"
+                                       Margin="2"
+                                       Height="53"/>
+                                <TextBlock Text="Book name"
+                                           FontSize="16"
+                                           Margin="15 0 0 0" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1"
+                                Grid.Row="1"
+                                Margin="3 0 3 0">
+                        
+                        <Border Background="#E4EBF1"
+                                CornerRadius="10"
+                                BorderThickness="1"
+                                BorderBrush="Black">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="../../Icons/BookIcon2.png"
+                                       Margin="2"
+                                       Height="53"/>
+                                <TextBlock Text="Book name"
+                                           FontSize="16"
+                                           Margin="15 0 0 0" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Grid.Column="0"
+                                Grid.Row="2"
+                                Margin="3 0 3 0">
+                        
+                        <Border Background="#E4EBF1"
+                                CornerRadius="10"
+                                BorderThickness="1"
+                                BorderBrush="Black">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="../../Icons/BookIcon2.png"
+                                       Margin="2"
+                                       Height="53"/>
+                                <TextBlock Text="Book name"
+                                           FontSize="16"
+                                           Margin="15 0 0 0" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1"
+                                Grid.Row="2"
+                                Margin="3 0 3 0">
+                        
+                        <Border Background="#E4EBF1"
+                                CornerRadius="10"
+                                BorderThickness="1"
+                                BorderBrush="Black">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="../../Icons/BookIcon2.png"
+                                       Margin="2"
+                                       Height="53"/>
+                                <TextBlock Text="Book name"
+                                           FontSize="16"
+                                           Margin="15 0 0 0" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+
 </UserControl>

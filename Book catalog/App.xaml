@@ -9,6 +9,8 @@
          <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
                  <ResourceDictionary Source="../Theme/MenuThemeButton.xaml"/>
+                 <ResourceDictionary Source="../Theme/HomeThemeUserIcon.xaml"/>
+                 <ResourceDictionary Source="../Theme/SearchBoxTheme.xaml"/>
              </ResourceDictionary.MergedDictionaries>
              
              <DataTemplate DataType="{x:Type viewModel:CatalogViewModel}">

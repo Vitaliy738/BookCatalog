@@ -25,3 +25,5 @@ C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\G
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\HomeView.baml
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\CatalogView.g.cs
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\CatalogView.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\HomeThemeUserIcon.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\SearchBoxTheme.baml
