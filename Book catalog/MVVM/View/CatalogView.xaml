@@ -20,22 +20,48 @@
             </Grid.ColumnDefinitions>
             
             <DataGrid Margin="5"
-                      AutoGenerateColumns="False"
                       AlternatingRowBackground="#B5BFC6"
-                      Background="#E4EBF1">
+                      Background="#E4EBF1"
+                      ItemsSource="{Binding Books}"
+                      AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="Book Details">
+                    <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="C:\\Users\\Asus\RiderProjects\\Book catalog\\Book catalog\\Icons\BookIcon.png" Width="24" Height="24"/>
-                                    <TextBlock Text="Book name" Margin="5 0 0 0"/>
+                                    <Image Source="{Binding IconPath}" Width="58" Height="58"/>
+                                    <TextBlock Text="{Binding Name}" 
+                                               Margin="5 0 0 0"
+                                               FontSize="16"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
+                
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <StackPanel Orientation="Horizontal" DataContext="{Binding Books}">
+                                <TextBlock Text="Author: "
+                                           FontSize="16" />
+                                <TextBlock Text="{Binding Name}"
+                                           FontSize="16" />
+                            </StackPanel>
+                            
+                            <StackPanel DataContext="{Binding Books}"
+                                        Orientation="Horizontal">
+                                <TextBlock Text="Short description: "
+                                           FontSize="16" />
+                                <TextBlock Text="{Binding Author}"
+                                           FontSize="16" />
+                            </StackPanel>
+                        </Grid>
+                        
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
             </DataGrid>
+
 
             
             <StackPanel Grid.Column="1">
