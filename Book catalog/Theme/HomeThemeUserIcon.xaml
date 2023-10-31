@@ -1,5 +1,6 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
     <Style BasedOn="{StaticResource {x:Type Button}}"
            TargetType="{x:Type Button}"
            x:Key="HomeUserIconTheme">
@@ -10,7 +11,7 @@
                     <ControlTemplate TargetType="Button">
                         <Border BorderBrush="Navy" BorderThickness="2" CornerRadius="100">
                             <Border.Background>
-                                <ImageBrush ImageSource="../Icons/UserProfileIcon.png"/>
+                                <ImageBrush ImageSource ="{Binding User.IconPath}"/>
                             </Border.Background>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>

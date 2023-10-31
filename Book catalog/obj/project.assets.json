@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0-windows7.0": {}
+    "net7.0-windows7.0": {
+      "CatalogLogic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/CatalogLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CatalogLogic.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "CatalogLogic/1.0.0": {
+      "type": "project",
+      "path": "../CatalogLogic/CatalogLogic.csproj",
+      "msbuildProject": "../CatalogLogic/CatalogLogic.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0-windows7.0": []
+    "net7.0-windows7.0": [
+      "CatalogLogic >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Asus\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Asus\\RiderProjects\\Book catalog\\CatalogLogic\\CatalogLogic.csproj": {
+              "projectPath": "C:\\Users\\Asus\\RiderProjects\\Book catalog\\CatalogLogic\\CatalogLogic.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

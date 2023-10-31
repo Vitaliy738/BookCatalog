@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book catalog", "Book catalog\Book catalog.csproj", "{A04A9848-35CA-436A-BDBC-22AB3A2DED3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogMainLogic", "CatalogMainLogic\CatalogMainLogic.csproj", "{15A52464-ACD5-4235-9393-EEA978F3BF34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogLogic", "CatalogLogic\CatalogLogic.csproj", "{15A52464-ACD5-4235-9393-EEA978F3BF34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

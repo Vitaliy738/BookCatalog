@@ -21,7 +21,7 @@ public class MainViewModel : ObservableObject
             OnPropertyChanged();
         }
     }
-    
+
     public MainViewModel()
     {
         HomeVM = new HomeViewModel();

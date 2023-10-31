@@ -27,3 +27,8 @@ C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\M
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\CatalogView.baml
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\HomeThemeUserIcon.baml
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\SearchBoxTheme.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\HomeThemeButton.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\bin\Debug\net7.0-windows\CatalogLogic.dll
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\bin\Debug\net7.0-windows\CatalogLogic.pdb
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog.csproj.AssemblyReference.cache
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog.csproj.CopyComplete

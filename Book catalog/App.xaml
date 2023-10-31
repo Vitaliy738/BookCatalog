@@ -11,6 +11,7 @@
                  <ResourceDictionary Source="../Theme/MenuThemeButton.xaml"/>
                  <ResourceDictionary Source="../Theme/HomeThemeUserIcon.xaml"/>
                  <ResourceDictionary Source="../Theme/SearchBoxTheme.xaml"/>
+                 <ResourceDictionary Source="../Theme/HomeThemeButton.xaml"/>
              </ResourceDictionary.MergedDictionaries>
              
              <DataTemplate DataType="{x:Type viewModel:CatalogViewModel}">
@@ -18,7 +19,7 @@
              </DataTemplate>
              
              <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
-                 <viewModel:HomeView/>
+                 <view:HomeView/>
              </DataTemplate>
              
          </ResourceDictionary>

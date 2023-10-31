@@ -6,6 +6,7 @@
         <RootNamespace>Book_catalog</RootNamespace>
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
+        <UserSecretsId>fe904d0b-f765-4108-a5e5-cd00f4879b40</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -23,14 +24,20 @@
 
     <ItemGroup>
       <None Remove="Icons\user.png" />
-      <Resource Include="Icons\UserProfileIcon.png" />
+      <Page Include="Icons\UserProfileIcon.png" />
       <None Remove="Icons\user (1).png" />
       <None Remove="Icons\user (2).png" />
       <None Remove="Icons\user (3).png" />
       <None Remove="Icons\agenda.png" />
       <None Remove="Icons\BookIcon.png" />
       <None Remove="Icons\BookIcon2.png" />
-      <Resource Include="Icons\BookIcon2.png" />
+      <Resource Include="Icons\BookIcon.png" />
+      <None Remove="Icons\UserProfileIcon.png" />
+      <Resource Include="Icons\UserProfileIcon.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CatalogLogic\CatalogLogic.csproj" />
     </ItemGroup>
 
 </Project>

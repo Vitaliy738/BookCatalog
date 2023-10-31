@@ -7,7 +7,7 @@
         xmlns:viewModel="clr-namespace:Book_catalog.MVVM.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="920"
-        ResizeMode="NoResize">
+        ResizeMode="CanResize">
         
         <Window.DataContext>
                 <viewModel:MainViewModel/>
@@ -44,13 +44,9 @@
                                              Height="40"
                                              Content="Catalog"
                                              Command="{Binding CatalogViewCommand}"/>
-                                <RadioButton Style="{StaticResource MenuButtonTheme}"
-                                             FontSize="14"
-                                             Height="40"
-                                             Content="Another one"/>
                         </StackPanel>
                         
-                        <TextBox Grid.Column="1"
+                        <TextBox Grid.Row="0" Grid.Column="1"
                                  HorizontalAlignment="Left"
                                  HorizontalContentAlignment="Center"
                                  Margin="105 0 0 0"
