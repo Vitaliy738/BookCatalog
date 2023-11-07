@@ -8,10 +8,20 @@
     <Application.Resources>
          <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
-                 <ResourceDictionary Source="../Theme/MenuThemeButton.xaml"/>
-                 <ResourceDictionary Source="../Theme/HomeThemeUserIcon.xaml"/>
                  <ResourceDictionary Source="../Theme/SearchBoxTheme.xaml"/>
-                 <ResourceDictionary Source="../Theme/HomeThemeButton.xaml"/>
+                 
+                 <ResourceDictionary Source="../Theme/Menu/MenuThemeButton.xaml"/>
+                 
+                 <ResourceDictionary Source="/Theme/Home/HomeThemeUserIcon.xaml"/>
+                 <ResourceDictionary Source="/Theme/Home/HomeThemeButton.xaml"/>
+                 
+                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeFilterButton.xaml"/>
+                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeSortCollapsedButton.xaml"/>
+                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeNameSearchBox.xaml"/>
+                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeAuthorSearchBox.xaml"/>
+                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeGenreSearchBox.xaml"/>
+                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeYearSearchBox.xaml"/>
+                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeButton.xaml"/>
              </ResourceDictionary.MergedDictionaries>
              
              <DataTemplate DataType="{x:Type viewModel:CatalogViewModel}">
