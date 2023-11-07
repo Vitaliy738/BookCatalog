@@ -1,4 +1,10 @@
+using System;
+using System.Collections.ObjectModel;
+using System.IO;
 using Book_catalog.Core;
+using System.Text.Json;
+using System.Windows.Data;
+using CatalogLogic;
 
 namespace Book_catalog.MVVM.ViewModel;
 
@@ -6,10 +12,9 @@ public class MainViewModel : ObservableObject
 {
     public RelayCommand HomeViewCommand { get; set; }
     public RelayCommand CatalogViewCommand { get; set; }
-    
-    public CatalogViewModel CatalogVM { get; set; }
-    
-    public HomeViewModel HomeVM { get; set; }
+
+    private CatalogViewModel CatalogVM { get; set; }
+    private HomeViewModel HomeVM { get; set; }
     
     private object _currentView;
     public object CurrentView
@@ -21,7 +26,7 @@ public class MainViewModel : ObservableObject
             OnPropertyChanged();
         }
     }
-
+    
     public MainViewModel()
     {
         HomeVM = new HomeViewModel();
@@ -39,4 +44,4 @@ public class MainViewModel : ObservableObject
             CurrentView = CatalogVM;
         });
     }
-}
+} 

@@ -1,8 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
-using System.Windows;
-using System.Windows.Input;
+using System.IO;
+using System.Text.Json;
 using Book_catalog.Core;
 using CatalogLogic;
 
@@ -10,14 +11,23 @@ namespace Book_catalog.MVVM.ViewModel;
 
 public class CatalogViewModel : ObservableObject
 {
-    public RelayCommand NameFilterCommand { get; set; }
-    public RelayCommand AuthorFilterCommand { get; set; }
-    public RelayCommand MultiFilterCommand { get; set; }
+    // Події пошуку
+    public RelayCommand SearchFilterCommand { get; private set; }
+    public RelayCommand CancelFilterCommand { get; private set; }
+    
+    // Події сортування
+    public RelayCommand NameSortCommand { get; private set; }
+    public RelayCommand AuthorSortCommand { get; private set; }
+    public RelayCommand YearSortCommand { get; private set; }
+    public RelayCommand GenreSortCommand { get; private set; }
+    
+    public RelayCommand AddBookCommand { get; private set; }
     
     // Колекція усіх книжок католога
     public ObservableCollection<Book> Books { get; set; }
     
-    public DataTable Bookss { get; set; }
+    // Таблиця книжок
+    public DataTable BooksTable { get; set; }
 
     // Значення для фільтрації за ім'ям
     private string _nameSearch;
@@ -29,7 +39,6 @@ public class CatalogViewModel : ObservableObject
             if (value != null)
             {
                 _nameSearch = value;
-                OnPropertyChanged("NameSearch");
             }
         }
     }
@@ -44,7 +53,6 @@ public class CatalogViewModel : ObservableObject
             if (value != null)
             {
                 _authorSearch = value;
-                OnPropertyChanged("AuthorSearch");
             }
         }
     }
@@ -59,7 +67,6 @@ public class CatalogViewModel : ObservableObject
             if (value != null)
             {
                 _genreSearch = value;
-                OnPropertyChanged("GenreSearch");
             }
         }
     }
@@ -74,82 +81,132 @@ public class CatalogViewModel : ObservableObject
             if (value != null)
             {
                 _yearSearch = value;
-                OnPropertyChanged("YearSearch");
+            }
+        }
+    }
+
+    private bool IsSortedName { get; set; }
+    private bool IsSortedAuthor { get; set; }
+    private bool IsSortedYear { get; set; }
+    private bool IsSortedGenre { get; set; }
+
+    private string _catalogSource;
+    public string? CatalogSource
+    {
+        get => _catalogSource;
+        set
+        {
+            if (!string.IsNullOrEmpty(value))
+            {
+                _catalogSource = value;
             }
         }
     }
     
     public CatalogViewModel()
     {
-        List<string> list = new List<string>();
-        list.Add("1");
-        list.Add("2");
-        list.Add("3");
+        IsSortedName = false;
+        IsSortedGenre = false;
+        IsSortedYear = false;
+        IsSortedAuthor = false;
         
-        Books = new ObservableCollection<Book>
-        {
-            new Book(),
-            new Book(),
-            new Book(),
-            new Book(),
-            new Book(),
-            new Book(),
-            new Book(),
-            new Book(),
-            new Book(),
-            new Book("Petre", "Religion", "1456", list),
-            new Book("Vlad", "Echo", "2003"),
-            new Book("Vitaliy", "Oleg", "2023"),
-            new Book("Vitaliy", "Oleg - 2", "2023"),
-            new Book("Anna", "Silent"),
-            new Book("Vitaliy", "Danil voice")
-        };
+        CatalogSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\BookCatalog.json";
+        
+        Books = ReadJson(CatalogSource);
 
-        Bookss = new DataTable();
+        BooksTable = new DataTable();
 
-        // Визначення структури DataTable
-        Bookss.Columns.Add("Author", typeof(string));
-        Bookss.Columns.Add("Name", typeof(string));
-        Bookss.Columns.Add("Year", typeof(string));
-        Bookss.Columns.Add("Genre", typeof(string));
-        Bookss.Columns.Add("IconPath", typeof(string));
+        BooksTable.Columns.Add("Author", typeof(string));
+        BooksTable.Columns.Add("Name", typeof(string));
+        BooksTable.Columns.Add("Year", typeof(string));
+        BooksTable.Columns.Add("Genre", typeof(string));
+        BooksTable.Columns.Add("IconPath", typeof(string));
+        BooksTable.Columns.Add("book", typeof(Book));
 
-        // Додавання даних до DataTable
         foreach (var book in Books)
         {
-            Bookss.Rows.Add(book.Author, book.Name, book.Year, book.Genre, book.IconPath);
+            BooksTable.Rows.Add(book.Author, book.Name, book.Year, book.Genre, book.IconPath, book);
         }
 
-        NameFilterCommand = new RelayCommand(_ =>
+        SearchFilterCommand = new RelayCommand(_ =>
         {
-            if (!string.IsNullOrEmpty(NameSearch))
-            {
-                Bookss.DefaultView.RowFilter = $"Name LIKE '%{NameSearch}%'";
-            }
-            else
-            {
-                Bookss.DefaultView.RowFilter = "";
-            }
-        });
-        
-        AuthorFilterCommand = new RelayCommand(_ =>
-        {
-            if (!string.IsNullOrEmpty(NameSearch))
-            {
-                Bookss.DefaultView.RowFilter = $"Author LIKE '%{AuthorSearch}%'";
-            }
-            else
-            {
-                Bookss.DefaultView.RowFilter = "";
-            }
-        });
-        
-        MultiFilterCommand = new RelayCommand(_ =>
-        {
-            Bookss.DefaultView.RowFilter = $"Author LIKE '%{AuthorSearch}%'" +
+            BooksTable.DefaultView.RowFilter = $"Author LIKE '%{AuthorSearch}%'" +
                                            $"AND Name LIKE '%{NameSearch}%'" +
                                            $"AND Year LIKE '%{YearSearch}%'"; 
                                            //$"AND Genre LIKE '%{GenreSearch}%'";
+        });
+
+        CancelFilterCommand = new RelayCommand(_ =>
+        {
+            string cancel = "";
+            BooksTable.DefaultView.RowFilter = $"Author LIKE '%{cancel}%'" +
+                                           $"AND Name LIKE '%{cancel}%'" +
+                                           $"AND Year LIKE '%{cancel}%'"; 
+                                         //$"AND Genre LIKE '%{cancel}%'";
+        });
+
+        NameSortCommand = new RelayCommand(_ =>
+        {
+            if (!IsSortedName)
+            {
+                BooksTable.DefaultView.Sort = "Name ASC";
+                IsSortedName = true;
+            }
+            else if(IsSortedName)
+            {
+                BooksTable.DefaultView.Sort = "Name DESC";
+                IsSortedName = false;
+            }
+        });
+        
+        AuthorSortCommand = new RelayCommand(_ =>
+        {
+            if (!IsSortedAuthor)
+            {
+                BooksTable.DefaultView.Sort = "Author ASC";
+                IsSortedAuthor = true;
+            }
+            else if(IsSortedAuthor)
+            {
+                BooksTable.DefaultView.Sort = "Author DESC";
+                IsSortedAuthor = false;
+            }
+        });
+        
+        GenreSortCommand = new RelayCommand(_ =>
+        {
+            if (!IsSortedGenre)
+            {
+                BooksTable.DefaultView.Sort = "Genre ASC";
+                IsSortedGenre = true;
+            }
+            else if(IsSortedGenre)
+            {
+                BooksTable.DefaultView.Sort = "Genre DESC";
+                IsSortedGenre = false;
+            }
+        });
+        
+        YearSortCommand = new RelayCommand(_ =>
+        {
+            if (!IsSortedYear)
+            {
+                BooksTable.DefaultView.Sort = "Year ASC";
+                IsSortedYear = true;
+            }
+            else if(IsSortedYear)
+            {
+                BooksTable.DefaultView.Sort = "Year DESC";
+                IsSortedYear = false;
+            }
+        });
+        
+        AddBookCommand = new RelayCommand(_ =>
+        {
+            Book AddBook = new Book();
+            string json = JsonSerializer.Serialize(AddBook);
+            File.WriteAllText("C:\\\\Users\\\\Asus\\\\RiderProjects\\\\Book catalog\\\\Book catalog\\\\BookCatalog.json",
+                json);
         });
     }
 }

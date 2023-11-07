@@ -22,6 +22,7 @@
                  <ResourceDictionary Source="/Theme/Catalog/CatalogThemeGenreSearchBox.xaml"/>
                  <ResourceDictionary Source="/Theme/Catalog/CatalogThemeYearSearchBox.xaml"/>
                  <ResourceDictionary Source="/Theme/Catalog/CatalogThemeButton.xaml"/>
+                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeFilterButton2.xaml"/>
              </ResourceDictionary.MergedDictionaries>
              
              <DataTemplate DataType="{x:Type viewModel:CatalogViewModel}">
