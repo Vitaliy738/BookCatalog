@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Data;
-using System.IO;
-using System.Text.Json;
 using Book_catalog.Core;
+using Book_catalog.MVVM.Model;
 using CatalogLogic;
 
 namespace Book_catalog.MVVM.ViewModel;
@@ -22,9 +20,11 @@ public class CatalogViewModel : ObservableObject
     public RelayCommand GenreSortCommand { get; private set; }
     
     public RelayCommand AddBookCommand { get; private set; }
+
+    private readonly CatalogModel _catalogModel;
     
     // Колекція усіх книжок католога
-    public ObservableCollection<Book> Books { get; set; }
+    private ObservableCollection<Book> Books { get; set; }
     
     // Таблиця книжок
     public DataTable BooksTable { get; set; }
@@ -105,16 +105,18 @@ public class CatalogViewModel : ObservableObject
     
     public CatalogViewModel()
     {
+        _catalogModel = new CatalogModel();
+        
         IsSortedName = false;
         IsSortedGenre = false;
         IsSortedYear = false;
         IsSortedAuthor = false;
         
-        CatalogSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\BookCatalog.json";
-        
-        Books = ReadJson(CatalogSource);
+        CatalogSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\BookCatalog.xml";
 
         BooksTable = new DataTable();
+
+        
 
         BooksTable.Columns.Add("Author", typeof(string));
         BooksTable.Columns.Add("Name", typeof(string));
@@ -123,9 +125,13 @@ public class CatalogViewModel : ObservableObject
         BooksTable.Columns.Add("IconPath", typeof(string));
         BooksTable.Columns.Add("book", typeof(Book));
 
+        Books = _catalogModel.ReadXml(CatalogSource);
+        Books.CollectionChanged += BooksOnCollectionChanged;
+        
         foreach (var book in Books)
         {
-            BooksTable.Rows.Add(book.Author, book.Name, book.Year, book.Genre, book.IconPath, book);
+            BooksTable.Rows.Add(book.Author, book.Name, book.Year, book.Genre, 
+                book.IconPath, book);
         }
 
         SearchFilterCommand = new RelayCommand(_ =>
@@ -203,10 +209,38 @@ public class CatalogViewModel : ObservableObject
         
         AddBookCommand = new RelayCommand(_ =>
         {
-            Book AddBook = new Book();
-            string json = JsonSerializer.Serialize(AddBook);
-            File.WriteAllText("C:\\\\Users\\\\Asus\\\\RiderProjects\\\\Book catalog\\\\Book catalog\\\\BookCatalog.json",
-                json);
+            // ObservableCollection<string> list = new ObservableCollection<string>();
+            // list.Add("1");
+            // list.Add("1");
+            // list.Add("1");
+            //
+            // ObservableCollection<Book> newBooks = _catalogModel.ReadXml(CatalogSource);
+            // newBooks.Add(new Book("Genius", "Vitaliy", "2022", list,
+            //     "C:\\Users\\Asus\\OneDrive\\Desktop\\OIP.jpg"));
+            // _catalogModel.ReadXml(CatalogSource, newBooks);
+            
+            Books.Add(new Book());
         });
+    }
+
+    private void BooksOnCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+    {
+        if (e.Action == NotifyCollectionChangedAction.Add)
+        {
+            var newBooks = _catalogModel.ReadXml(CatalogSource);
+
+            foreach (var book in e.NewItems)
+                if (book is Book)
+                {
+                    var newBook = book as Book;
+
+                    newBooks.Add(newBook);
+                    BooksTable.Rows.Add(newBook.Author, newBook.Name, newBook.Year,
+                        newBook.Genre, newBook.IconPath, newBook);
+                }
+
+            _catalogModel.LoadXml(CatalogSource, newBooks);
+            OnPropertyChanged("BooksTable");
+        }
     }
 }

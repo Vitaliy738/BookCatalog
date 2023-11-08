@@ -69,14 +69,6 @@
                             
                             <StackPanel Orientation="Horizontal"
                                         Margin="5">
-                                <TextBlock Text="Genre: "
-                                           FontSize="16" />
-                                <TextBlock Text="{Binding Genre}"
-                                           FontSize="16" />
-                            </StackPanel>
-
-                            <StackPanel Orientation="Horizontal"
-                                        Margin="5">
                                 <TextBlock Text="Short description: "
                                            FontSize="16" />
                                 <TextBlock Text="{Binding Author}"

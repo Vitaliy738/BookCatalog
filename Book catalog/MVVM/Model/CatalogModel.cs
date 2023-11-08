@@ -1,31 +1,37 @@
-using System;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.IO;
-using System.Text.Json;
+using System.Xml.Serialization;
 using CatalogLogic;
 
 namespace Book_catalog.MVVM.Model;
 
 public class CatalogModel
 {
-    public ObservableCollection<Book> ReadJson(string path)
+    public ObservableCollection<Book> ReadXml(string path)
     {
-        ObservableCollection<Book> books = new ObservableCollection<Book>();
-        
-        using (StreamReader reader = File.OpenText(path))
+        ObservableCollection<Book>? books;
+
+        XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Book>));
+        using (FileStream flStream = new FileStream(path, FileMode.OpenOrCreate))
         {
-            while (!reader.EndOfStream)
-            {
-                string? jsonFromFile = reader.ReadLine();
-                if (!string.IsNullOrWhiteSpace(jsonFromFile))
-                {
-                    Book deserializedBook = JsonSerializer.Deserialize<Book>(jsonFromFile) ?? throw new InvalidOperationException("Json reader exception");
-                    books.Add(deserializedBook);
-                }
-            }
+            books = serializer.Deserialize(flStream) as ObservableCollection<Book>;
         }
 
-        return books;
+        if (books != null)
+        {
+            return books;
+        }
+
+        return books = new ObservableCollection<Book>();
+    }
+
+    public void LoadXml(string path, ObservableCollection<Book> books)
+    {
+        XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Book>));
+
+        using (FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate))
+        {
+            serializer.Serialize(fileStream, books);
+        }
     }
 }
