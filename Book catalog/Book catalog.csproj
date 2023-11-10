@@ -35,10 +35,31 @@
         <XamlRuntime>Wpf</XamlRuntime>
         <SubType>Designer</SubType>
       </Page>
+      <Page Update="Theme\BookAddWindow\BookAddThemeAuthorBox.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Theme\BookAddWindow\BookAddThemeGenreBox.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Theme\BookAddWindow\BookAddThemeNameBox.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Theme\BookAddWindow\BookAddThemeYearBox.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Icons\" />
+      <Folder Include="Theme\ModifyBook\" />
     </ItemGroup>
 
     <ItemGroup>
@@ -53,10 +74,6 @@
       <Resource Include="Icons\BookIcon.png" />
       <None Remove="Icons\UserProfileIcon.png" />
       <Resource Include="Icons\UserProfileIcon.png" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\CatalogLogic\CatalogLogic.csproj" />
     </ItemGroup>
 
 </Project>

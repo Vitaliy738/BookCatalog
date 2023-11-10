@@ -1,7 +1,6 @@
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml.Serialization;
-using CatalogLogic;
 
 namespace Book_catalog.MVVM.Model;
 
@@ -29,9 +28,10 @@ public class CatalogModel
     {
         XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Book>));
 
-        using (FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate))
+        using (FileStream fileStream = new FileStream(path, FileMode.Truncate))
         {
             serializer.Serialize(fileStream, books);
         }
     }
+    
 }

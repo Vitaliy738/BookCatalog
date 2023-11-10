@@ -1,35 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfBook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Book>
-    <Author>Genius</Author>
-    <Name>Data is not available</Name>
-    <Year>NONE</Year>
-    <Genre />
+    <Author>Name1</Author>
+    <Name>Name3</Name>
+    <Year>Name1</Year>
+    <Genre>Name1</Genre>
+    <Description>Name1</Description>
     <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\BookIcon.png</IconPath>
   </Book>
   <Book>
-    <Author>Genius</Author>
-    <Name>Data is not available</Name>
-    <Year>NONE</Year>
-    <Genre />
+    <Author>Name1</Author>
+    <Name>Name1</Name>
+    <Year>Name1</Year>
+    <Genre>Name1</Genre>
+    <Description>Name1</Description>
     <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\BookIcon.png</IconPath>
   </Book>
   <Book>
-    <Author>Genius</Author>
-    <Name>Data is not available</Name>
-    <Year>NONE</Year>
-    <Genre />
+    <Author>Name1</Author>
+    <Name>Name2</Name>
+    <Year>Name1</Year>
+    <Genre>Name1</Genre>
+    <Description>Name1</Description>
     <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\BookIcon.png</IconPath>
   </Book>
-  <Book>
-    <Author>Genius</Author>
-    <Name>Vitaliy</Name>
-    <Year>2022</Year>
-    <Genre>
-      <string>1</string>
-      <string>1</string>
-      <string>1</string>
-    </Genre>
-    <IconPath>C:\Users\Asus\OneDrive\Desktop\OIP.jpg</IconPath>
-  </Book>
-  </ArrayOfBook>
+</ArrayOfBook>

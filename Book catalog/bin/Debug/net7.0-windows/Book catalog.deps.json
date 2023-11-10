@@ -7,27 +7,14 @@
   "targets": {
     ".NETCoreApp,Version=v7.0": {
       "Book catalog/1.0.0": {
-        "dependencies": {
-          "CatalogLogic": "1.0.0"
-        },
         "runtime": {
           "Book catalog.dll": {}
-        }
-      },
-      "CatalogLogic/1.0.0": {
-        "runtime": {
-          "CatalogLogic.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Book catalog/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "CatalogLogic/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

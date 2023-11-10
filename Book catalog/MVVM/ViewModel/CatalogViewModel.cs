@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 using System.Data;
 using Book_catalog.Core;
 using Book_catalog.MVVM.Model;
-using CatalogLogic;
+using Book_catalog.MVVM.View;
 
 namespace Book_catalog.MVVM.ViewModel;
 
@@ -20,6 +20,8 @@ public class CatalogViewModel : ObservableObject
     public RelayCommand GenreSortCommand { get; private set; }
     
     public RelayCommand AddBookCommand { get; private set; }
+    public RelayCommand DeleteBookCommand { get; private set; }
+    public RelayCommand ModifyBookCommand { get; private set; }
 
     private readonly CatalogModel _catalogModel;
     
@@ -85,6 +87,24 @@ public class CatalogViewModel : ObservableObject
         }
     }
 
+    private Book _selectedBook;
+    
+    private int _selectedBookIndex;
+    public int SelectedBookIndex
+    {
+        get => _selectedBookIndex;
+        set
+        {
+            _selectedBookIndex = value;
+
+            if (_selectedBookIndex >= 0 && _selectedBookIndex <= Books.Count)
+            {
+                DataRowView row = BooksTable.DefaultView[value];
+                _selectedBook = (Book)row["book"];
+            }
+        }
+    }
+
     private bool IsSortedName { get; set; }
     private bool IsSortedAuthor { get; set; }
     private bool IsSortedYear { get; set; }
@@ -106,6 +126,8 @@ public class CatalogViewModel : ObservableObject
     public CatalogViewModel()
     {
         _catalogModel = new CatalogModel();
+
+        _selectedBookIndex = -1;
         
         IsSortedName = false;
         IsSortedGenre = false;
@@ -115,8 +137,6 @@ public class CatalogViewModel : ObservableObject
         CatalogSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\BookCatalog.xml";
 
         BooksTable = new DataTable();
-
-        
 
         BooksTable.Columns.Add("Author", typeof(string));
         BooksTable.Columns.Add("Name", typeof(string));
@@ -209,38 +229,109 @@ public class CatalogViewModel : ObservableObject
         
         AddBookCommand = new RelayCommand(_ =>
         {
-            // ObservableCollection<string> list = new ObservableCollection<string>();
-            // list.Add("1");
-            // list.Add("1");
-            // list.Add("1");
-            //
-            // ObservableCollection<Book> newBooks = _catalogModel.ReadXml(CatalogSource);
-            // newBooks.Add(new Book("Genius", "Vitaliy", "2022", list,
-            //     "C:\\Users\\Asus\\OneDrive\\Desktop\\OIP.jpg"));
-            // _catalogModel.ReadXml(CatalogSource, newBooks);
+            AddBookView addBookView = new AddBookView();
+            BookAddViewModel bookAddVM = new BookAddViewModel();
+
+            addBookView.DataContext = bookAddVM;
+
+            bookAddVM.BookAdded += HandleBookAdded;
             
-            Books.Add(new Book());
+            addBookView.ShowDialog();
+        });
+        
+        DeleteBookCommand = new RelayCommand(_ =>
+        {
+            if (SelectedBookIndex >= 0 && SelectedBookIndex < Books.Count)
+            {
+                Books.Remove(_selectedBook);
+            }
+        });
+        
+        ModifyBookCommand = new RelayCommand(_ =>
+        {
+            if (SelectedBookIndex >= 0 && SelectedBookIndex < Books.Count)
+            {
+                ModifyViewModel modifyVM = new ModifyViewModel(_selectedBook);
+                ModifyView modifyView = new ModifyView();
+
+                modifyView.DataContext = modifyVM;
+                modifyVM.BookModified += HandleBookModify;
+                
+                modifyView.ShowDialog();
+
+            }
         });
     }
 
     private void BooksOnCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
-        if (e.Action == NotifyCollectionChangedAction.Add)
+        switch (e.Action)
         {
-            var newBooks = _catalogModel.ReadXml(CatalogSource);
+            case NotifyCollectionChangedAction.Add:
+            {
+                var newBooks = _catalogModel.ReadXml(CatalogSource);
 
-            foreach (var book in e.NewItems)
-                if (book is Book)
+                foreach (var book in e.NewItems)
                 {
-                    var newBook = book as Book;
+                    if (book is Book)
+                    {
+                        var newBook = book as Book;
 
-                    newBooks.Add(newBook);
-                    BooksTable.Rows.Add(newBook.Author, newBook.Name, newBook.Year,
-                        newBook.Genre, newBook.IconPath, newBook);
+                        newBooks.Add(newBook);
+                        BooksTable.Rows.Add(newBook.Author, newBook.Name, newBook.Year,
+                            newBook.Genre, newBook.IconPath, newBook);
+                    }
                 }
 
-            _catalogModel.LoadXml(CatalogSource, newBooks);
-            OnPropertyChanged("BooksTable");
+                _catalogModel.LoadXml(CatalogSource, newBooks);
+                OnPropertyChanged("BooksTable");
+                break;
+            }
+            case NotifyCollectionChangedAction.Remove:
+            {
+                if (SelectedBookIndex >= 0)
+                {
+                    DataRow[] rows = BooksTable.Select($"Author LIKE '%{_selectedBook.Author}%'" +
+                                                       $"AND Name LIKE '%{_selectedBook.Name}%'" +
+                                                       $"AND Year LIKE '%{_selectedBook.Year}%'" +
+                                                       $"AND IconPath LIKE '%{_selectedBook.IconPath}%'");
+                
+                    if (rows.Length > 0)
+                    {
+                        BooksTable.Rows.Remove(rows[0]);
+                        _selectedBookIndex = -1;
+                        _catalogModel.LoadXml(CatalogSource, Books);
+                        OnPropertyChanged("BooksTable");
+                    }
+                }
+
+                break;
+            }
         }
     }
+
+    private void HandleBookAdded(object? sender, BookEventArgs e)
+    {
+        Books.Add(e.Book);
+    }
+    
+    private void HandleBookModify(object? sender, BookEventArgs e)
+    {
+        Book book = e.Book;
+        
+        Books[SelectedBookIndex] = book;
+        _catalogModel.LoadXml(CatalogSource, Books);
+
+        DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
+        rowView["Author"] = book.Author;
+        rowView["Name"] = book.Name;
+        rowView["Year"] = book.Year;
+        rowView["Genre"] = book.Genre;
+        rowView["IconPath"] = book.IconPath;
+        rowView["book"] = book;
+        rowView.EndEdit();
+        
+        OnPropertyChanged("BooksTable");
+    }
+
 }

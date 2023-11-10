@@ -23,6 +23,20 @@
                  <ResourceDictionary Source="/Theme/Catalog/CatalogThemeYearSearchBox.xaml"/>
                  <ResourceDictionary Source="/Theme/Catalog/CatalogThemeButton.xaml"/>
                  <ResourceDictionary Source="/Theme/Catalog/CatalogThemeFilterButton2.xaml"/>
+                 
+                 <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeAuthorBox.xaml"/>
+                 <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeNameBox.xaml"/>
+                 <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeYearBox.xaml"/>
+                 <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeGenreBox.xaml"/>
+                 <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeDescriptionBox.xaml"/>
+                 <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeIconButton.xaml"/>
+                 
+                 <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeAuthorBox.xaml"/>
+                 <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeNameBox.xaml"/>
+                 <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeYearBox.xaml"/>
+                 <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeGenreBox.xaml"/>
+                 <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeDescriptionBox.xaml"/>
+                 <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeIconButton.xaml"/>
              </ResourceDictionary.MergedDictionaries>
              
              <DataTemplate DataType="{x:Type viewModel:CatalogViewModel}">
@@ -31,6 +45,14 @@
              
              <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
                  <view:HomeView/>
+             </DataTemplate>
+             
+             <DataTemplate DataType="{x:Type viewModel:BookAddViewModel}">
+                 <view:AddBookView/>
+             </DataTemplate>
+             
+             <DataTemplate DataType="{x:Type viewModel:ModifyViewModel}">
+                 <view:ModifyView/>
              </DataTemplate>
              
          </ResourceDictionary>

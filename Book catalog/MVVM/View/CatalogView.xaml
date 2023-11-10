@@ -21,6 +21,7 @@
 
             <DataGrid Grid.Column="0"
                       ItemsSource="{Binding BooksTable}"
+                      SelectedIndex="{Binding SelectedBookIndex}"
 
                       Background="#E4EBF1"
                       BorderBrush="#EFF2F9"
@@ -31,7 +32,7 @@
 
                       BorderThickness="1"
                       Margin="5"
-                      SelectionUnit="FullRow">
+                      SelectionMode="Single">
 
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Width="*">
@@ -55,15 +56,7 @@
                                         Margin="5">
                                 <TextBlock Text="Author: "
                                            FontSize="16" />
-                                <TextBlock Text="{Binding Author}"
-                                           FontSize="16" />
-                            </StackPanel>
-                            
-                            <StackPanel Orientation="Horizontal"
-                                        Margin="5">
-                                <TextBlock Text="Year: "
-                                           FontSize="16" />
-                                <TextBlock Text="{Binding Year}"
+                                <TextBlock Text="{Binding Description}"
                                            FontSize="16" />
                             </StackPanel>
                             
@@ -82,6 +75,7 @@
             <Grid Grid.Column="1">
 
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -144,10 +138,6 @@
                                 Margin="5 25 5 5"/>
                     </Grid>
                 </StackPanel>
-                
-                <!-- <StackPanel Grid.Row="1"> -->
-                <!--     <Separator/> -->
-                <!-- </StackPanel> -->
 
                 <StackPanel Grid.Row="1">
                     <Separator Margin="2 10 2 5"/>
@@ -201,6 +191,17 @@
                 </StackPanel>
                 
                 <StackPanel Grid.Row="2">
+                    <Separator Margin="2 10 2 5"/> 
+                    
+                    <Button Style="{StaticResource CatalogButtonTheme}"
+                            Content="Modify"
+                            Height="30"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            Command="{Binding ModifyBookCommand}"/>
+                </StackPanel>
+                
+                <StackPanel Grid.Row="3">
                     <Separator Margin="2 10 2 5"/>
                     
                     <Grid>
@@ -222,7 +223,8 @@
                                 Background="#B5BDC6"
                                 HorizontalAlignment="Stretch"
                                 Height="25"
-                                Content="Delete"/>
+                                Content="Delete"
+                                Command="{Binding DeleteBookCommand}"/>
                     </Grid>
                 </StackPanel>
             </Grid>

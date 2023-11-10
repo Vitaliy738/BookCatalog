@@ -1,6 +1,6 @@
 using System.Windows;
 using Book_catalog.Core;
-using CatalogLogic;
+using Book_catalog.MVVM.Model;
 
 namespace Book_catalog.MVVM.ViewModel;
 

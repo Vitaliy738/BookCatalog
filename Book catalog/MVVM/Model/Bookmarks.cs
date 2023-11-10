@@ -1,4 +1,6 @@
-namespace CatalogLogic;
+using System.Collections.Generic;
+
+namespace Book_catalog.MVVM.Model;
 
 public record Bookmarks
 {

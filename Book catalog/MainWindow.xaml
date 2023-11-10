@@ -44,6 +44,16 @@
                                              Height="40"
                                              Content="Catalog"
                                              Command="{Binding CatalogViewCommand}"/>
+                                
+                                <RadioButton Style="{StaticResource MenuButtonTheme}"
+                                             FontSize="14"
+                                             Height="40"
+                                             Content="Bookmarks"/>
+                                
+                                <RadioButton Style="{StaticResource MenuButtonTheme}"
+                                             FontSize="14"
+                                             Height="40"
+                                             Content="Options"/>
                         </StackPanel>
                         
                         <TextBox Grid.Row="0" Grid.Column="1"

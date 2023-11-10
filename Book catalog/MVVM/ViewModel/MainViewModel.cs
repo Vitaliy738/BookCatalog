@@ -1,10 +1,4 @@
-using System;
-using System.Collections.ObjectModel;
-using System.IO;
 using Book_catalog.Core;
-using System.Text.Json;
-using System.Windows.Data;
-using CatalogLogic;
 
 namespace Book_catalog.MVVM.ViewModel;
 
@@ -34,12 +28,12 @@ public class MainViewModel : ObservableObject
 
         _currentView = HomeVM;
 
-        HomeViewCommand = new RelayCommand(o =>
+        HomeViewCommand = new RelayCommand(_ =>
         {
             CurrentView = HomeVM;
         });
         
-        CatalogViewCommand = new RelayCommand(o =>
+        CatalogViewCommand = new RelayCommand(_ =>
         {
             CurrentView = CatalogVM;
         });

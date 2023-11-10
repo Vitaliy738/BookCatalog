@@ -1,4 +1,4 @@
-﻿namespace CatalogLogic;
+﻿namespace Book_catalog.MVVM.Model;
 
 public class User
 {
