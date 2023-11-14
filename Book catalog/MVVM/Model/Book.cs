@@ -25,20 +25,20 @@ public class Book
         IconPath = iconPath;
     }
 
-    public bool Equals(Book book)
+    public override bool Equals(object obj)
     {
-        if (this.Name == book.Name
-            && this.IconPath == book.IconPath
-            && this.Author == book.Author
-            && this.Genre == book.Genre
-            && this.Year == book.Year
-            && this.Description == book.Description)
-        {
-            return true;
-        }
-        else
+        if (obj == null || GetType() != obj.GetType())
         {
             return false;
         }
+    
+        Book book = (Book)obj;
+
+        return this.Name.Equals(book.Name) &&
+               this.IconPath.Equals(book.IconPath) &&
+               this.Author.Equals(book.Author) &&
+               this.Genre.Equals(book.Genre) &&
+               this.Year.Equals(book.Year) &&
+               this.Description.Equals(book.Description);
     }
 }

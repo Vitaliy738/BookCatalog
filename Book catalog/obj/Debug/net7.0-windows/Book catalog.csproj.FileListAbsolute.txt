@@ -52,3 +52,9 @@ C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\T
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\ModifyBook\ModifyThemeIconButton.baml
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\ModifyBook\ModifyThemeNameBox.baml
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\ModifyBook\ModifyThemeYearBox.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\OptionsView.g.cs
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\OptionsView.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\AddUser\UserAddThemeName.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\AddUserView.g.cs
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\AddUserView.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\AddUser\UserAddThemeIcon.baml

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <User>
+    <Name>NewName</Name>
+    <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\UserProfileIcon.png</IconPath>
+    <Bookmarks>
+      <Reading />
+      <Planned />
+      <AlreadyRead />
+      <Abandoned />
+      <Postponed />
+      <Favorite />
+    </Bookmarks>
+  </User>
+  <User>
+    <Name>name3</Name>
+    <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\UserProfileIcon.png</IconPath>
+    <Bookmarks>
+      <Reading />
+      <Planned />
+      <AlreadyRead />
+      <Abandoned />
+      <Postponed />
+      <Favorite />
+    </Bookmarks>
+  </User>
+  <User>
+    <Name>UserAddedTest</Name>
+    <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\UserProfileIcon.png</IconPath>
+    <Bookmarks>
+      <Reading />
+      <Planned />
+      <AlreadyRead />
+      <Abandoned />
+      <Postponed />
+      <Favorite />
+    </Bookmarks>
+  </User>
+  <User>
+    <Name>UserAddedTest2</Name>
+    <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\UserProfileIcon.png</IconPath>
+    <Bookmarks>
+      <Reading />
+      <Planned />
+      <AlreadyRead />
+      <Abandoned />
+      <Postponed />
+      <Favorite />
+    </Bookmarks>
+  </User>
+</ArrayOfUser>

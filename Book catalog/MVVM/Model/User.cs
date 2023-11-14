@@ -1,5 +1,9 @@
-﻿namespace Book_catalog.MVVM.Model;
+﻿using System;
+using Microsoft.Win32;
 
+namespace Book_catalog.MVVM.Model;
+
+[Serializable]
 public class User
 {
     private string? _name;
@@ -25,13 +29,36 @@ public class User
         }
     }
 
-    public Bookmarks Bookmarks { get; private set; }
-    
-    public User()
+    private Bookmarks _bookmarks;
+    public Bookmarks Bookmarks
     {
-        Bookmarks = new Bookmarks();
+        get => GetBookmarks();
+        set => SetBookmarks(value);
+    }
+    
+    public User() : this("NONE"){}
+    public User(string name) : this(name, "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\UserProfileIcon.png"){}
+    public User(string name, string iconPath) : this(name, iconPath, new Bookmarks()){}
 
-        _name = "Name";
-        _iconPath = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\UserProfileIcon.png";
+    public User(string name, string iconPath, Bookmarks bookmarks)
+    {
+        Name = name;
+        IconPath = iconPath;
+        Bookmarks = bookmarks;
+    }
+
+    public Bookmarks GetBookmarks()
+    {
+        return _bookmarks;
+    }
+    public void SetBookmarks(Bookmarks bookmarks)
+    {
+        _bookmarks = bookmarks;
+    }
+
+    public bool Equals(User user)
+    {
+        return this.Name == user.Name
+               && this.IconPath == user.IconPath;
     }
 }

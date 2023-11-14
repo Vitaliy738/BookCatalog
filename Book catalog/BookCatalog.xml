@@ -9,19 +9,19 @@
     <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\BookIcon.png</IconPath>
   </Book>
   <Book>
-    <Author>Name1</Author>
-    <Name>Name1</Name>
-    <Year>Name1</Year>
+    <Author>Vitaliy</Author>
+    <Name>Oleg</Name>
+    <Year>2004</Year>
     <Genre>Name1</Genre>
     <Description>Name1</Description>
-    <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\BookIcon.png</IconPath>
+    <IconPath>C:\Users\Asus\OneDrive\Desktop\img-1458.jpg</IconPath>
   </Book>
   <Book>
-    <Author>Name1</Author>
-    <Name>Name2</Name>
-    <Year>Name1</Year>
-    <Genre>Name1</Genre>
-    <Description>Name1</Description>
-    <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\BookIcon.png</IconPath>
+    <Author>Genius</Author>
+    <Name>Silent</Name>
+    <Year>2011</Year>
+    <Genre>sgsdgdsg </Genre>
+    <Description>sdggsdggs</Description>
+    <IconPath>C:\Users\Asus\OneDrive\Desktop\OIP.jpg</IconPath>
   </Book>
 </ArrayOfBook>

@@ -19,16 +19,9 @@ public class HomeViewModel : ObservableObject
     {
         User = new User();
         
-        AlreadyRead = $"Already read: {User.Bookmarks.AlreadyRead.Count}";
-        PlannedRead = $"Planned: {User.Bookmarks.Planed.Count}";
-        AbandonedRead = $"Abandoned: {User.Bookmarks.Abandoned.Count}";
-        PostponedRead = $"Postponed: {User.Bookmarks.Postponed.Count}";
-        
-        ReadAddCommand = new RelayCommand(_ =>
-        {
-            User.Bookmarks.AlreadyRead.Add(new Book());
-            AlreadyRead = $"Already read: {User.Bookmarks.AlreadyRead.Count}";
-            OnPropertyChanged("AlreadyRead");
-        });
+        AlreadyRead = $"Already read: {User.GetBookmarks().AlreadyRead.Count}";
+        PlannedRead = $"Planned: {User.GetBookmarks().Planned.Count}";
+        AbandonedRead = $"Abandoned: {User.GetBookmarks().Abandoned.Count}";
+        PostponedRead = $"Postponed: {User.GetBookmarks().Postponed.Count}";
     }
 }

@@ -53,7 +53,8 @@
                                 <RadioButton Style="{StaticResource MenuButtonTheme}"
                                              FontSize="14"
                                              Height="40"
-                                             Content="Options"/>
+                                             Content="Options"
+                                             Command="{Binding OptionsViewCommand}"/>
                         </StackPanel>
                         
                         <TextBox Grid.Row="0" Grid.Column="1"

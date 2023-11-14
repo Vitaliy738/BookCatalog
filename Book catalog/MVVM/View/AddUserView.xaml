@@ -1,0 +1,42 @@
+<Window x:Class="Book_catalog.MVVM.View.AddUserView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Book_catalog.MVVM.View"
+        xmlns:viewModel="clr-namespace:Book_catalog.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Title="AddBookView" Height="350" Width="200"
+        ResizeMode="NoResize">
+    
+    <Window.DataContext>
+        <viewModel:AddUserViewModel/>
+    </Window.DataContext>
+    
+    <Grid>
+        <StackPanel Grid.Column="0"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch">
+            <Button Style="{StaticResource UserAddIconTheme}"
+                    Height="128"
+                    Width="128"
+                    Margin="5 5 5 10"
+                    HorizontalAlignment="Center"
+                    Command="{Binding ChooseIconCommand}"/>
+            
+            <TextBox Style="{StaticResource UserAddNameTheme}"
+                     Margin="5 5 5 20"
+                     Height="40"
+                     Width="150"/>
+            
+            <Button Style="{StaticResource CatalogButtonTheme}"
+                    Content="Add"
+                    Background="#2E8B57"
+                    Margin="5 20 5 5"
+                    Width="100"
+                    Height="30"
+                    HorizontalAlignment="Center"
+                    Command="{Binding AddUserCommand}"/>
+        </StackPanel>    
+    </Grid>
+</Window>

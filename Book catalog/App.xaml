@@ -37,6 +37,9 @@
                  <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeGenreBox.xaml"/>
                  <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeDescriptionBox.xaml"/>
                  <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeIconButton.xaml"/>
+                 
+                 <ResourceDictionary Source="../Theme/AddUser/UserAddThemeName.xaml"/>
+                 <ResourceDictionary Source="../Theme/AddUser/UserAddThemeIcon.xaml"/>
              </ResourceDictionary.MergedDictionaries>
              
              <DataTemplate DataType="{x:Type viewModel:CatalogViewModel}">
@@ -53,6 +56,14 @@
              
              <DataTemplate DataType="{x:Type viewModel:ModifyViewModel}">
                  <view:ModifyView/>
+             </DataTemplate>
+             
+             <DataTemplate DataType="{x:Type viewModel:OptionsViewModel}">
+                 <view:OptionsView/>
+             </DataTemplate>
+             
+             <DataTemplate DataType="{x:Type viewModel:AddUserViewModel}">
+                 <view:AddUserView/>
              </DataTemplate>
              
          </ResourceDictionary>
