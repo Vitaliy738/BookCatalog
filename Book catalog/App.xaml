@@ -23,6 +23,7 @@
                  <ResourceDictionary Source="/Theme/Catalog/CatalogThemeYearSearchBox.xaml"/>
                  <ResourceDictionary Source="/Theme/Catalog/CatalogThemeButton.xaml"/>
                  <ResourceDictionary Source="/Theme/Catalog/CatalogThemeFilterButton2.xaml"/>
+                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeBookmarksToolTip.xaml"/>
                  
                  <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeAuthorBox.xaml"/>
                  <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeNameBox.xaml"/>
@@ -64,6 +65,10 @@
              
              <DataTemplate DataType="{x:Type viewModel:AddUserViewModel}">
                  <view:AddUserView/>
+             </DataTemplate>
+             
+             <DataTemplate DataType="{x:Type viewModel:BookmarksViewModel}">
+                 <view:BookmarksView />
              </DataTemplate>
              
          </ResourceDictionary>

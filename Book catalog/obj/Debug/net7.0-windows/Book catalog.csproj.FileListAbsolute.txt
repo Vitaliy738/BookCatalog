@@ -58,3 +58,6 @@ C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\T
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\AddUserView.g.cs
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\AddUserView.baml
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\AddUser\UserAddThemeIcon.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\BookmarksView.g.cs
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\MVVM\View\BookmarksView.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\Catalog\CatalogThemeBookmarksToolTip.baml

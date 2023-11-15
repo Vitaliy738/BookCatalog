@@ -35,32 +35,32 @@ public record Bookmarks
     
     public Bookmarks(ObservableCollection<Book> reading,
                      ObservableCollection<Book> planned,
-                     ObservableCollection<Book> alreadRead) 
-        : this(reading, planned, alreadRead ,new ObservableCollection<Book>()){}
+                     ObservableCollection<Book> alreadyRead) 
+        : this(reading, planned, alreadyRead ,new ObservableCollection<Book>()){}
     
     public Bookmarks(ObservableCollection<Book> reading,
                      ObservableCollection<Book> planned,
-                     ObservableCollection<Book> alreadRead,
+                     ObservableCollection<Book> alreadyRead,
                      ObservableCollection<Book> abandoned) 
-        : this(reading, planned, alreadRead, abandoned, new ObservableCollection<Book>()){}
+        : this(reading, planned, alreadyRead, abandoned, new ObservableCollection<Book>()){}
     
     public Bookmarks(ObservableCollection<Book> reading,
                      ObservableCollection<Book> planned,
-                     ObservableCollection<Book> alreadRead,
+                     ObservableCollection<Book> alreadyRead,
                      ObservableCollection<Book> abandoned,
                      ObservableCollection<Book> postponed) 
-        : this(reading, planned, alreadRead, abandoned, postponed, new ObservableCollection<Book>()){}
+        : this(reading, planned, alreadyRead, abandoned, postponed, new ObservableCollection<Book>()){}
 
     public Bookmarks(ObservableCollection<Book> reading,
                      ObservableCollection<Book> planned,
-                     ObservableCollection<Book> alreadRead,
+                     ObservableCollection<Book> alreadyRead,
                      ObservableCollection<Book> abandoned,
                      ObservableCollection<Book> postponed,
                      ObservableCollection<Book> favorite)
     {
         Reading = reading;
         Planned = planned;
-        AlreadyRead = alreadRead;
+        AlreadyRead = alreadyRead;
         Abandoned = abandoned;
         Postponed = postponed;
         Favorite = favorite;

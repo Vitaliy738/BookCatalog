@@ -10,8 +10,7 @@ namespace Book_catalog.MVVM.ViewModel;
 
 public class OptionsViewModel : ObservableObject
 {
-    public ICommand EditUserCommand { get; private set; }
-    public ICommand AddUserCommand { get; private set; }
+    public RelayCommand AddUserCommand { get; private set; }
     
     private readonly OptionsModel _options;
 
@@ -45,12 +44,15 @@ public class OptionsViewModel : ObservableObject
 
         Users = _options.ReadUsersXml(_userSource);
         {
-            User userData = _options.ReadUserDataXml(_userDataSource);
-            foreach (var user in Users)
+            User? userData = _options.ReadUserDataXml(_userDataSource);
+            if (userData != null)
             {
-                if (userData.Equals(user))
+                foreach (var user in Users)
                 {
-                    SelectedUser = user;
+                    if (userData.Equals(user))
+                    {
+                        SelectedUser = user;
+                    }
                 }
             }
         }
@@ -65,11 +67,6 @@ public class OptionsViewModel : ObservableObject
 
             addUserView.ShowDialog();
         });
-        
-        EditUserCommand = new RelayCommand(_ =>
-        {
-            
-        });
     }
 
     private void HandleUserAdded(object? obj, UserEventArgs e)
@@ -83,8 +80,10 @@ public class OptionsViewModel : ObservableObject
                 return;
             }
         }
+        
         Users.Add(newUser);
         SelectedUser = newUser;
+        
         OnPropertyChanged("SelectedUser");
         MessageBox.Show("User added successfully");
     }

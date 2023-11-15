@@ -29,6 +29,7 @@
 
                       AutoGenerateColumns="False"
                       CanUserSortColumns="False"
+                      CanUserAddRows="False"
 
                       BorderThickness="1"
                       Margin="5"
@@ -38,13 +39,37 @@
                     <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding IconPath}" Width="58" Height="58" />
-                                    <TextBlock Text="{Binding Name}"
-                                               Margin="5 0 0 0"
-                                               FontSize="16" />
-                                </StackPanel>
-                            </DataTemplate>
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{Binding IconPath}" Width="58" Height="58" />
+                                        <TextBlock Text="{Binding Name}"
+                                                   Margin="5 0 0 0"
+                                                   FontSize="16" />
+                                    </StackPanel>
+                                    
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                Margin="0 0 10 0">
+                                        
+                                        <Image Source="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark (1).png"
+                                               Width="24" Height="24" >
+                                            <Image.ToolTip>
+                                                <ToolTip>
+                                                    <StackPanel>
+                                                        <RadioButton GroupName="Bookmarks" Content="Reading"/>
+                                                        <RadioButton GroupName="Bookmarks" Content="Planned"/>
+                                                        <RadioButton GroupName="Bookmarks" Content="Already read"/>
+                                                        <RadioButton GroupName="Bookmarks" Content="Abandoned"/>
+                                                        <RadioButton GroupName="Bookmarks" Content="Postponed"/>
+                                                        <RadioButton GroupName="Bookmarks" Content="Favorite"/>
+                                                    </StackPanel>
+                                                </ToolTip>
+                                            </Image.ToolTip>
+                                        </Image>
+                                        </StackPanel>
+                                </Grid>
+                                </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
@@ -56,7 +81,7 @@
                                         Margin="5">
                                 <TextBlock Text="Author: "
                                            FontSize="16" />
-                                <TextBlock Text="{Binding Description}"
+                                <TextBlock Text="{Binding Author}"
                                            FontSize="16" />
                             </StackPanel>
                             
@@ -64,8 +89,16 @@
                                         Margin="5">
                                 <TextBlock Text="Short description: "
                                            FontSize="16" />
-                                <TextBlock Text="{Binding Author}"
+                                <TextBlock Text="{Binding Description}"
                                            FontSize="16" />
+                            </StackPanel>
+                            
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="5 10 0 0">
+                            
+                                <Button Style="{StaticResource CatalogButtonTheme}"
+                                        Content="Open"
+                                        Margin="5 5 0 5"/>
                             </StackPanel>
                         </WrapPanel>
                     </DataTemplate>
@@ -160,7 +193,7 @@
                                 Grid.Column="0"
                                 Style="{StaticResource CatalogSortCollapsedButtonTheme}"
                                 Content="by name"
-                                Height="40"
+                                Height="25"
                                 HorizontalAlignment="Stretch"
                                 Command="{Binding NameSortCommand}"/>
                         
@@ -168,7 +201,7 @@
                                 Grid.Column="1"
                                 Style="{StaticResource CatalogSortCollapsedButtonTheme}"
                                 Content="by author"
-                                Height="40"
+                                Height="25"
                                 HorizontalAlignment="Stretch"
                                 Command="{Binding AuthorSortCommand}"/>
                         
@@ -176,7 +209,7 @@
                                 Grid.Column="0"
                                 Style="{StaticResource CatalogSortCollapsedButtonTheme}"
                                 Content="by genre"
-                                Height="40"
+                                Height="25"
                                 HorizontalAlignment="Stretch"
                                 Command="{Binding GenreSortCommand}"/>
                         
@@ -184,7 +217,7 @@
                                 Grid.Column="1"
                                 Style="{StaticResource CatalogSortCollapsedButtonTheme}"
                                 Content="by year"
-                                Height="40"
+                                Height="25"
                                 HorizontalAlignment="Stretch"
                                 Command="{Binding YearSortCommand}"/>
                     </Grid>

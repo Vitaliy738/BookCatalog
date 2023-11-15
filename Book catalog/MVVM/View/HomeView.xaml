@@ -20,17 +20,15 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0">
-                <Button Height="100" Width="100"
+                <Button Height="120" Width="120"
                         Style="{StaticResource HomeUserIconTheme}"
                         Margin="5"
                         Command="{Binding ReadAddCommand}"/>
                 
-                <!-- <ComboBox /> -->
-
                 <TextBlock Margin="10"
                            Text="{Binding User.Name}"
                            TextAlignment="Center"
-                           FontSize="14" />
+                           FontSize="18" />
             </StackPanel>
 
             <Border Grid.Column="1">

@@ -7,10 +7,12 @@ public class MainViewModel : ObservableObject
     public RelayCommand HomeViewCommand { get; private set; }
     public RelayCommand CatalogViewCommand { get; private set; }
     public RelayCommand OptionsViewCommand { get; private set; }
+    public RelayCommand BookmarksViewCommand { get; private set; }
 
     private CatalogViewModel? CatalogVM { get; set; }
     private HomeViewModel? HomeVM { get; set; }
     private OptionsViewModel? OptionsVM { get; set; }
+    private BookmarksViewModel? BookmarksVM { get; set; }
     
     private object? _currentView;
     public object? CurrentView
@@ -28,6 +30,7 @@ public class MainViewModel : ObservableObject
         HomeVM = new HomeViewModel();
         CatalogVM = new CatalogViewModel();
         OptionsVM = new OptionsViewModel();
+        BookmarksVM = new BookmarksViewModel();
 
         _currentView = HomeVM;
 
@@ -44,6 +47,11 @@ public class MainViewModel : ObservableObject
         OptionsViewCommand = new RelayCommand(_ =>
         {
             CurrentView = OptionsVM;
+        });
+        
+        BookmarksViewCommand = new RelayCommand(_ =>
+        {
+            CurrentView = BookmarksVM;
         });
     }
 } 

@@ -60,6 +60,6 @@ public class OptionsModel
             return user;
         }
 
-        return new User();
+        return null;
     }
 }

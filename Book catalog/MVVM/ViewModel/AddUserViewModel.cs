@@ -8,8 +8,8 @@ namespace Book_catalog.MVVM.ViewModel;
 
 public class AddUserViewModel : ObservableObject
 {
-    public ICommand ChooseIconCommand { get; private set; }
-    public ICommand AddUserCommand { get; private set; }
+    public RelayCommand ChooseIconCommand { get; private set; }
+    public RelayCommand AddUserCommand { get; private set; }
 
     public event EventHandler<UserEventArgs>? UserAdded;
     

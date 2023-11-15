@@ -1,6 +1,7 @@
 using System.Windows;
 using Book_catalog.Core;
 using Book_catalog.MVVM.Model;
+using Book_catalog.MVVM.View;
 
 namespace Book_catalog.MVVM.ViewModel;
 
@@ -8,7 +9,11 @@ public class HomeViewModel : ObservableObject
 {
     public RelayCommand ReadAddCommand { get; set; }
 
-    public User User { get; }
+    private OptionsModel _options { get; set; }
+
+    public User? User { get; }
+    
+    private readonly string _userDataSource;
     
     public string? AlreadyRead { get; private set; }
     public string? PlannedRead { get; private set; }
@@ -17,11 +22,16 @@ public class HomeViewModel : ObservableObject
     
     public HomeViewModel()
     {
-        User = new User();
-        
-        AlreadyRead = $"Already read: {User.GetBookmarks().AlreadyRead.Count}";
-        PlannedRead = $"Planned: {User.GetBookmarks().Planned.Count}";
-        AbandonedRead = $"Abandoned: {User.GetBookmarks().Abandoned.Count}";
-        PostponedRead = $"Postponed: {User.GetBookmarks().Postponed.Count}";
+        _userDataSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\UserData.xml";
+        _options = new OptionsModel();
+
+        User = _options.ReadUserDataXml(_userDataSource);
+        if (User != null)
+        {
+            AlreadyRead = $"Already read: {User.Bookmarks.AlreadyRead.Count}";
+            PlannedRead = $"Planned: {User.Bookmarks.Planned.Count}";
+            AbandonedRead = $"Abandoned: {User.Bookmarks.Abandoned.Count}";
+            PostponedRead = $"Postponed: {User.Bookmarks.Postponed.Count}";
+        }
     }
 }

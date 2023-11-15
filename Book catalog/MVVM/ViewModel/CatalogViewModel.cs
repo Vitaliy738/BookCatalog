@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Data;
+using System.Windows;
 using Book_catalog.Core;
 using Book_catalog.MVVM.Model;
 using Book_catalog.MVVM.View;
@@ -19,14 +20,15 @@ public class CatalogViewModel : ObservableObject
     public RelayCommand YearSortCommand { get; private set; }
     public RelayCommand GenreSortCommand { get; private set; }
     
+    // Події редагування каталогу
     public RelayCommand AddBookCommand { get; private set; }
     public RelayCommand DeleteBookCommand { get; private set; }
     public RelayCommand ModifyBookCommand { get; private set; }
 
     private readonly CatalogModel _catalogModel;
     
-    // Колекція усіх книжок католога
-    private ObservableCollection<Book> Books { get; set; }
+    // Колекція усіх книжок каталога
+    private ObservableCollection<Book>? Books { get; set; }
     
     // Таблиця книжок
     public DataTable BooksTable { get; set; }
@@ -87,8 +89,10 @@ public class CatalogViewModel : ObservableObject
         }
     }
 
+    // Обранна книжка
     private Book _selectedBook;
     
+    // Індекс обраної книжки
     private int _selectedBookIndex;
     public int SelectedBookIndex
     {
@@ -111,17 +115,6 @@ public class CatalogViewModel : ObservableObject
     private bool IsSortedGenre { get; set; }
 
     private string _catalogSource;
-    public string? CatalogSource
-    {
-        get => _catalogSource;
-        set
-        {
-            if (!string.IsNullOrEmpty(value))
-            {
-                _catalogSource = value;
-            }
-        }
-    }
     
     public CatalogViewModel()
     {
@@ -134,7 +127,7 @@ public class CatalogViewModel : ObservableObject
         IsSortedYear = false;
         IsSortedAuthor = false;
         
-        CatalogSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\BookCatalog.xml";
+        _catalogSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\BookCatalog.xml";
 
         BooksTable = new DataTable();
 
@@ -145,14 +138,18 @@ public class CatalogViewModel : ObservableObject
         BooksTable.Columns.Add("IconPath", typeof(string));
         BooksTable.Columns.Add("book", typeof(Book));
 
-        Books = _catalogModel.ReadXml(CatalogSource);
-        Books.CollectionChanged += BooksOnCollectionChanged;
-        
-        foreach (var book in Books)
+        Books = _catalogModel.ReadXml(_catalogSource);
+        if (Books != null)
         {
-            BooksTable.Rows.Add(book.Author, book.Name, book.Year, book.Genre, 
-                book.IconPath, book);
+            Books.CollectionChanged += BooksOnCollectionChanged;
+                    
+            foreach (var book in Books)
+            {
+                BooksTable.Rows.Add(book.Author, book.Name, book.Year, book.Genre, 
+                    book.IconPath, book);
+            }
         }
+        
 
         SearchFilterCommand = new RelayCommand(_ =>
         {
@@ -269,7 +266,7 @@ public class CatalogViewModel : ObservableObject
         {
             case NotifyCollectionChangedAction.Add:
             {
-                var newBooks = _catalogModel.ReadXml(CatalogSource);
+                var newBooks = _catalogModel.ReadXml(_catalogSource);
 
                 foreach (var book in e.NewItems)
                 {
@@ -283,7 +280,7 @@ public class CatalogViewModel : ObservableObject
                     }
                 }
 
-                _catalogModel.LoadXml(CatalogSource, newBooks);
+                _catalogModel.LoadXml(_catalogSource, newBooks);
                 OnPropertyChanged("BooksTable");
                 break;
             }
@@ -300,7 +297,7 @@ public class CatalogViewModel : ObservableObject
                     {
                         BooksTable.Rows.Remove(rows[0]);
                         _selectedBookIndex = -1;
-                        _catalogModel.LoadXml(CatalogSource, Books);
+                        _catalogModel.LoadXml(_catalogSource, Books);
                         OnPropertyChanged("BooksTable");
                     }
                 }
@@ -310,17 +307,19 @@ public class CatalogViewModel : ObservableObject
         }
     }
 
+    // Обробник події додавання книжки
     private void HandleBookAdded(object? sender, BookEventArgs e)
     {
         Books.Add(e.Book);
     }
     
+    // Обробник події редагування книжки
     private void HandleBookModify(object? sender, BookEventArgs e)
     {
         Book book = e.Book;
         
         Books[SelectedBookIndex] = book;
-        _catalogModel.LoadXml(CatalogSource, Books);
+        _catalogModel.LoadXml(_catalogSource, Books);
 
         DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
         rowView["Author"] = book.Author;
@@ -334,4 +333,8 @@ public class CatalogViewModel : ObservableObject
         OnPropertyChanged("BooksTable");
     }
 
+    public void Button_Click(object sender, RoutedEventArgs e)
+    {
+        MessageBox.Show("dsf");
+    }
 }

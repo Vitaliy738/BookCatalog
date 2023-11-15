@@ -27,7 +27,7 @@ public class ModifyViewModel : ObservableObject
         ModifyAuthor = book.Author;
         ModifyYear = book.Year;
         ModifyGenre = book.Genre;
-        ModifyShortDescription = book.Description;
+        ModifyShortDescription = book.ShortDescription;
         ModifyIconPath = book.IconPath;
 
         ModifyCommand = new RelayCommand(_ =>

@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Book_catalog"
         xmlns:viewModel="clr-namespace:Book_catalog.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="920"
+        Title="Book catalog | Vitaliy Sorokin | IPZ-22-1" Height="600" Width="920"
+        MinHeight="600"
         ResizeMode="CanResize">
         
         <Window.DataContext>
@@ -48,7 +49,8 @@
                                 <RadioButton Style="{StaticResource MenuButtonTheme}"
                                              FontSize="14"
                                              Height="40"
-                                             Content="Bookmarks"/>
+                                             Content="Bookmarks"
+                                             Command="{Binding BookmarksViewCommand}"/>
                                 
                                 <RadioButton Style="{StaticResource MenuButtonTheme}"
                                              FontSize="14"

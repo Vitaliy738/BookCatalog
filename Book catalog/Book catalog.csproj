@@ -59,6 +59,7 @@
 
     <ItemGroup>
       <Folder Include="Icons\" />
+      <Folder Include="Theme\Bookmarks\" />
       <Folder Include="Theme\ModifyBook\" />
     </ItemGroup>
 
@@ -74,6 +75,10 @@
       <Resource Include="Icons\BookIcon.png" />
       <None Remove="Icons\UserProfileIcon.png" />
       <Resource Include="Icons\UserProfileIcon.png" />
+      <None Remove="Icons\bookmark.png" />
+      <Resource Include="Icons\bookmark.png" />
+      <None Remove="Icons\bookmark (1).png" />
+      <Resource Include="Icons\bookmark (1).png" />
     </ItemGroup>
 
 </Project>
