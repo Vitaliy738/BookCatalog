@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using Microsoft.Win32;
 
 namespace Book_catalog.MVVM.Model;
@@ -29,8 +30,8 @@ public class User
         }
     }
 
-    private Bookmarks _bookmarks;
-    public Bookmarks Bookmarks
+    private ObservableCollection<Bookmark> _bookmarks;
+    public ObservableCollection<Bookmark> Bookmarks
     {
         get => GetBookmarks();
         set => SetBookmarks(value);
@@ -38,22 +39,22 @@ public class User
     
     public User() : this("NONE"){}
     public User(string name) : this(name, "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\UserProfileIcon.png"){}
-    public User(string name, string iconPath) : this(name, iconPath, new Bookmarks()){}
+    public User(string name, string iconPath) : this(name, iconPath, new ObservableCollection<Bookmark>()){}
 
-    public User(string name, string iconPath, Bookmarks bookmarks)
+    public User(string name, string iconPath, ObservableCollection<Bookmark> bookmarks)
     {
         Name = name;
         IconPath = iconPath;
         Bookmarks = bookmarks;
     }
 
-    public Bookmarks GetBookmarks()
+    public ObservableCollection<Bookmark> GetBookmarks()
     {
         return _bookmarks;
     }
-    public void SetBookmarks(Bookmarks bookmarks)
+    public void SetBookmarks(ObservableCollection<Bookmark> bookmark)
     {
-        _bookmarks = bookmarks;
+        _bookmarks = bookmark;
     }
 
     public bool Equals(User user)

@@ -87,4 +87,16 @@
       <Resource Include="Icons\make bookmark.png" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="obj\Debug\net7.0-windows\App.baml" />
+      <Content Include="obj\Debug\net7.0-windows\MainWindow.baml" />
+      <Content Include="obj\Debug\net7.0-windows\MVVM\View\AddBookView.baml" />
+      <Content Include="obj\Debug\net7.0-windows\MVVM\View\AddUserView.baml" />
+      <Content Include="obj\Debug\net7.0-windows\MVVM\View\BookmarksView.baml" />
+      <Content Include="obj\Debug\net7.0-windows\MVVM\View\CatalogView.baml" />
+      <Content Include="obj\Debug\net7.0-windows\MVVM\View\HomeView.baml" />
+      <Content Include="obj\Debug\net7.0-windows\MVVM\View\ModifyView.baml" />
+      <Content Include="obj\Debug\net7.0-windows\MVVM\View\OptionsView.baml" />
+    </ItemGroup>
+
 </Project>

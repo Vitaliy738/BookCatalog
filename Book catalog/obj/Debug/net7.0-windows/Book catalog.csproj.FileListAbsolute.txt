@@ -63,3 +63,4 @@ C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\M
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\Catalog\CatalogThemeBookmarksToolTip.baml
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\Catalog\CatalogThemeOptionsButton.baml
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\Catalog\CatalogThemeRowDetailsUpArrow.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog_Content.g.cs

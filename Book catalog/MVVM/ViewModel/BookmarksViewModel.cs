@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Xml.Linq;
 using Book_catalog.Core;
@@ -10,7 +11,7 @@ public class BookmarksViewModel
     private string _userSource;
     private OptionsModel _options;
     
-    public Bookmarks Bookmarks { get; private set; }
+    public ObservableCollection<Bookmark> Bookmark { get; private set; }
     
     public BookmarksViewModel()
     {
@@ -20,7 +21,7 @@ public class BookmarksViewModel
         User? user = _options.ReadUserDataXml(_userSource);
         if (user != null)
         {
-            Bookmarks = user.Bookmarks;
+            Bookmark = user.Bookmarks;
         }
     }
 }

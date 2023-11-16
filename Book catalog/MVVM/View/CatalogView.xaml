@@ -57,7 +57,8 @@
                                             <Image.ToolTip>
                                                 <ToolTip>
                                                     <StackPanel>
-                                                        <RadioButton GroupName="Bookmarks" Content="Reading"/>
+                                                        <RadioButton GroupName="Bookmarks" Content="Reading"
+                                                                     IsChecked="{Binding }"/>
                                                         <RadioButton GroupName="Bookmarks" Content="Planned"/>
                                                         <RadioButton GroupName="Bookmarks" Content="Already read"/>
                                                         <RadioButton GroupName="Bookmarks" Content="Abandoned"/>
@@ -111,7 +112,7 @@
                                         Command="{Binding CloseRowDetailsCommand}"/>
                                 
                                 <Button Style="{StaticResource CatalogOptionsButtonTheme}"
-                                        Margin="10 5 5 5"
+                                        Margin="30 5 5 5"
                                         Height="28"
                                         Width="28"
                                         Command="{Binding ModifyBookCommand}"/>

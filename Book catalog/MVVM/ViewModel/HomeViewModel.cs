@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Windows;
 using Book_catalog.Core;
 using Book_catalog.MVVM.Model;
@@ -28,10 +29,10 @@ public class HomeViewModel : ObservableObject
         User = _options.ReadUserDataXml(_userDataSource);
         if (User != null)
         {
-            AlreadyRead = $"Already read: {User.Bookmarks.AlreadyRead.Count}";
-            PlannedRead = $"Planned: {User.Bookmarks.Planned.Count}";
-            AbandonedRead = $"Abandoned: {User.Bookmarks.Abandoned.Count}";
-            PostponedRead = $"Postponed: {User.Bookmarks.Postponed.Count}";
+            AlreadyRead = $"Already read: {User.Bookmarks.Where(bookmark => bookmark.BookmarksType == BookmarksType.AlreadyRead).Count()}";
+            PlannedRead = $"Planned: {User.Bookmarks.Where(bookmark => bookmark.BookmarksType == BookmarksType.Planned).Count()}";
+            AbandonedRead = $"Abandoned: {User.Bookmarks.Where(bookmark => bookmark.BookmarksType == BookmarksType.Abandoned).Count()}";
+            PostponedRead = $"Postponed: {User.Bookmarks.Where(bookmark => bookmark.BookmarksType == BookmarksType.Postponed).Count()}";
         }
     }
 }

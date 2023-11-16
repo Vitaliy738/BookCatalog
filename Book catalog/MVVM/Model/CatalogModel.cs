@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Data;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -33,5 +34,56 @@ public class CatalogModel
             serializer.Serialize(fileStream, books);
         }
     }
-    
+
+    public DataTable FillBookTable(ObservableCollection<Book> books, ObservableCollection<Bookmark> bookmarks)
+    {
+        DataTable booksTable = new DataTable();
+
+        booksTable.Columns.Add("Author", typeof(string));
+        booksTable.Columns.Add("Name", typeof(string));
+        booksTable.Columns.Add("Year", typeof(string));
+        booksTable.Columns.Add("Genre", typeof(string));
+        booksTable.Columns.Add("IconPath", typeof(string));
+        booksTable.Columns.Add("ShortDescription", typeof(string));
+        booksTable.Columns.Add("book", typeof(Book));
+        booksTable.Columns.Add("bookmark", typeof(BookmarksType));
+        
+
+        if (books != null)
+        {
+            foreach (var book in books)
+            {
+                BookmarksType type = GetBookmarksType(book, bookmarks);
+                
+                if(type != BookmarksType.NotInterested)
+                {
+                    booksTable.Rows.Add(book.Author, book.Name, book.Year, book.Genre,
+                        book.IconPath, book.Description, book, type);
+                }
+                else
+                {
+                    booksTable.Rows.Add(book.Author, book.Name, book.Year, book.Genre,
+                        book.IconPath, book.Description, book, BookmarksType.NotInterested);
+                }
+            }
+        }
+        
+        return booksTable;
+    }
+
+    public BookmarksType GetBookmarksType(Book book, ObservableCollection<Bookmark> bookmarks)
+    {
+        foreach (var item in bookmarks)
+        {
+            if (book.Name == item.Book.Name
+                && book.Author == item.Book.Author
+                && book.Year == item.Book.Year
+                && book.Description == item.Book.Description)
+            {
+                return item.BookmarksType;
+            }
+        }
+        
+        return BookmarksType.NotInterested;
+    }
 }

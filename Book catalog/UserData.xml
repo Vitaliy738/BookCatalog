@@ -2,12 +2,5 @@
 <User xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Name>Vitaliy</Name>
   <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\Avatar.jpg</IconPath>
-  <Bookmarks>
-    <Reading />
-    <Planned />
-    <AlreadyRead />
-    <Abandoned />
-    <Postponed />
-    <Favorite />
-  </Bookmarks>
+  <Bookmarks />
 </User>

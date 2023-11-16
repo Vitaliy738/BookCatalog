@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfBook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfBook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Book>
+    <Author>Vitaliy</Author>
+    <Name>The silent of voice</Name>
+    <Year>2011</Year>
+    <Genre>sdgsdg</Genre>
+    <Description>sdgsdgsgs</Description>
+    <IconPath>C:\Users\Asus\OneDrive\Desktop\img-1458.jpg</IconPath>
+  </Book>
+</ArrayOfBook>

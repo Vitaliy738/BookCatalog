@@ -31,7 +31,7 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid Grid.Column="0"
-                                      ItemsSource="{Binding Bookmarks.Reading}"
+                                      ItemsSource="{Binding Bookmark.Reading}"
                                       SelectedIndex="{Binding SelectedBookIndex}"
 
                                       Background="#E4EBF1"
@@ -81,7 +81,7 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid Grid.Column="0"
-                                      ItemsSource="{Binding Bookmarks.Planned}"
+                                      ItemsSource="{Binding Bookmark.Planned}"
                                       SelectedIndex="{Binding SelectedBookIndex}"
 
                                       Background="#E4EBF1"
@@ -131,7 +131,7 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid Grid.Column="0"
-                                      ItemsSource="{Binding Bookmarks.AlreadyRead}"
+                                      ItemsSource="{Binding Bookmark.AlreadyRead}"
                                       SelectedIndex="{Binding SelectedBookIndex}"
 
                                       Background="#E4EBF1"
@@ -181,7 +181,7 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid Grid.Column="0"
-                                      ItemsSource="{Binding Bookmarks.Abandoned}"
+                                      ItemsSource="{Binding Bookmark.Abandoned}"
                                       SelectedIndex="{Binding SelectedBookIndex}"
 
                                       Background="#E4EBF1"
@@ -231,7 +231,7 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid Grid.Column="0"
-                                      ItemsSource="{Binding Bookmarks.Postponed}"
+                                      ItemsSource="{Binding Bookmark.Postponed}"
                                       SelectedIndex="{Binding SelectedBookIndex}"
 
                                       Background="#E4EBF1"
@@ -281,7 +281,7 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid Grid.Column="0"
-                                      ItemsSource="{Binding Bookmarks.Favorite}"
+                                      ItemsSource="{Binding Bookmark.Favorite}"
                                       SelectedIndex="{Binding SelectedBookIndex}"
 
                                       Background="#E4EBF1"

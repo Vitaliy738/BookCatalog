@@ -119,6 +119,8 @@ public class CatalogViewModel : ObservableObject
     
     public CatalogViewModel()
     {
+        OptionsModel optionsModel = new OptionsModel();
+        
         _catalogModel = new CatalogModel();
 
         _selectedBookIndex = -1;
@@ -129,30 +131,13 @@ public class CatalogViewModel : ObservableObject
         IsSortedAuthor = false;
         
         _catalogSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\BookCatalog.xml";
+        string userDataSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\UserData.xml";
 
-        BooksTable = new DataTable();
-
-        BooksTable.Columns.Add("Author", typeof(string));
-        BooksTable.Columns.Add("Name", typeof(string));
-        BooksTable.Columns.Add("Year", typeof(string));
-        BooksTable.Columns.Add("Genre", typeof(string));
-        BooksTable.Columns.Add("IconPath", typeof(string));
-        BooksTable.Columns.Add("ShortDescription", typeof(string));
-        BooksTable.Columns.Add("book", typeof(Book));
-
+        ObservableCollection<Bookmark> bookmarks = optionsModel.ReadUserDataXml(userDataSource).Bookmarks;
         Books = _catalogModel.ReadXml(_catalogSource);
-        if (Books != null)
-        {
-            Books.CollectionChanged += BooksOnCollectionChanged;
-                    
-            foreach (var book in Books)
-            {
-                BooksTable.Rows.Add(book.Author, book.Name, book.Year, book.Genre, 
-                    book.IconPath, "Short description: " + book.Description, book);
-            }
-        }
-        
 
+        BooksTable = _catalogModel.FillBookTable(Books, bookmarks);
+        
         SearchFilterCommand = new RelayCommand(_ =>
         {
             BooksTable.DefaultView.RowFilter = $"Author LIKE '%{AuthorSearch}%'" +
