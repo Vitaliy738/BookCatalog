@@ -6,7 +6,7 @@ public class Book
     public string Name { get; set; }
     public string Year { get; set; }
     public string Genre { get; set; }
-    public string ShortDescription { get; set; }
+    public string Description { get; set; }
     public string IconPath { get; set; }
     
     public Book() : this("NONE") {}
@@ -15,13 +15,13 @@ public class Book
     public Book(string author, string name, string year) : this(author, name, year, "NONE") {}
     public Book(string author, string name, string year, string genre) : this(author, name, year, genre, "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\BookIcon.png") {}
     public Book(string author, string name, string year, string genre, string iconPath) : this(author, name, year, genre, iconPath, "NONE") {}
-    public Book(string author, string name, string year, string genre, string iconPath, string shortDescription)
+    public Book(string author, string name, string year, string genre, string iconPath, string description)
     {
         Author = author;
         Name = name;
         Year = year;
         Genre = genre;
-        ShortDescription = shortDescription;
+        Description = description;
         IconPath = iconPath;
     }
 
@@ -39,6 +39,6 @@ public class Book
                this.Author.Equals(book.Author) &&
                this.Genre.Equals(book.Genre) &&
                this.Year.Equals(book.Year) &&
-               this.ShortDescription.Equals(book.ShortDescription);
+               this.Description.Equals(book.Description);
     }
 }

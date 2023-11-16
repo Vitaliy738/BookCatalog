@@ -31,10 +31,10 @@
         </Setter>
         
         <Style.Triggers>
-            <DataTrigger Binding="{Binding ElementName=SortChecker, Path=IsChecked}" Value="True">
+            <DataTrigger Binding="{Binding ElementName=FilterChecker, Path=IsChecked}" Value="True">
                 <Setter Property="Visibility" Value="Visible" />
             </DataTrigger>
-            <DataTrigger Binding="{Binding ElementName=SortChecker, Path=IsChecked}" Value="False">
+            <DataTrigger Binding="{Binding ElementName=FilterChecker, Path=IsChecked}" Value="False">
                 <Setter Property="Visibility" Value="Collapsed" />
             </DataTrigger>
         </Style.Triggers>

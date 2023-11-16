@@ -7,7 +7,7 @@
         xmlns:viewModel="clr-namespace:Book_catalog.MVVM.ViewModel"
         mc:Ignorable="d"
         Title="Book catalog | Vitaliy Sorokin | IPZ-22-1" Height="600" Width="920"
-        MinHeight="600"
+        MinHeight="600" MinWidth="920"
         ResizeMode="CanResize">
         
         <Window.DataContext>

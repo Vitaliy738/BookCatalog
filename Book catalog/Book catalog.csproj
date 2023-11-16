@@ -79,6 +79,12 @@
       <Resource Include="Icons\bookmark.png" />
       <None Remove="Icons\bookmark (1).png" />
       <Resource Include="Icons\bookmark (1).png" />
+      <None Remove="Icons\up-arrow.png" />
+      <Resource Include="Icons\up-arrow.png" />
+      <None Remove="Icons\edit book icon.png" />
+      <Resource Include="Icons\edit book icon.png" />
+      <None Remove="Icons\make bookmark.png" />
+      <Resource Include="Icons\make bookmark.png" />
     </ItemGroup>
 
 </Project>

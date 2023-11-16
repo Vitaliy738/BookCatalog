@@ -24,6 +24,7 @@ public class CatalogViewModel : ObservableObject
     public RelayCommand AddBookCommand { get; private set; }
     public RelayCommand DeleteBookCommand { get; private set; }
     public RelayCommand ModifyBookCommand { get; private set; }
+    public RelayCommand CloseRowDetailsCommand { get; private set; }
 
     private readonly CatalogModel _catalogModel;
     
@@ -136,6 +137,7 @@ public class CatalogViewModel : ObservableObject
         BooksTable.Columns.Add("Year", typeof(string));
         BooksTable.Columns.Add("Genre", typeof(string));
         BooksTable.Columns.Add("IconPath", typeof(string));
+        BooksTable.Columns.Add("ShortDescription", typeof(string));
         BooksTable.Columns.Add("book", typeof(Book));
 
         Books = _catalogModel.ReadXml(_catalogSource);
@@ -146,7 +148,7 @@ public class CatalogViewModel : ObservableObject
             foreach (var book in Books)
             {
                 BooksTable.Rows.Add(book.Author, book.Name, book.Year, book.Genre, 
-                    book.IconPath, book);
+                    book.IconPath, "Short description: " + book.Description, book);
             }
         }
         
@@ -258,6 +260,12 @@ public class CatalogViewModel : ObservableObject
 
             }
         });
+
+        CloseRowDetailsCommand = new RelayCommand(_ =>
+        {
+            SelectedBookIndex = -1;
+            OnPropertyChanged("SelectedBookIndex");
+        });
     }
 
     private void BooksOnCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
@@ -276,7 +284,7 @@ public class CatalogViewModel : ObservableObject
 
                         newBooks.Add(newBook);
                         BooksTable.Rows.Add(newBook.Author, newBook.Name, newBook.Year,
-                            newBook.Genre, newBook.IconPath, newBook);
+                            newBook.Genre, newBook.IconPath,newBook.Description, newBook);
                     }
                 }
 
@@ -327,14 +335,10 @@ public class CatalogViewModel : ObservableObject
         rowView["Year"] = book.Year;
         rowView["Genre"] = book.Genre;
         rowView["IconPath"] = book.IconPath;
+        rowView["ShortDescription"] = book.Description;
         rowView["book"] = book;
         rowView.EndEdit();
         
         OnPropertyChanged("BooksTable");
-    }
-
-    public void Button_Click(object sender, RoutedEventArgs e)
-    {
-        MessageBox.Show("dsf");
     }
 }
