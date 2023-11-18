@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Data;
 using System.IO;
+using System.Windows;
 using System.Xml.Serialization;
 
 namespace Book_catalog.MVVM.Model;
@@ -48,7 +49,13 @@ public class CatalogModel
         booksTable.Columns.Add("book", typeof(Book));
         booksTable.Columns.Add("bookmark", typeof(BookmarksType));
         
-
+        booksTable.Columns.Add("Reading", typeof(bool));
+        booksTable.Columns.Add("Planned", typeof(bool));
+        booksTable.Columns.Add("AlreadyRead", typeof(bool));
+        booksTable.Columns.Add("Abandoned", typeof(bool));
+        booksTable.Columns.Add("Postponed", typeof(bool));
+        booksTable.Columns.Add("Favorite", typeof(bool));
+        
         if (books != null)
         {
             foreach (var book in books)
@@ -57,13 +64,32 @@ public class CatalogModel
                 
                 if(type != BookmarksType.NotInterested)
                 {
-                    booksTable.Rows.Add(book.Author, book.Name, book.Year, book.Genre,
-                        book.IconPath, book.Description, book, type);
+                    booksTable.Rows.Add(book.Author, 
+                        book.Name, 
+                        book.Year, 
+                        book.Genre,
+                        book.IconPath, 
+                        book.Description, 
+                        book, 
+                        type == BookmarksType.Reading,
+                        type == BookmarksType.Planned,
+                        type == BookmarksType.AlreadyRead,
+                        type == BookmarksType.Abandoned,
+                        type == BookmarksType.Postponed,
+                        type == BookmarksType.Favorite);
+
                 }
                 else
                 {
-                    booksTable.Rows.Add(book.Author, book.Name, book.Year, book.Genre,
-                        book.IconPath, book.Description, book, BookmarksType.NotInterested);
+                    booksTable.Rows.Add(book.Author, 
+                                        book.Name, 
+                                        book.Year, 
+                                        book.Genre,
+                                        book.IconPath, 
+                                        book.Description, 
+                                        book, 
+                                        BookmarksType.NotInterested, 
+                                        false, false, false, false, false, false);
                 }
             }
         }

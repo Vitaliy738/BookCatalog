@@ -25,6 +25,15 @@ public class CatalogViewModel : ObservableObject
     public RelayCommand DeleteBookCommand { get; private set; }
     public RelayCommand ModifyBookCommand { get; private set; }
     public RelayCommand CloseRowDetailsCommand { get; private set; }
+    
+    // Події управління закладками:
+    public RelayCommand ToPlanned { get; set; }
+    public RelayCommand ToAlreadyRead { get; set; }
+    public RelayCommand ToReading { get; set; }
+    public RelayCommand ToFavorite { get; set; }
+    public RelayCommand ToPostponed { get; set; }
+    public RelayCommand ToAbandoned { get; set; }
+    public RelayCommand ToNotInterested { get; set; }
 
     private readonly CatalogModel _catalogModel;
     
@@ -116,6 +125,8 @@ public class CatalogViewModel : ObservableObject
     private bool IsSortedGenre { get; set; }
 
     private string _catalogSource;
+    private string _userDataSource;
+    private User _userData;
     
     public CatalogViewModel()
     {
@@ -131,28 +142,32 @@ public class CatalogViewModel : ObservableObject
         IsSortedAuthor = false;
         
         _catalogSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\BookCatalog.xml";
-        string userDataSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\UserData.xml";
+        _userDataSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\UserData.xml";
 
-        ObservableCollection<Bookmark> bookmarks = optionsModel.ReadUserDataXml(userDataSource).Bookmarks;
+        _userData = optionsModel.ReadUserDataXml(_userDataSource);
+        
+        ObservableCollection<Bookmark> bookmarks = _userData.Bookmarks;
+        
         Books = _catalogModel.ReadXml(_catalogSource);
+        Books.CollectionChanged += BooksOnCollectionChanged;
 
         BooksTable = _catalogModel.FillBookTable(Books, bookmarks);
         
         SearchFilterCommand = new RelayCommand(_ =>
         {
             BooksTable.DefaultView.RowFilter = $"Author LIKE '%{AuthorSearch}%'" +
-                                           $"AND Name LIKE '%{NameSearch}%'" +
-                                           $"AND Year LIKE '%{YearSearch}%'"; 
-                                           //$"AND Genre LIKE '%{GenreSearch}%'";
+                                               $"AND Name LIKE '%{NameSearch}%'" +
+                                               $"AND Year LIKE '%{YearSearch}%'" + 
+                                               $"AND Genre LIKE '%{GenreSearch}%'";
         });
 
         CancelFilterCommand = new RelayCommand(_ =>
         {
             string cancel = "";
             BooksTable.DefaultView.RowFilter = $"Author LIKE '%{cancel}%'" +
-                                           $"AND Name LIKE '%{cancel}%'" +
-                                           $"AND Year LIKE '%{cancel}%'"; 
-                                         //$"AND Genre LIKE '%{cancel}%'";
+                                               $"AND Name LIKE '%{cancel}%'" +
+                                               $"AND Year LIKE '%{cancel}%'"; 
+            //$"AND Genre LIKE '%{cancel}%'";
         });
 
         NameSortCommand = new RelayCommand(_ =>
@@ -251,6 +266,55 @@ public class CatalogViewModel : ObservableObject
             SelectedBookIndex = -1;
             OnPropertyChanged("SelectedBookIndex");
         });
+
+        ToPlanned = new RelayCommand(_ =>
+        {
+            _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.Planned));
+            optionsModel.UppdateUserData(_userDataSource, _userData);
+            OnPropertyChanged("BooksTable");
+        });
+        
+        ToAlreadyRead = new RelayCommand(_ =>
+        {
+            _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.AlreadyRead));
+            optionsModel.UppdateUserData(_userDataSource, _userData);
+            OnPropertyChanged("BooksTable");
+        });
+        
+        ToReading = new RelayCommand(_ =>
+        {
+            _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.Reading));
+            optionsModel.UppdateUserData(_userDataSource, _userData);
+            OnPropertyChanged("BooksTable");
+        });
+        
+        ToFavorite = new RelayCommand(_ =>
+        {
+            _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.Favorite));
+            optionsModel.UppdateUserData(_userDataSource, _userData);
+            OnPropertyChanged("BooksTable");
+        });
+        
+        ToPostponed = new RelayCommand(_ =>
+        {
+            _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.Postponed));
+            optionsModel.UppdateUserData(_userDataSource, _userData);
+            OnPropertyChanged("BooksTable");
+        });
+        
+        ToAbandoned = new RelayCommand(_ =>
+        {
+            _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.Abandoned));
+            optionsModel.UppdateUserData(_userDataSource, _userData);
+            OnPropertyChanged("BooksTable");
+        });
+        
+        ToNotInterested = new RelayCommand(_ =>
+        {
+            _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.NotInterested));
+            optionsModel.UppdateUserData(_userDataSource, _userData);
+            OnPropertyChanged("BooksTable");
+        });
     }
 
     private void BooksOnCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
@@ -268,8 +332,15 @@ public class CatalogViewModel : ObservableObject
                         var newBook = book as Book;
 
                         newBooks.Add(newBook);
-                        BooksTable.Rows.Add(newBook.Author, newBook.Name, newBook.Year,
-                            newBook.Genre, newBook.IconPath,newBook.Description, newBook);
+                        BooksTable.Rows.Add(newBook.Author, 
+                            newBook.Name, 
+                            newBook.Year,
+                            newBook.Genre, 
+                            newBook.IconPath,
+                            newBook.Description,
+                            newBook,
+                            BookmarksType.NotInterested, 
+                            false, false, false, false, false, false);
                     }
                 }
 

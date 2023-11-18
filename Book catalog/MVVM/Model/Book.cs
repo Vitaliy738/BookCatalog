@@ -35,10 +35,7 @@ public class Book
         Book book = (Book)obj;
 
         return this.Name.Equals(book.Name) &&
-               this.IconPath.Equals(book.IconPath) &&
                this.Author.Equals(book.Author) &&
-               this.Genre.Equals(book.Genre) &&
-               this.Year.Equals(book.Year) &&
-               this.Description.Equals(book.Description);
+               this.Year.Equals(book.Year);
     }
 }

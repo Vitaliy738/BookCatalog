@@ -57,6 +57,23 @@ public class User
         _bookmarks = bookmark;
     }
 
+    public void AddBookmark(Bookmark bookmark)
+    {
+        for (int i = 0; i < Bookmarks.Count; i++)
+        {
+            
+            if (Bookmarks[i].Equals(bookmark.Book))
+            {
+                Bookmarks[i].Book = bookmark.Book;
+                Bookmarks[i].BookmarksType = bookmark.BookmarksType;
+                return;
+            }
+        }
+        
+        Bookmarks.Add(bookmark);
+        return;
+    }
+
     public bool Equals(User user)
     {
         return this.Name == user.Name

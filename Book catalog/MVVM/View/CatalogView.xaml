@@ -52,22 +52,50 @@
                                                 VerticalAlignment="Center"
                                                 Margin="0 0 10 0">
                                         
-                                        <Image Source="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark (1).png"
-                                               Width="24" Height="24" >
-                                            <Image.ToolTip>
+                                        <Button Style="{StaticResource CatalogBookmarksToolTipTheme}"
+                                                DataContext="{Binding DataContext, 
+                                        RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                               Width="24" Height="24">
+                                        
+                                            <Button.ToolTip>
                                                 <ToolTip>
                                                     <StackPanel>
                                                         <RadioButton GroupName="Bookmarks" Content="Reading"
-                                                                     IsChecked="{Binding }"/>
-                                                        <RadioButton GroupName="Bookmarks" Content="Planned"/>
-                                                        <RadioButton GroupName="Bookmarks" Content="Already read"/>
-                                                        <RadioButton GroupName="Bookmarks" Content="Abandoned"/>
-                                                        <RadioButton GroupName="Bookmarks" Content="Postponed"/>
-                                                        <RadioButton GroupName="Bookmarks" Content="Favorite"/>
+                                                                     IsChecked="{Binding Reading}"/>
+                                                        <RadioButton GroupName="Bookmarks" Content="Planned"
+                                                                     IsChecked="{Binding Planned}"/>
+                                                        <RadioButton GroupName="Bookmarks" Content="Already read"
+                                                                     IsChecked="{Binding AlreadyRead}"/>
+                                                        <RadioButton GroupName="Bookmarks" Content="Abandoned"
+                                                                     IsChecked="{Binding Abandoned}"/>
+                                                        <RadioButton GroupName="Bookmarks" Content="Postponed"
+                                                                     IsChecked="{Binding Postponed}"/>
+                                                        <RadioButton GroupName="Bookmarks" Content="Favorite"
+                                                                     IsChecked="{Binding Favorite}"/>
                                                     </StackPanel>
                                                 </ToolTip>
-                                            </Image.ToolTip>
-                                        </Image>
+                                            </Button.ToolTip>
+                                            
+                                            <Button.ContextMenu>
+                                                <ContextMenu >
+                                                    
+                                                    <MenuItem Header="Planned" 
+                                                              Command="{Binding ToPlanned}"/>
+                                                    <MenuItem Header="Already read" 
+                                                              Command="{Binding ToAlreadyRead}"/>
+                                                    <MenuItem Header="Reading" 
+                                                              Command="{Binding ToReading}"/>
+                                                    <MenuItem Header="Favorite" 
+                                                              Command="{Binding ToFavorite}"/>
+                                                    <MenuItem Header="Postponed" 
+                                                              Command="{Binding ToPostponed}"/>
+                                                    <MenuItem Header="Abandoned" 
+                                                              Command="{Binding ToAbandoned}"/>
+                                                    <MenuItem Header="Not interested" 
+                                                              Command="{Binding ToNotInterested}"/>
+                                                </ContextMenu>
+                                            </Button.ContextMenu>
+                                        </Button>
                                         </StackPanel>
                                 </Grid>
                                 </DataTemplate>
@@ -84,7 +112,7 @@
                                         Margin="5">
                                 <TextBlock Text="Author: "
                                            FontSize="16" />
-                                <TextBlock Text="{Binding Author}"
+                                <TextBlock Text="{Binding book.Author}"
                                            FontSize="16" />
                             </StackPanel>
                             
@@ -103,7 +131,8 @@
                             
                             <StackPanel Orientation="Horizontal"
                                         Margin="5 10 0 0"
-                                        DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+                                        DataContext="{Binding DataContext, 
+                                        RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
                             
                                 <Button Style="{StaticResource CatalogUpArrowButtonTheme}"
                                         Margin="5 5 5 5"

@@ -30,7 +30,7 @@
                     Command="{Binding ModifyIconCommand}"/>
             
             <Button Style="{StaticResource CatalogButtonTheme}"
-                    Content="Modify"
+                    Content="Save"
                     Background="#2E8B57"
                     Margin="0 70 0 0"
                     Width="100"

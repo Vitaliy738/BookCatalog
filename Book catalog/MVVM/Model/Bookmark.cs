@@ -9,6 +9,17 @@ public record Bookmark
 {
     public Book Book { get; set; }
     public BookmarksType BookmarksType { get; set; }
+
+    public Bookmark()
+    {
+        Book = null;
+        BookmarksType = BookmarksType.NotInterested;
+    }
+    public Bookmark(Book book, BookmarksType bookmarksType)
+    {
+        Book = book;
+        BookmarksType = bookmarksType;
+    }
     
     // // В процесі читання
     // public ObservableCollection<Book> Reading { get; private set; }
