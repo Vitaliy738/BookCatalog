@@ -6,13 +6,13 @@
     <Bookmark>
       <Book>
         <Author>Vitaliy</Author>
-        <Name>The silent of voice</Name>
+        <Title>The voice of silence</Title>
         <Year>2011</Year>
         <Genre>sdgsdg</Genre>
         <Description>sdgsdgsgs</Description>
         <IconPath>C:\Users\Asus\OneDrive\Desktop\img-1458.jpg</IconPath>
       </Book>
-      <BookmarksType>Planned</BookmarksType>
+      <BookmarksType>AlreadyRead</BookmarksType>
     </Bookmark>
   </Bookmarks>
 </User>

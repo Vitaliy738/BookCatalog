@@ -12,7 +12,7 @@ public class OptionsViewModel : ObservableObject
 {
     public RelayCommand AddUserCommand { get; private set; }
     
-    private readonly OptionsModel _options;
+    private readonly XmlHelper _options;
 
     private readonly string _userSource;
 
@@ -29,30 +29,29 @@ public class OptionsViewModel : ObservableObject
         set
         {
             _selectedUser = value;
-            _options.LoadUsersToXml(_userSource, Users);
-            _options.UppdateUserData(_userDataSource, value);
-            // OnPropertyChanged("SelectedUser");
+            _options.LoadUsersXml(_userSource, Users);
+            _options.UpdateUserDataXml(_userDataSource, value);
+            OnPropertyChanged("SelectedUser");
         }
     }
     
     public OptionsViewModel()
     {
-        _options = new OptionsModel();
+        _options = new XmlHelper();
         
         _userSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\UserCatalog.xml";
         _userDataSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\UserData.xml";
 
         Users = _options.ReadUsersXml(_userSource);
+        
+        User? userData = _options.ReadUserDataXml(_userDataSource);
+        if (userData != null)
         {
-            User? userData = _options.ReadUserDataXml(_userDataSource);
-            if (userData != null)
+            foreach (var user in Users)
             {
-                foreach (var user in Users)
+                if (userData.Equals(user))
                 {
-                    if (userData.Equals(user))
-                    {
-                        SelectedUser = user;
-                    }
+                    SelectedUser = user;
                 }
             }
         }

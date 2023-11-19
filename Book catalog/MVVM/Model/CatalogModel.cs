@@ -8,35 +8,7 @@ namespace Book_catalog.MVVM.Model;
 
 public class CatalogModel
 {
-    public ObservableCollection<Book> ReadXml(string path)
-    {
-        ObservableCollection<Book>? books;
-
-        XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Book>));
-        using (FileStream flStream = new FileStream(path, FileMode.OpenOrCreate))
-        {
-            books = serializer.Deserialize(flStream) as ObservableCollection<Book>;
-        }
-
-        if (books != null)
-        {
-            return books;
-        }
-
-        return books = new ObservableCollection<Book>();
-    }
-
-    public void LoadXml(string path, ObservableCollection<Book> books)
-    {
-        XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Book>));
-
-        using (FileStream fileStream = new FileStream(path, FileMode.Truncate))
-        {
-            serializer.Serialize(fileStream, books);
-        }
-    }
-
-    public DataTable FillBookTable(ObservableCollection<Book> books, ObservableCollection<Bookmark> bookmarks)
+   public DataTable FillBookTable(ObservableCollection<Book> books, ObservableCollection<Bookmark> bookmarks)
     {
         DataTable booksTable = new DataTable();
 
@@ -65,12 +37,13 @@ public class CatalogModel
                 if(type != BookmarksType.NotInterested)
                 {
                     booksTable.Rows.Add(book.Author, 
-                        book.Name, 
+                        book.Title, 
                         book.Year, 
                         book.Genre,
                         book.IconPath, 
                         book.Description, 
                         book, 
+                        type,
                         type == BookmarksType.Reading,
                         type == BookmarksType.Planned,
                         type == BookmarksType.AlreadyRead,
@@ -82,7 +55,7 @@ public class CatalogModel
                 else
                 {
                     booksTable.Rows.Add(book.Author, 
-                                        book.Name, 
+                                        book.Title, 
                                         book.Year, 
                                         book.Genre,
                                         book.IconPath, 
@@ -97,11 +70,11 @@ public class CatalogModel
         return booksTable;
     }
 
-    public BookmarksType GetBookmarksType(Book book, ObservableCollection<Bookmark> bookmarks)
+   private BookmarksType GetBookmarksType(Book book, ObservableCollection<Bookmark> bookmarks)
     {
         foreach (var item in bookmarks)
         {
-            if (book.Name == item.Book.Name
+            if (book.Title == item.Book.Title
                 && book.Author == item.Book.Author
                 && book.Year == item.Book.Year
                 && book.Description == item.Book.Description)

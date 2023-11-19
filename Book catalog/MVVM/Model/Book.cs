@@ -3,7 +3,7 @@ namespace Book_catalog.MVVM.Model;
 public class Book
 {
     public string Author { get; set; }
-    public string Name { get; set; }
+    public string Title { get; set; }
     public string Year { get; set; }
     public string Genre { get; set; }
     public string Description { get; set; }
@@ -11,30 +11,23 @@ public class Book
     
     public Book() : this("NONE") {}
     public Book(string author) : this(author, "NONE") {}
-    public Book(string author, string name) : this(author, name, "NONE") {}
-    public Book(string author, string name, string year) : this(author, name, year, "NONE") {}
-    public Book(string author, string name, string year, string genre) : this(author, name, year, genre, "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\BookIcon.png") {}
-    public Book(string author, string name, string year, string genre, string iconPath) : this(author, name, year, genre, iconPath, "NONE") {}
-    public Book(string author, string name, string year, string genre, string iconPath, string description)
+    public Book(string author, string title) : this(author, title, "NONE") {}
+    public Book(string author, string title, string year) : this(author, title, year, "NONE") {}
+    public Book(string author, string title, string year, string genre) : this(author, title, year, genre, "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\BookIcon.png") {}
+    public Book(string author, string title, string year, string genre, string iconPath) : this(author, title, year, genre, iconPath, "NONE") {}
+    public Book(string author, string title, string year, string genre, string iconPath, string description)
     {
         Author = author;
-        Name = name;
+        Title = title;
         Year = year;
         Genre = genre;
         Description = description;
         IconPath = iconPath;
     }
 
-    public override bool Equals(object obj)
+    public bool Equals(Book book)
     {
-        if (obj == null || GetType() != obj.GetType())
-        {
-            return false;
-        }
-    
-        Book book = (Book)obj;
-
-        return this.Name.Equals(book.Name) &&
+        return this.Title.Equals(book.Title) &&
                this.Author.Equals(book.Author) &&
                this.Year.Equals(book.Year);
     }

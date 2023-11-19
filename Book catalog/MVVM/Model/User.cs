@@ -4,7 +4,7 @@ using Microsoft.Win32;
 
 namespace Book_catalog.MVVM.Model;
 
-[Serializable]
+// [Serializable]
 public class User
 {
     private string? _name;
@@ -61,8 +61,7 @@ public class User
     {
         for (int i = 0; i < Bookmarks.Count; i++)
         {
-            
-            if (Bookmarks[i].Equals(bookmark.Book))
+            if (Bookmarks[i].Equals(bookmark))
             {
                 Bookmarks[i].Book = bookmark.Book;
                 Bookmarks[i].BookmarksType = bookmark.BookmarksType;
@@ -76,7 +75,6 @@ public class User
 
     public bool Equals(User user)
     {
-        return this.Name == user.Name
-               && this.IconPath == user.IconPath;
+        return this.Name == user.Name;
     }
 }

@@ -7,11 +7,11 @@
              xmlns:viewModel="clr-namespace:Book_catalog.MVVM.ViewModel"
              mc:Ignorable="d"
              d:DesignHeight="600" d:DesignWidth="720">
-    
+
     <UserControl.DataContext>
-        <viewModel:HomeViewModel/>
+        <viewModel:HomeViewModel />
     </UserControl.DataContext>
-    
+
     <Border>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -23,8 +23,8 @@
                 <Button Height="120" Width="120"
                         Style="{StaticResource HomeUserIconTheme}"
                         Margin="5"
-                        Command="{Binding ReadAddCommand}"/>
-                
+                        Command="{Binding ReadAddCommand}" />
+
                 <TextBlock Margin="10"
                            Text="{Binding User.Name}"
                            TextAlignment="Center"
@@ -34,26 +34,29 @@
             <Border Grid.Column="1">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0.09*"/>
-                        <RowDefinition Height="0.22*"/>
-                        <RowDefinition Height="0.22*"/>
-                        <RowDefinition Height="*"/>
+                        <!-- <RowDefinition Height="0.09*" /> -->
+                        <!-- <RowDefinition Height="0.22*" /> -->
+                        <!-- <RowDefinition Height="0.22*" /> -->
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    
+
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.50*"/>
-                        <ColumnDefinition Width="0.50*"/>
+                        <ColumnDefinition Width="0.50*" />
+                        <ColumnDefinition Width="0.50*" />
                     </Grid.ColumnDefinitions>
-                    
+
                     <TextBlock Margin="15 0 0 5"
                                Text="Favorite books"
-                               FontSize="18"/>
-                    
+                               FontSize="18" />
+
                     <!-- Favorite book panels -->
                     <StackPanel Grid.Column="0"
                                 Grid.Row="1"
-                                Margin="0 0 3 0">
-                        
+                                Margin="5">
+
                         <Border Background="#E4EBF1"
                                 CornerRadius="10"
                                 BorderThickness="1"
@@ -61,17 +64,17 @@
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="../../Icons/BookIcon.png"
                                        Margin="2"
-                                       Height="53"/>
+                                       Height="53" />
                                 <TextBlock Text="Book name"
                                            FontSize="16"
-                                           Margin="15 0 0 0"/>
+                                           Margin="15 0 0 0" />
                             </StackPanel>
                         </Border>
                     </StackPanel>
                     <StackPanel Grid.Column="1"
                                 Grid.Row="1"
-                                Margin="3 0 3 0">
-                        
+                                Margin="5">
+
                         <Border Background="#E4EBF1"
                                 CornerRadius="10"
                                 BorderThickness="1"
@@ -79,7 +82,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="../../Icons/BookIcon.png"
                                        Margin="2"
-                                       Height="53"/>
+                                       Height="53" />
                                 <TextBlock Text="Book name"
                                            FontSize="16"
                                            Margin="15 0 0 0" />
@@ -88,8 +91,8 @@
                     </StackPanel>
                     <StackPanel Grid.Column="0"
                                 Grid.Row="2"
-                                Margin="3 0 3 0">
-                        
+                                Margin="5">
+
                         <Border Background="#E4EBF1"
                                 CornerRadius="10"
                                 BorderThickness="1"
@@ -97,7 +100,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="../../Icons/BookIcon.png"
                                        Margin="2"
-                                       Height="53"/>
+                                       Height="53" />
                                 <TextBlock Text="Book name"
                                            FontSize="16"
                                            Margin="15 0 0 0" />
@@ -106,8 +109,8 @@
                     </StackPanel>
                     <StackPanel Grid.Column="1"
                                 Grid.Row="2"
-                                Margin="3 0 3 0">
-                        
+                                Margin="5">
+
                         <Border Background="#E4EBF1"
                                 CornerRadius="10"
                                 BorderThickness="1"
@@ -115,38 +118,63 @@
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="../../Icons/BookIcon.png"
                                        Margin="2"
-                                       Height="53"/>
+                                       Height="53" />
                                 <TextBlock Text="Book name"
                                            FontSize="16"
                                            Margin="15 0 0 0" />
                             </StackPanel>
                         </Border>
                     </StackPanel>
-                    
+
                     <!-- Main info panel -->
-                    <StackPanel Grid.Column="0"
-                                Grid.Row="3">
+                    <StackPanel Grid.ColumnSpan="2"
+                                Grid.Row="3"
+                                Margin="5">
                         <Border>
                             <StackPanel>
-                                <Separator VerticalAlignment="Stretch" BorderBrush="Black" BorderThickness="1"/>
-                                <TextBlock Text="{Binding AlreadyRead}"
-                                           Margin="5"
-                                           FontSize="16"/>
-                                <TextBlock Text="{Binding PlannedRead}"
-                                           Margin="5"
-                                           FontSize="16"/>
-                                <TextBlock Text="{Binding AbandonedRead}"
-                                           Margin="5"
-                                           FontSize="16"/>
-                                <TextBlock Text="{Binding PostponedRead}"
-                                           Margin="5"
-                                           FontSize="16"/>
+                                <Separator VerticalAlignment="Stretch" BorderBrush="Black" BorderThickness="1" />
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Fill="#649c65" Width="16" Height="16" RadiusX="5"
+                                               RadiusY="5" Margin="10" />
+                                    <TextBlock Text="{Binding ReadingRead}"
+                                               Margin="5"
+                                               FontSize="16" />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Fill="#9e68a2" Width="16" Height="16" RadiusX="5"
+                                               RadiusY="5" Margin="10" />
+                                    <TextBlock Text="{Binding PlannedRead}"
+                                               Margin="5"
+                                               FontSize="16" />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Fill="#5d86a0" Width="16" Height="16" RadiusX="5"
+                                               RadiusY="5" Margin="10" />
+                                    <TextBlock Text="{Binding AlreadyRead}"
+                                               Margin="5"
+                                               FontSize="16" />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Fill="#cd912e" Width="16" Height="16" RadiusX="5"
+                                               RadiusY="5" Margin="10" />
+                                    <TextBlock Text="{Binding PostponedRead}"
+                                               Margin="5"
+                                               FontSize="16" />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Fill="#b24443" Width="16" Height="16" RadiusX="5"
+                                               RadiusY="5" Margin="10" />
+                                    <TextBlock Text="{Binding AbandonedRead}"
+                                               Margin="5"
+                                               FontSize="16" />
+                                </StackPanel>
                             </StackPanel>
                         </Border>
-                    </StackPanel>
-                    <StackPanel Grid.Column="1"
-                                Grid.Row="3">
-                        <Separator VerticalAlignment="Stretch" BorderBrush="Black" BorderThickness="1" />
                     </StackPanel>
                 </Grid>
             </Border>

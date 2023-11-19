@@ -50,7 +50,7 @@ public class AddUserViewModel : ObservableObject
     public AddUserViewModel()
     {
         ChooseIcon = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\UserProfileIcon.png";
-        Name = "1";
+        //Name = "1";
         
         ChooseIconCommand = new RelayCommand(_ =>
         {

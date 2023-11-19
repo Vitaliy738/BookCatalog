@@ -11,7 +11,7 @@ public class ModifyViewModel : ObservableObject
     
     public event EventHandler<BookEventArgs>? BookModified; 
     
-    public string ModifyName { get; set; }
+    public string ModifyTitle { get; set; }
     public string ModifyAuthor { get; set; }
     public string ModifyYear { get; set; }
     public string ModifyGenre { get; set; }
@@ -23,7 +23,7 @@ public class ModifyViewModel : ObservableObject
     
     public ModifyViewModel(Book book)
     {
-        ModifyName = book.Name;
+        ModifyTitle = book.Title;
         ModifyAuthor = book.Author;
         ModifyYear = book.Year;
         ModifyGenre = book.Genre;
@@ -32,7 +32,7 @@ public class ModifyViewModel : ObservableObject
 
         ModifyCommand = new RelayCommand(_ =>
         {
-            Book book = new Book(ModifyAuthor, ModifyName, ModifyYear,
+            Book book = new Book(ModifyAuthor, ModifyTitle, ModifyYear,
                 ModifyGenre, ModifyIconPath, ModifyShortDescription);
             
             BookModified?.Invoke(this, new BookEventArgs(book));

@@ -41,11 +41,11 @@
         
         <WrapPanel Grid.Column="1" Orientation="Vertical"
                    HorizontalAlignment="Right">
-            <TextBox Style="{StaticResource ModifyNameTheme}"
+            <TextBox Style="{StaticResource ModifyTitleTheme}"
                      Margin="5"
                      Height="40"
                      Width="150"
-                     Text="{Binding ModifyName}"/>
+                     Text="{Binding ModifyTitle}"/>
             
             <TextBox Style="{StaticResource ModifyAuthorTheme}"
                      Margin="5"
