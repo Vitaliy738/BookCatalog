@@ -131,17 +131,18 @@ public class XmlHelper
         
     }
     
-    public void UpdateUserBookmarks(string path, string userName, ObservableCollection<Bookmark> updatedBookmarks)
+    public void UpdateUserBookmarks(string path, User updatedUser)
     {
         try
         {
             ObservableCollection<User> users = ReadUsersXml(path);
         
-            User userToUpdate = users.FirstOrDefault(user => user.Name == userName);
+            User userToUpdate = users.FirstOrDefault(user => user.Name == updatedUser.Name);
         
             if (userToUpdate != null)
             {
-                userToUpdate.SetBookmarks(updatedBookmarks);
+                userToUpdate.SetBookmarks(updatedUser.Bookmarks);
+                userToUpdate.SetFavorite(updatedUser.Favorite);
             }
         
             LoadUsersXml(path, users);

@@ -85,6 +85,14 @@
       <Resource Include="Icons\edit book icon.png" />
       <None Remove="Icons\make bookmark.png" />
       <Resource Include="Icons\make bookmark.png" />
+      <None Remove="Icons\heart.png" />
+      <Resource Include="Icons\heart.png" />
+      <None Remove="Icons\heart (1).png" />
+      <Resource Include="Icons\heart (1).png" />
+      <None Remove="Icons\heart (3).png" />
+      <Resource Include="Icons\heart (3).png" />
+      <None Remove="Icons\favorite_bookmark.png" />
+      <Resource Include="Icons\favorite_bookmark.png" />
     </ItemGroup>
 
     <ItemGroup>

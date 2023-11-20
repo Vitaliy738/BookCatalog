@@ -6,15 +6,63 @@
     <Bookmarks>
       <Bookmark>
         <Book>
-          <Author>Vitaliy</Author>
-          <Title>The voice of silence</Title>
-          <Year>2011</Year>
-          <Genre>sdgsdg</Genre>
-          <Description>sdgsdgsgs</Description>
-          <IconPath>C:\Users\Asus\OneDrive\Desktop\img-1458.jpg</IconPath>
+          <Author>Test3</Author>
+          <Title>Test3</Title>
+          <Year>Test3</Year>
+          <Genre>Test3</Genre>
+          <Description>Test3</Description>
+          <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\BookIcon.png</IconPath>
+        </Book>
+        <BookmarksType>Planned</BookmarksType>
+      </Bookmark>
+    </Bookmarks>
+    <Favorite>
+      <Bookmark>
+        <Book>
+          <Author>Test3</Author>
+          <Title>Test3</Title>
+          <Year>Test3</Year>
+          <Genre>Test3</Genre>
+          <Description>Test3</Description>
+          <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\BookIcon.png</IconPath>
+        </Book>
+        <BookmarksType>Favorite</BookmarksType>
+      </Bookmark>
+      <Bookmark>
+        <Book>
+          <Author>Title1</Author>
+          <Title>Title1</Title>
+          <Year>Title1</Year>
+          <Genre>Title1</Genre>
+          <Description>Title1</Description>
+          <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\BookIcon.png</IconPath>
+        </Book>
+        <BookmarksType>Favorite</BookmarksType>
+      </Bookmark>
+    </Favorite>
+  </User>
+  <User>
+    <Name>Ryan Gosling</Name>
+    <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\photo_2023-11-14_18-46-02.jpg</IconPath>
+    <Bookmarks>
+      <Bookmark>
+        <Book>
+          <Author>Title1</Author>
+          <Title>Title1</Title>
+          <Year>Title1</Year>
+          <Genre>Title1</Genre>
+          <Description>Title1</Description>
+          <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\BookIcon.png</IconPath>
         </Book>
         <BookmarksType>AlreadyRead</BookmarksType>
       </Bookmark>
     </Bookmarks>
+    <Favorite />
+  </User>
+  <User>
+    <Name>Brutal Ryan</Name>
+    <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\photo_2023-11-14_18-46-20.jpg</IconPath>
+    <Bookmarks />
+    <Favorite />
   </User>
 </ArrayOfUser>

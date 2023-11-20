@@ -1,26 +1,132 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+
     <Style BasedOn="{StaticResource {x:Type Button}}"
            TargetType="{x:Type Button}"
            x:Key="CatalogBookmarksToolTipTheme">
-        
+
         <Style.Setters>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border>
                             <Border.Background>
-                                <ImageBrush ImageSource ="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark (1).png"/>
+                                <ImageBrush
+                                    ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark (1).png" />
                             </Border.Background>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
+
+
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
         </Style.Setters>
+        
+        <Style.Triggers>
+            <!-- DataTrigger for the "Reading" bookmark -->
+            <DataTrigger Binding="{Binding Reading}" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border>
+                                <Border.Background>
+                                    <ImageBrush
+                                        ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark.png" />
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            
+            <!-- DataTrigger for the "Planned" bookmark -->
+            <DataTrigger Binding="{Binding Planned}" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border>
+                                <Border.Background>
+                                    <ImageBrush
+                                        ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark.png" />
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            
+            <!-- DataTrigger for the "AlreadyRead" bookmark -->
+            <DataTrigger Binding="{Binding AlreadyRead}" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border>
+                                <Border.Background>
+                                    <ImageBrush
+                                        ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark.png" />
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            
+            <!-- DataTrigger for the "Abandoned" bookmark -->
+            <DataTrigger Binding="{Binding Abandoned}" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border>
+                                <Border.Background>
+                                    <ImageBrush
+                                        ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark.png" />
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            
+            <!-- DataTrigger for the "Postponed" bookmark -->
+            <DataTrigger Binding="{Binding Postponed}" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border>
+                                <Border.Background>
+                                    <ImageBrush
+                                        ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark.png" />
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            
+            <!-- DataTrigger for the "NotInterested" bookmark -->
+            <DataTrigger Binding="{Binding NotInterested}" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border>
+                                <Border.Background>
+                                    <ImageBrush
+                                        ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark (1).png" />
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

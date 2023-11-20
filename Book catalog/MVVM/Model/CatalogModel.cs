@@ -8,7 +8,7 @@ namespace Book_catalog.MVVM.Model;
 
 public class CatalogModel
 {
-   public DataTable FillBookTable(ObservableCollection<Book> books, ObservableCollection<Bookmark> bookmarks)
+   public DataTable FillBookTable(ObservableCollection<Book> books, ObservableCollection<Bookmark> bookmarks, ObservableCollection<Bookmark> favorite)
     {
         DataTable booksTable = new DataTable();
 
@@ -26,6 +26,7 @@ public class CatalogModel
         booksTable.Columns.Add("AlreadyRead", typeof(bool));
         booksTable.Columns.Add("Abandoned", typeof(bool));
         booksTable.Columns.Add("Postponed", typeof(bool));
+        
         booksTable.Columns.Add("Favorite", typeof(bool));
         
         if (books != null)
@@ -33,6 +34,7 @@ public class CatalogModel
             foreach (var book in books)
             {
                 BookmarksType type = GetBookmarksType(book, bookmarks);
+                bool isFavorite = CheckFavorite(book, favorite);
                 
                 if(type != BookmarksType.NotInterested)
                 {
@@ -49,7 +51,7 @@ public class CatalogModel
                         type == BookmarksType.AlreadyRead,
                         type == BookmarksType.Abandoned,
                         type == BookmarksType.Postponed,
-                        type == BookmarksType.Favorite);
+                        isFavorite);
 
                 }
                 else
@@ -85,4 +87,20 @@ public class CatalogModel
         
         return BookmarksType.NotInterested;
     }
+
+   private bool CheckFavorite(Book book, ObservableCollection<Bookmark> favorite)
+   {
+       foreach (var item in favorite)
+       {
+           if (book.Title == item.Book.Title
+               && book.Author == item.Book.Author
+               && book.Year == item.Book.Year
+               && book.Description == item.Book.Description)
+           {
+               return true;
+           }
+       }
+       
+       return false;
+   }
 }

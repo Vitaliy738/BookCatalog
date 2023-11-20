@@ -128,6 +128,7 @@ public class CatalogViewModel : ObservableObject
     private string _catalogSource;
     private string _userDataSource;
     private string _usersDataSource;
+    
     private User _userData;
 
     public CatalogViewModel()
@@ -149,11 +150,13 @@ public class CatalogViewModel : ObservableObject
         _userData = _xmlHelper.ReadUserDataXml(_userDataSource);
 
         ObservableCollection<Bookmark> bookmarks = _userData.Bookmarks;
+        ObservableCollection<Bookmark> favorite = _userData.Favorite;
 
         Books = _xmlHelper.ReadBooksXml(_catalogSource);
-        Books.CollectionChanged += BooksOnCollectionChanged;
+        Books.CollectionChanged += BooksOnCollectionChangedAdd;
+        Books.CollectionChanged += BooksOnCollectionChangedRemove;
 
-        BooksTable = _catalogModel.FillBookTable(Books, bookmarks);
+        BooksTable = _catalogModel.FillBookTable(Books, bookmarks, favorite);
 
         SearchFilterCommand = new RelayCommand(_ =>
         {
@@ -273,7 +276,7 @@ public class CatalogViewModel : ObservableObject
         {
             _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.Planned));
             _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
-            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData.Name, _userData.Bookmarks);
+            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
 
             DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
             rowView["Reading"] = BookmarksType.Reading == BookmarksType.Planned;
@@ -281,7 +284,7 @@ public class CatalogViewModel : ObservableObject
             rowView["AlreadyRead"] = BookmarksType.AlreadyRead == BookmarksType.Planned;
             rowView["Abandoned"] = BookmarksType.Abandoned == BookmarksType.Planned;
             rowView["Postponed"] = BookmarksType.Postponed == BookmarksType.Planned;
-            rowView["Favorite"] = BookmarksType.Favorite == BookmarksType.Planned;
+            //rowView["Favorite"] = BookmarksType.Favorite == BookmarksType.Planned;
             //rowView["NotInterested"] = true;
             rowView.EndEdit();
 
@@ -292,7 +295,7 @@ public class CatalogViewModel : ObservableObject
         {
             _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.AlreadyRead));
             _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
-            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData.Name, _userData.Bookmarks);
+            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
 
             DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
             rowView["Reading"] = BookmarksType.Reading == BookmarksType.AlreadyRead;
@@ -300,7 +303,7 @@ public class CatalogViewModel : ObservableObject
             rowView["AlreadyRead"] = BookmarksType.AlreadyRead == BookmarksType.AlreadyRead;
             rowView["Abandoned"] = BookmarksType.Abandoned == BookmarksType.AlreadyRead;
             rowView["Postponed"] = BookmarksType.Postponed == BookmarksType.AlreadyRead;
-            rowView["Favorite"] = BookmarksType.Favorite == BookmarksType.AlreadyRead;
+            //rowView["Favorite"] = BookmarksType.Favorite == BookmarksType.AlreadyRead;
             //rowView["NotInterested"] = true;
             rowView.EndEdit();
 
@@ -311,7 +314,7 @@ public class CatalogViewModel : ObservableObject
         {
             _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.Reading));
             _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
-            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData.Name, _userData.Bookmarks);
+            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
 
             DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
             rowView["Reading"] = BookmarksType.Reading == BookmarksType.Reading;
@@ -319,7 +322,7 @@ public class CatalogViewModel : ObservableObject
             rowView["AlreadyRead"] = BookmarksType.AlreadyRead == BookmarksType.Reading;
             rowView["Abandoned"] = BookmarksType.Abandoned == BookmarksType.Reading;
             rowView["Postponed"] = BookmarksType.Postponed == BookmarksType.Reading;
-            rowView["Favorite"] = BookmarksType.Favorite == BookmarksType.Reading;
+            //rowView["Favorite"] = BookmarksType.Favorite == BookmarksType.Reading;
             //rowView["NotInterested"] = true;
             rowView.EndEdit();
 
@@ -328,28 +331,47 @@ public class CatalogViewModel : ObservableObject
 
         ToFavorite = new RelayCommand(_ =>
         {
-            _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.Favorite));
-            _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
-            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData.Name, _userData.Bookmarks);
-
-            DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
-            rowView["Reading"] = BookmarksType.Reading == BookmarksType.Favorite;
-            rowView["Planned"] = BookmarksType.Planned == BookmarksType.Favorite;
-            rowView["AlreadyRead"] = BookmarksType.AlreadyRead == BookmarksType.Favorite;
-            rowView["Abandoned"] = BookmarksType.Abandoned == BookmarksType.Favorite;
-            rowView["Postponed"] = BookmarksType.Postponed == BookmarksType.Favorite;
-            rowView["Favorite"] = BookmarksType.Favorite == BookmarksType.Favorite;
-            //rowView["NotInterested"] = true;
-            rowView.EndEdit();
-
-            OnPropertyChanged("BooksTable");
+            if(!(bool)BooksTable.DefaultView[SelectedBookIndex]["Favorite"])
+            {
+                _userData.AddFavorite(new Bookmark(_selectedBook, BookmarksType.Favorite));
+                _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
+                _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
+                
+                DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
+                // rowView["Reading"] = BookmarksType.Reading == BookmarksType.Favorite;
+                // rowView["Planned"] = BookmarksType.Planned == BookmarksType.Favorite;
+                // rowView["AlreadyRead"] = BookmarksType.AlreadyRead == BookmarksType.Favorite;
+                // rowView["Abandoned"] = BookmarksType.Abandoned == BookmarksType.Favorite;
+                // rowView["Postponed"] = BookmarksType.Postponed == BookmarksType.Favorite;
+                rowView["Favorite"] = BookmarksType.Favorite == BookmarksType.Favorite;
+                rowView.EndEdit();
+                
+                OnPropertyChanged("BooksTable");
+            }
+            else if((bool)BooksTable.DefaultView[SelectedBookIndex]["Favorite"])
+            {
+                _userData.RemoveFavorite(_selectedBook);
+                _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
+                _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
+                
+                DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
+                // rowView["Reading"] = BookmarksType.Reading == BookmarksType.Favorite;
+                // rowView["Planned"] = BookmarksType.Planned == BookmarksType.Favorite;
+                // rowView["AlreadyRead"] = BookmarksType.AlreadyRead == BookmarksType.Favorite;
+                // rowView["Abandoned"] = BookmarksType.Abandoned == BookmarksType.Favorite;
+                // rowView["Postponed"] = BookmarksType.Postponed == BookmarksType.Favorite;
+                rowView["Favorite"] = BookmarksType.Favorite != BookmarksType.Favorite;
+                rowView.EndEdit();
+                
+                OnPropertyChanged("BooksTable");
+            }
         });
 
         ToPostponed = new RelayCommand(_ =>
         {
             _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.Postponed));
             _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
-            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData.Name, _userData.Bookmarks);
+            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
 
             DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
             rowView["Reading"] = BookmarksType.Reading == BookmarksType.Postponed;
@@ -357,7 +379,7 @@ public class CatalogViewModel : ObservableObject
             rowView["AlreadyRead"] = BookmarksType.AlreadyRead == BookmarksType.Postponed;
             rowView["Abandoned"] = BookmarksType.Abandoned == BookmarksType.Postponed;
             rowView["Postponed"] = BookmarksType.Postponed == BookmarksType.Postponed;
-            rowView["Favorite"] = BookmarksType.Favorite == BookmarksType.Postponed;
+            //rowView["Favorite"] = BookmarksType.Favorite == BookmarksType.Postponed;
             //rowView["NotInterested"] = true;
             rowView.EndEdit();
 
@@ -368,7 +390,7 @@ public class CatalogViewModel : ObservableObject
         {
             _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.Abandoned));
             _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
-            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData.Name, _userData.Bookmarks);
+            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
 
             DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
             rowView["Reading"] = BookmarksType.Reading == BookmarksType.Abandoned;
@@ -376,73 +398,83 @@ public class CatalogViewModel : ObservableObject
             rowView["AlreadyRead"] = BookmarksType.AlreadyRead == BookmarksType.Abandoned;
             rowView["Abandoned"] = BookmarksType.Abandoned == BookmarksType.Abandoned;
             rowView["Postponed"] = BookmarksType.Postponed == BookmarksType.Abandoned;
-            rowView["Favorite"] = BookmarksType.Favorite == BookmarksType.Abandoned;
+            //rowView["Favorite"] = BookmarksType.Favorite == BookmarksType.Abandoned;
             //rowView["NotInterested"] = true;
             rowView.EndEdit();
 
             OnPropertyChanged("BooksTable");
         });
 
-        //     ToNotInterested = new RelayCommand(_ =>
-        //     {
-        //         _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.NotInterested));
-        //         _xmlHelper);
-        // }
+        ToNotInterested = new RelayCommand(_ =>
+        {
+            _userData.RemoveBookmark(_selectedBook);
+            _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
+            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
+
+            DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
+            rowView["Reading"] = false;
+            rowView["Planned"] = false;
+            rowView["AlreadyRead"] = false;
+            rowView["Abandoned"] = false;
+            rowView["Postponed"] =false;
+            //rowView["Favorite"] = false;
+            rowView.EndEdit();
+
+            OnPropertyChanged("BooksTable");
+        });
     }
 
-    private void BooksOnCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+    private void BooksOnCollectionChangedAdd(object? sender, NotifyCollectionChangedEventArgs e)
     {
-        switch (e.Action)
+        if (NotifyCollectionChangedAction.Add == e.Action)
         {
-            case NotifyCollectionChangedAction.Add:
+            var newBooks = _xmlHelper.ReadBooksXml(_catalogSource);
+             
+            foreach (var book in e.NewItems)
             {
-                var newBooks = _xmlHelper.ReadBooksXml(_catalogSource);
- 
-                foreach (var book in e.NewItems)
+                if (book is Book)
                 {
-                    if (book is Book)
-                    {
-                        var newBook = book as Book;
-                        
-                        newBooks.Add(newBook);
-                        BooksTable.Rows.Add(newBook.Author, 
-                            newBook.Title, 
-                            newBook.Year,
-                            newBook.Genre, 
-                            newBook.IconPath,
-                            newBook.Description,
-                            newBook,
-                            BookmarksType.NotInterested, 
-                            false, false, false, false, false, false);
-                    }
+                    var newBook = book as Book;
+                                    
+                    newBooks.Add(newBook);
+                    BooksTable.Rows.Add(newBook.Author, 
+                        newBook.Title, 
+                        newBook.Year,
+                        newBook.Genre, 
+                        newBook.IconPath,
+                        newBook.Description,
+                        newBook,
+                        BookmarksType.NotInterested, 
+                        false, false, false, false, false, false);
                 }
-
-                _xmlHelper.LoadBooksXml(_catalogSource, newBooks);
-                MessageBox.Show("Book has been successfully added");
-                OnPropertyChanged("BooksTable");
-                break;
             }
-            case NotifyCollectionChangedAction.Remove:
-            {
-                if (SelectedBookIndex >= 0)
-                {
-                    DataRow[] rows = BooksTable.Select($"Author LIKE '%{_selectedBook.Author}%'" +
-                                                       $"AND Name LIKE '%{_selectedBook.Title}%'" +
-                                                       $"AND Year LIKE '%{_selectedBook.Year}%'" +
-                                                       $"AND IconPath LIKE '%{_selectedBook.IconPath}%'");
+            
+            _xmlHelper.LoadBooksXml(_catalogSource, newBooks);
+            MessageBox.Show("Book has been successfully added");
+            OnPropertyChanged("BooksTable");
+        }
+        
+    }
+    
+    private void BooksOnCollectionChangedRemove(object? sender, NotifyCollectionChangedEventArgs e)
+    {
+        
+        if (SelectedBookIndex >= 0 && NotifyCollectionChangedAction.Remove == e.Action)
+        {
+            DataRow[] rows = BooksTable.Select($"Author LIKE '%{_selectedBook.Author}%'" +
+                                               $"AND Name LIKE '%{_selectedBook.Title}%'" +
+                                               $"AND Year LIKE '%{_selectedBook.Year}%'" +
+                                               $"AND IconPath LIKE '%{_selectedBook.IconPath}%'");
                 
-                    if (rows.Length > 0)
-                    {
-                        BooksTable.Rows.Remove(rows[0]);
-                        _selectedBookIndex = -1;
-                        _xmlHelper.LoadBooksXml(_catalogSource, Books);
-                        OnPropertyChanged("BooksTable");
-                    }
-                }
-
-                break;
+            if (rows.Length > 0)
+            {
+                BooksTable.Rows.Remove(rows[0]);
+                _selectedBookIndex = -1;
+                _xmlHelper.LoadBooksXml(_catalogSource, Books);
+                OnPropertyChanged("BooksTable");
             }
         }
+
     }
 
     // Обробник події додавання книжки

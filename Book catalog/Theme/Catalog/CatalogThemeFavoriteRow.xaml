@@ -1,0 +1,65 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Style BasedOn="{StaticResource {x:Type Button}}"
+           TargetType="{x:Type Button}"
+           x:Key="CatalogBookmarksFavoriteRowTheme">
+
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush
+                                    ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\heart (1).png" />
+                            </Border.Background>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style.Setters>
+
+        <Style.Triggers>
+            
+            <!-- DataTrigger for the "Favorite" bookmark -->
+            <DataTrigger Binding="{Binding Favorite}" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border>
+                                <Border.Background>
+                                    <ImageBrush
+                                        ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\heart.png" />
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            
+            <!-- DataTrigger for the "Favorite" bookmark -->
+            <DataTrigger Binding="{Binding Favorite}" Value="False">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border>
+                                <Border.Background>
+                                    <ImageBrush
+                                        ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\heart (1).png" />
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

@@ -26,6 +26,8 @@
                  <ResourceDictionary Source="/Theme/Catalog/CatalogThemeBookmarksToolTip.xaml"/>
                  <ResourceDictionary Source="/Theme/Catalog/CatalogThemeOptionsButton.xaml"/>
                  <ResourceDictionary Source="/Theme/Catalog/CatalogThemeRowDetailsUpArrow.xaml"/>
+                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeFavoriteButton.xaml"/>
+                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeFavoriteRow.xaml"/>
                  
                  <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeAuthorBox.xaml"/>
                  <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeNameBox.xaml"/>
