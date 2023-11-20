@@ -66,3 +66,7 @@ C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\T
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog_Content.g.cs
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\Catalog\CatalogThemeFavoriteButton.baml
 C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Theme\Catalog\CatalogThemeFavoriteRow.baml
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\bin\Debug\net7.0-windows\CatalogManagement.dll
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\bin\Debug\net7.0-windows\CatalogManagement.pdb
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog.csproj.AssemblyReference.cache
+C:\Users\Asus\RiderProjects\Book catalog\Book catalog\obj\Debug\net7.0-windows\Book catalog.csproj.CopyComplete

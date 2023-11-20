@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 
 namespace Book_catalog.MVVM.Model;
 
+
 public class CatalogModel
 {
    public DataTable FillBookTable(ObservableCollection<Book> books, ObservableCollection<Bookmark> bookmarks, ObservableCollection<Bookmark> favorite)

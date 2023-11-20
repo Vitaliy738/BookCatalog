@@ -12,6 +12,17 @@
         <Description>Test3</Description>
         <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\BookIcon.png</IconPath>
       </Book>
+      <BookmarksType>AlreadyRead</BookmarksType>
+    </Bookmark>
+    <Bookmark>
+      <Book>
+        <Author>Title1</Author>
+        <Title>Title1</Title>
+        <Year>Title1</Year>
+        <Genre>Title1</Genre>
+        <Description>Title1</Description>
+        <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\BookIcon.png</IconPath>
+      </Book>
       <BookmarksType>Planned</BookmarksType>
     </Bookmark>
   </Bookmarks>
@@ -23,17 +34,6 @@
         <Year>Test3</Year>
         <Genre>Test3</Genre>
         <Description>Test3</Description>
-        <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\BookIcon.png</IconPath>
-      </Book>
-      <BookmarksType>Favorite</BookmarksType>
-    </Bookmark>
-    <Bookmark>
-      <Book>
-        <Author>Title1</Author>
-        <Title>Title1</Title>
-        <Year>Title1</Year>
-        <Genre>Title1</Genre>
-        <Description>Title1</Description>
         <IconPath>C:\Users\Asus\RiderProjects\Book catalog\Book catalog\Icons\BookIcon.png</IconPath>
       </Book>
       <BookmarksType>Favorite</BookmarksType>

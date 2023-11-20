@@ -107,4 +107,8 @@
       <Content Include="obj\Debug\net7.0-windows\MVVM\View\OptionsView.baml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\CatalogManagement\CatalogManagement.csproj" />
+    </ItemGroup>
+
 </Project>
