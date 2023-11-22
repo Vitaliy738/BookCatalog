@@ -61,17 +61,6 @@
       </Bookmark>
       <Bookmark>
         <Book>
-          <Author>Ли Бардуго</Author>
-          <Title>Продажное королевство</Title>
-          <Year>2018</Year>
-          <Genre />
-          <Description />
-          <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\book\boocover (11).jpg</IconPath>
-        </Book>
-        <BookmarksType>Reading</BookmarksType>
-      </Bookmark>
-      <Bookmark>
-        <Book>
           <Author>Борис Васильев</Author>
           <Title>А зори здесь тихие...</Title>
           <Year>2020</Year>
@@ -80,17 +69,6 @@
           <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\book\boocover (12).jpg</IconPath>
         </Book>
         <BookmarksType>Planned</BookmarksType>
-      </Bookmark>
-      <Bookmark>
-        <Book>
-          <Author>Стивен Кинг</Author>
-          <Title>Зелёная миля</Title>
-          <Year>2014</Year>
-          <Genre />
-          <Description>Стивен Кинг приглашает читателей в жуткий мир тюремного блока смертников, откуда уходят, чтобы не вернуться, приоткрывает дверь последнего пристанища тех, кто преступил не только человеческий, но и Божий закон. По эту сторону электрического стула нет более смертоносного местечка! Ничто из того, что вы читали раньше, не сравнится с самым дерзким из ужасных опытов Стивена Кинга - с историей, что начинается на Дороге Смерти и уходит в глубины самых чудовищных тайн человеческой души...</Description>
-          <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\book\boocover (1).jpg</IconPath>
-        </Book>
-        <BookmarksType>Abandoned</BookmarksType>
       </Bookmark>
       <Bookmark>
         <Book>
@@ -147,6 +125,39 @@
         </Book>
         <BookmarksType>AlreadyRead</BookmarksType>
       </Bookmark>
+      <Bookmark>
+        <Book>
+          <Author>Стивен Кинг</Author>
+          <Title>Зелёная миля</Title>
+          <Year>2014</Year>
+          <Genre />
+          <Description>Стивен Кинг приглашает читателей в жуткий мир тюремного блока смертников, откуда уходят, чтобы не вернуться, приоткрывает дверь последнего пристанища тех, кто преступил не только человеческий, но и Божий закон. По эту сторону электрического стула нет более смертоносного местечка! Ничто из того, что вы читали раньше, не сравнится с самым дерзким из ужасных опытов Стивена Кинга - с историей, что начинается на Дороге Смерти и уходит в глубины самых чудовищных тайн человеческой души...</Description>
+          <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\book\boocover (1).jpg</IconPath>
+        </Book>
+        <BookmarksType>Abandoned</BookmarksType>
+      </Bookmark>
+      <Bookmark>
+        <Book>
+          <Author>Ли Бардуго</Author>
+          <Title>Продажное королевство</Title>
+          <Year>2018</Year>
+          <Genre />
+          <Description />
+          <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\book\boocover (11).jpg</IconPath>
+        </Book>
+        <BookmarksType>Reading</BookmarksType>
+      </Bookmark>
+      <Bookmark>
+        <Book>
+          <Author>Стивен Кинг</Author>
+          <Title>11/22/63</Title>
+          <Year>2021</Year>
+          <Genre />
+          <Description>Этот роман безоговорочно признают лучшей книгой Стивена Кинга и миллионы фанатов писателя, и серьезные литературные критики. …Убийство президента Кеннеди стало самым трагическим событием американской истории ХХ века. Тайна его до сих пор не раскрыта. Но что, если случится чудо? Если появится возможность отправиться в прошлое и предотвратить катастрофу? Это предстоит выяснить обычному учителю из маленького городка Джейку Эппингу, получившему доступ к временному порталу. Его цель - спасти Кеннеди. Но какова будет цена спасения?</Description>
+          <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\book\boocover (22).jpg</IconPath>
+        </Book>
+        <BookmarksType>AlreadyRead</BookmarksType>
+      </Bookmark>
     </Bookmarks>
     <Favorite>
       <Bookmark>
@@ -162,23 +173,34 @@
       </Bookmark>
       <Bookmark>
         <Book>
-          <Author>Анджей Сапковский</Author>
-          <Title>Ведьмак: Меч Предназначения (сборник)</Title>
-          <Year>2021</Year>
-          <Genre />
-          <Description>Ведьмак - это мастер меча и мэтр волшебства, ведущий непрерывную войну с кровожадными монстрами, которые угрожают покою сказочной страны. "Ведьмак" - это мир на острие меча, ошеломляющее действие, незабываемые ситуации, великолепные боевые сцены. Сага Анджея Сапковского занимает одно из первых мест в отечественных и зарубежных списках лучшего фэнтези, а Геральт, культовый персонаж литературы и компьютерных игр, уже во второй раз появляется на телеэкранах.</Description>
-          <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\book\boocover (21).jpg</IconPath>
-        </Book>
-        <BookmarksType>Favorite</BookmarksType>
-      </Bookmark>
-      <Bookmark>
-        <Book>
           <Author>Александр Дюма</Author>
           <Title>Граф Монте-Кристо</Title>
           <Year />
           <Genre />
           <Description />
           <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\book\boocover (8).jpg</IconPath>
+        </Book>
+        <BookmarksType>Favorite</BookmarksType>
+      </Bookmark>
+      <Bookmark>
+        <Book>
+          <Author>Стивен Кинг</Author>
+          <Title>11/22/63</Title>
+          <Year>2021</Year>
+          <Genre />
+          <Description>Этот роман безоговорочно признают лучшей книгой Стивена Кинга и миллионы фанатов писателя, и серьезные литературные критики. …Убийство президента Кеннеди стало самым трагическим событием американской истории ХХ века. Тайна его до сих пор не раскрыта. Но что, если случится чудо? Если появится возможность отправиться в прошлое и предотвратить катастрофу? Это предстоит выяснить обычному учителю из маленького городка Джейку Эппингу, получившему доступ к временному порталу. Его цель - спасти Кеннеди. Но какова будет цена спасения?</Description>
+          <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\book\boocover (22).jpg</IconPath>
+        </Book>
+        <BookmarksType>Favorite</BookmarksType>
+      </Bookmark>
+      <Bookmark>
+        <Book>
+          <Author>Ли Бардуго</Author>
+          <Title>Продажное королевство</Title>
+          <Year>2018</Year>
+          <Genre />
+          <Description />
+          <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\book\boocover (11).jpg</IconPath>
         </Book>
         <BookmarksType>Favorite</BookmarksType>
       </Bookmark>
@@ -200,7 +222,19 @@
         <BookmarksType>Planned</BookmarksType>
       </Bookmark>
     </Bookmarks>
-    <Favorite />
+    <Favorite>
+      <Bookmark>
+        <Book>
+          <Author>Джоан Роулинг</Author>
+          <Title>Гарри Поттер и узник Азкабана</Title>
+          <Year>2019</Year>
+          <Genre />
+          <Description>Гарри взрослеет, и вместе с тем жить в Хогвартсе всё страшнее. Из тюрьмы для волшебников Азкабан сбежал опасный преступник - Сириус Блэк. Мир наполнился слухами, что он ищет и хочет убить одного тринадцатилетнего парня, совсем обычного на первый взгляд. Его имя - Гарри Поттер.</Description>
+          <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\book\boocover.jpg</IconPath>
+        </Book>
+        <BookmarksType>Favorite</BookmarksType>
+      </Bookmark>
+    </Favorite>
   </User>
   <User>
     <Name>Brutal Ryan</Name>

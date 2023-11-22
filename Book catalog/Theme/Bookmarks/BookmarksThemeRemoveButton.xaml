@@ -10,15 +10,11 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border>
-                            <!-- <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" /> -->
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="../../Icons/trash.png"
                                        Margin="5"
                                        Height="18" Width="18"
                                        VerticalAlignment="Center"/>
-                                <!-- <TextBlock Background="Transparent" -->
-                                <!--            Text="Remove" FontSize="14" -->
-                                <!--            VerticalAlignment="Center"/> -->
                             </StackPanel>
                         </Border>
                     </ControlTemplate>

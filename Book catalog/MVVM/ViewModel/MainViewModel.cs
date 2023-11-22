@@ -1,4 +1,5 @@
 using Book_catalog.Core;
+using Book_catalog.MVVM.View;
 
 namespace Book_catalog.MVVM.ViewModel;
 

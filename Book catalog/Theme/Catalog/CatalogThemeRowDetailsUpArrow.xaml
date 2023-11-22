@@ -11,7 +11,7 @@
                     <ControlTemplate TargetType="Button">
                         <Border>
                             <Border.Background>
-                                <ImageBrush ImageSource ="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\up-arrow.png"/>
+                                <ImageBrush ImageSource ="../../Icons/up-arrow.png"/>
                             </Border.Background>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>

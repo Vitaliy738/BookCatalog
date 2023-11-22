@@ -18,9 +18,7 @@ public class ModifyViewModel : ObservableObject
     public string ModifyShortDescription { get; set; }
     public string ModifyIconPath { get; set; }
 
-    public ModifyViewModel()
-    {}
-    
+    public ModifyViewModel(){}
     public ModifyViewModel(Book book)
     {
         ModifyTitle = book.Title;

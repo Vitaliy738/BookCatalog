@@ -12,7 +12,7 @@
                         <Border>
                             <Border.Background>
                                 <ImageBrush
-                                    ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark (1).png" />
+                                    ImageSource="../../Icons/bookmark (1).png" />
                             </Border.Background>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
@@ -34,7 +34,7 @@
                             <Border>
                                 <Border.Background>
                                     <ImageBrush
-                                        ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark.png" />
+                                        ImageSource="../../Icons/bookmark.png" />
                                 </Border.Background>
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Border>
@@ -51,7 +51,7 @@
                             <Border>
                                 <Border.Background>
                                     <ImageBrush
-                                        ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark.png" />
+                                        ImageSource="../../Icons/bookmark.png" />
                                 </Border.Background>
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Border>
@@ -68,7 +68,7 @@
                             <Border>
                                 <Border.Background>
                                     <ImageBrush
-                                        ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark.png" />
+                                        ImageSource="../../Icons/bookmark.png" />
                                 </Border.Background>
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Border>
@@ -85,7 +85,7 @@
                             <Border>
                                 <Border.Background>
                                     <ImageBrush
-                                        ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark.png" />
+                                        ImageSource="../../Icons/bookmark.png" />
                                 </Border.Background>
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Border>
@@ -102,7 +102,7 @@
                             <Border>
                                 <Border.Background>
                                     <ImageBrush
-                                        ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark.png" />
+                                        ImageSource="../../Icons/bookmark.png" />
                                 </Border.Background>
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Border>
@@ -119,7 +119,7 @@
                             <Border>
                                 <Border.Background>
                                     <ImageBrush
-                                        ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\bookmark (1).png" />
+                                        ImageSource="../../Icons/bookmark (1).png" />
                                 </Border.Background>
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Border>

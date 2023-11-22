@@ -50,27 +50,53 @@
 
                     <TextBlock Margin="15 0 0 5"
                                Text="Favorite books"
-                               FontSize="18" />
+                               FontSize="18" >
+                        
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding FirstBook}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
 
                     <!-- Favorite book panels -->
+                    <!-- First -->
                     <StackPanel Grid.Column="0"
                                 Grid.Row="1"
                                 Margin="5">
 
                         <Border Background="#E4EBF1"
+                                BorderBrush="Black"
+                                
                                 CornerRadius="10"
-                                BorderThickness="1"
-                                BorderBrush="Black">
+                                BorderThickness="1">
+                            
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="../../Icons/BookIcon.png"
-                                       Margin="2"
-                                       Height="53" />
-                                <TextBlock Text="Book name"
+                                <Image Source="{Binding FirstBook.IconPath}"
+                                       Margin="5"
+                                       Height="50" />
+                                <TextBlock Text="{Binding FirstBook.Title}"
                                            FontSize="16"
                                            Margin="15 0 0 0" />
                             </StackPanel>
                         </Border>
+                        
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding FirstBook}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
                     </StackPanel>
+                    
+                    <!-- Second -->
                     <StackPanel Grid.Column="1"
                                 Grid.Row="1"
                                 Margin="5">
@@ -80,15 +106,27 @@
                                 BorderThickness="1"
                                 BorderBrush="Black">
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="../../Icons/BookIcon.png"
-                                       Margin="2"
-                                       Height="53" />
-                                <TextBlock Text="Book name"
+                                <Image Source="{Binding SecondBook.IconPath}"
+                                       Margin="5"
+                                       Height="50" />
+                                <TextBlock Text="{Binding SecondBook.Title}"
                                            FontSize="16"
                                            Margin="15 0 0 0" />
                             </StackPanel>
                         </Border>
+                        
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SecondBook}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
                     </StackPanel>
+                    
+                    <!-- Third -->
                     <StackPanel Grid.Column="0"
                                 Grid.Row="2"
                                 Margin="5">
@@ -98,15 +136,27 @@
                                 BorderThickness="1"
                                 BorderBrush="Black">
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="../../Icons/BookIcon.png"
-                                       Margin="2"
-                                       Height="53" />
-                                <TextBlock Text="Book name"
+                                <Image Source="{Binding ThirdBook.IconPath}"
+                                       Margin="5"
+                                       Height="50" />
+                                <TextBlock Text="{Binding ThirdBook.Title}"
                                            FontSize="16"
                                            Margin="15 0 0 0" />
                             </StackPanel>
                         </Border>
+                        
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ThirdBook}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
                     </StackPanel>
+                    
+                    <!-- Fourth -->
                     <StackPanel Grid.Column="1"
                                 Grid.Row="2"
                                 Margin="5">
@@ -116,14 +166,24 @@
                                 BorderThickness="1"
                                 BorderBrush="Black">
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="../../Icons/BookIcon.png"
-                                       Margin="2"
-                                       Height="53" />
-                                <TextBlock Text="Book name"
+                                <Image Source="{Binding FourthBook.IconPath}"
+                                       Margin="5"
+                                       Height="50" />
+                                <TextBlock Text="{Binding FourthBook.Title}"
                                            FontSize="16"
                                            Margin="15 0 0 0" />
                             </StackPanel>
                         </Border>
+                        
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding FourthBook}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
                     </StackPanel>
 
                     <!-- Main info panel -->
@@ -136,34 +196,42 @@
 
                                 <StackPanel Orientation="Horizontal">
                                     <Rectangle Fill="#649c65" Width="16" Height="16" RadiusX="5"
-                                               RadiusY="5" Margin="10" />
+                                               RadiusY="5" Margin="10" 
+                                               VerticalAlignment="Center"/>
                                     <TextBlock Text="{Binding ReadingRead}"
                                                Margin="5"
-                                               FontSize="16" />
+                                               FontSize="16" 
+                                               VerticalAlignment="Center"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <Rectangle Fill="#9e68a2" Width="16" Height="16" RadiusX="5"
-                                               RadiusY="5" Margin="10" />
+                                               RadiusY="5" Margin="10" 
+                                               VerticalAlignment="Center"/>
                                     <TextBlock Text="{Binding PlannedRead}"
                                                Margin="5"
-                                               FontSize="16" />
+                                               FontSize="16" 
+                                               VerticalAlignment="Center"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <Rectangle Fill="#5d86a0" Width="16" Height="16" RadiusX="5"
-                                               RadiusY="5" Margin="10" />
+                                               RadiusY="5" Margin="10" 
+                                               VerticalAlignment="Center"/>
                                     <TextBlock Text="{Binding AlreadyRead}"
                                                Margin="5"
-                                               FontSize="16" />
+                                               FontSize="16" 
+                                               VerticalAlignment="Center"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <Rectangle Fill="#cd912e" Width="16" Height="16" RadiusX="5"
-                                               RadiusY="5" Margin="10" />
+                                               RadiusY="5" Margin="10" 
+                                               VerticalAlignment="Center"/>
                                     <TextBlock Text="{Binding PostponedRead}"
                                                Margin="5"
-                                               FontSize="16" />
+                                               FontSize="16" 
+                                               VerticalAlignment="Center"/>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">

@@ -12,7 +12,7 @@
                         <Border>
                             <Border.Background>
                                 <ImageBrush
-                                    ImageSource="C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\heart (3).png" />
+                                    ImageSource="../../Icons/heart (3).png" />
                             </Border.Background>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>

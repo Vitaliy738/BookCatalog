@@ -20,8 +20,8 @@ public class BookmarksViewModel : ObservableObject
     public RelayCommand RemoveCommand { get; set; }
     public RelayCommand Command { get; set; }
     
-    private string _userSource;
-    private string _usersSource;
+    private string _userDataSource;
+    private string _userCatalogSource;
     private User? _user;
     
     private XmlHelper _options;
@@ -51,10 +51,12 @@ public class BookmarksViewModel : ObservableObject
     
     public BookmarksViewModel()
     {
+        PathCollection pathCollection = new PathCollection();
+        
         SelectedBookmarkIndex = -1;
         
-        _userSource = "../../../../Book catalog/UserData.xml";
-        _usersSource = "../../../../Book catalog/UserCatalog.xml";
+        _userDataSource = pathCollection.UserDataSource;
+        _userCatalogSource = pathCollection.UserCatalogSource;
 
         // Uri resourceUri = new Uri("pack://application:,,,UserData.xml");
         // _userSource = resourceUri.ToString();
@@ -62,7 +64,7 @@ public class BookmarksViewModel : ObservableObject
         _options = new XmlHelper();
         _bookmarksModel = new BookmarksModel();
 
-        _user = _options.ReadUserDataXml(_userSource);
+        _user = _options.ReadUserDataXml(_userDataSource);
         if (_user != null)
         {
             ObservableCollection<Bookmark> userFavorite = _user.GetFavorite();
@@ -107,8 +109,8 @@ public class BookmarksViewModel : ObservableObject
             _user.SetBookmarks(userBookmarks);
             _user.SetFavorite(userFavorite);
             
-            _options.UpdateUserDataXml(_userSource, _user);
-            _options.UpdateUserBookmarks(_usersSource, _user);
+            _options.UpdateUserDataXml(_userDataSource, _user);
+            _options.UpdateUserBookmarks(_userCatalogSource, _user);
 
             BooksTable.Rows.RemoveAt(SelectedBookmarkIndex);
             OnPropertyChanged("BooksTable");

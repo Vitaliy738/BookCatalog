@@ -14,9 +14,9 @@ public class OptionsViewModel : ObservableObject
     
     private readonly XmlHelper _options;
 
-    private readonly string _userSource;
+    private string _userCatalogSource;
 
-    private readonly string _userDataSource;
+    private string _userDataSource;
     
     public ObservableCollection<User> Users { get; private set; }
 
@@ -29,7 +29,7 @@ public class OptionsViewModel : ObservableObject
         set
         {
             _selectedUser = value;
-            _options.LoadUsersXml(_userSource, Users);
+            _options.LoadUsersXml(_userCatalogSource, Users);
             _options.UpdateUserDataXml(_userDataSource, value);
             OnPropertyChanged("SelectedUser");
         }
@@ -37,12 +37,14 @@ public class OptionsViewModel : ObservableObject
     
     public OptionsViewModel()
     {
+        PathCollection pathCollection = new PathCollection();
+        
         _options = new XmlHelper();
         
-        _userSource = "../../../../Book catalog/UserCatalog.xml";
-        _userDataSource = "../../../../Book catalog/UserData.xml";
+        _userCatalogSource = pathCollection.UserCatalogSource;
+        _userDataSource = pathCollection.UserDataSource;
 
-        Users = _options.ReadUsersXml(_userSource);
+        Users = _options.ReadUsersXml(_userCatalogSource);
         
         User? userData = _options.ReadUserDataXml(_userDataSource);
         if (userData != null)

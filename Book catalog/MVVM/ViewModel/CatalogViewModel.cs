@@ -129,12 +129,14 @@ public class CatalogViewModel : ObservableObject
 
     private string _catalogSource;
     private string _userDataSource;
-    private string _usersDataSource;
+    private string _userCatalogSource;
     
     private User _userData;
 
     public CatalogViewModel()
     {
+        PathCollection pathCollection = new PathCollection();
+        
         _xmlHelper = new XmlHelper();
         _catalogModel = new CatalogModel();
 
@@ -145,9 +147,9 @@ public class CatalogViewModel : ObservableObject
         IsSortedYear = false;
         IsSortedAuthor = false;
         
-        _catalogSource = "../../../../Book catalog/BookCatalog.xml";
-        _userDataSource = "../../../../Book catalog/UserData.xml";
-        _usersDataSource = "../../../../Book catalog/UserCatalog.xml";
+        _catalogSource = pathCollection.BookCatalogSource;
+        _userDataSource = pathCollection.UserDataSource;
+        _userCatalogSource = pathCollection.UserCatalogSource;
         
         _userData = _xmlHelper.ReadUserDataXml(_userDataSource);
         
@@ -278,7 +280,7 @@ public class CatalogViewModel : ObservableObject
         {
             _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.Planned));
             _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
-            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
+            _xmlHelper.UpdateUserBookmarks(_userCatalogSource, _userData);
 
             DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
             rowView["Reading"] = BookmarksType.Reading == BookmarksType.Planned;
@@ -297,7 +299,7 @@ public class CatalogViewModel : ObservableObject
         {
             _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.AlreadyRead));
             _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
-            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
+            _xmlHelper.UpdateUserBookmarks(_userCatalogSource, _userData);
 
             DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
             rowView["Reading"] = BookmarksType.Reading == BookmarksType.AlreadyRead;
@@ -316,7 +318,7 @@ public class CatalogViewModel : ObservableObject
         {
             _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.Reading));
             _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
-            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
+            _xmlHelper.UpdateUserBookmarks(_userCatalogSource, _userData);
 
             DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
             rowView["Reading"] = BookmarksType.Reading == BookmarksType.Reading;
@@ -337,7 +339,7 @@ public class CatalogViewModel : ObservableObject
             {
                 _userData.AddFavorite(new Bookmark(_selectedBook, BookmarksType.Favorite));
                 _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
-                _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
+                _xmlHelper.UpdateUserBookmarks(_userCatalogSource, _userData);
                 
                 DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
                 // rowView["Reading"] = BookmarksType.Reading == BookmarksType.Favorite;
@@ -354,7 +356,7 @@ public class CatalogViewModel : ObservableObject
             {
                 _userData.RemoveFavorite(_selectedBook);
                 _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
-                _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
+                _xmlHelper.UpdateUserBookmarks(_userCatalogSource, _userData);
                 
                 DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
                 // rowView["Reading"] = BookmarksType.Reading == BookmarksType.Favorite;
@@ -373,7 +375,7 @@ public class CatalogViewModel : ObservableObject
         {
             _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.Postponed));
             _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
-            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
+            _xmlHelper.UpdateUserBookmarks(_userCatalogSource, _userData);
 
             DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
             rowView["Reading"] = BookmarksType.Reading == BookmarksType.Postponed;
@@ -392,7 +394,7 @@ public class CatalogViewModel : ObservableObject
         {
             _userData.AddBookmark(new Bookmark(_selectedBook, BookmarksType.Abandoned));
             _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
-            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
+            _xmlHelper.UpdateUserBookmarks(_userCatalogSource, _userData);
 
             DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
             rowView["Reading"] = BookmarksType.Reading == BookmarksType.Abandoned;
@@ -411,7 +413,7 @@ public class CatalogViewModel : ObservableObject
         {
             _userData.RemoveBookmark(_selectedBook);
             _xmlHelper.UpdateUserDataXml(_userDataSource, _userData);
-            _xmlHelper.UpdateUserBookmarks(_usersDataSource, _userData);
+            _xmlHelper.UpdateUserBookmarks(_userCatalogSource, _userData);
 
             DataRowView rowView = BooksTable.DefaultView[SelectedBookIndex];
             rowView["Reading"] = false;
