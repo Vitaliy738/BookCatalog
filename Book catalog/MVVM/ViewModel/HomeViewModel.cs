@@ -24,17 +24,17 @@ public class HomeViewModel : ObservableObject
     
     public HomeViewModel()
     {
-        _userDataSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\UserData.xml";
+        _userDataSource = "../../../../Book catalog/UserData.xml";
         _options = new XmlHelper();
 
         User = _options.ReadUserDataXml(_userDataSource);
         if (User != null)
         {
-            AlreadyRead = $"Already read: {User.Bookmarks.Where(bookmark => bookmark.BookmarksType == BookmarksType.AlreadyRead).Count()}";
-            ReadingRead = $"Reading: {User.Bookmarks.Where(bookmark => bookmark.BookmarksType == BookmarksType.Reading).Count()}";
-            PlannedRead = $"Planned: {User.Bookmarks.Where(bookmark => bookmark.BookmarksType == BookmarksType.Planned).Count()}";
-            AbandonedRead = $"Abandoned: {User.Bookmarks.Where(bookmark => bookmark.BookmarksType == BookmarksType.Abandoned).Count()}";
-            PostponedRead = $"Postponed: {User.Bookmarks.Where(bookmark => bookmark.BookmarksType == BookmarksType.Postponed).Count()}";
+            AlreadyRead = $"Already read: {User.GetBookmarks().Where(bookmark => bookmark.BookmarksType == BookmarksType.AlreadyRead).Count()}";
+            ReadingRead = $"Reading: {User.GetBookmarks().Where(bookmark => bookmark.BookmarksType == BookmarksType.Reading).Count()}";
+            PlannedRead = $"Planned: {User.GetBookmarks().Where(bookmark => bookmark.BookmarksType == BookmarksType.Planned).Count()}";
+            AbandonedRead = $"Abandoned: {User.GetBookmarks().Where(bookmark => bookmark.BookmarksType == BookmarksType.Abandoned).Count()}";
+            PostponedRead = $"Postponed: {User.GetBookmarks().Where(bookmark => bookmark.BookmarksType == BookmarksType.Postponed).Count()}";
         }
     }
 }

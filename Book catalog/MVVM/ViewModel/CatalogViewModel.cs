@@ -1,6 +1,8 @@
+using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Data;
+using System.IO;
 using System.Windows;
 using Book_catalog.Core;
 using Book_catalog.MVVM.Model;
@@ -142,15 +144,15 @@ public class CatalogViewModel : ObservableObject
         IsSortedGenre = false;
         IsSortedYear = false;
         IsSortedAuthor = false;
-
-        _catalogSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\BookCatalog.xml";
-        _userDataSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\UserData.xml";
-        _usersDataSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\UserCatalog.xml";
-
+        
+        _catalogSource = "../../../../Book catalog/BookCatalog.xml";
+        _userDataSource = "../../../../Book catalog/UserData.xml";
+        _usersDataSource = "../../../../Book catalog/UserCatalog.xml";
+        
         _userData = _xmlHelper.ReadUserDataXml(_userDataSource);
-
-        ObservableCollection<Bookmark> bookmarks = _userData.Bookmarks;
-        ObservableCollection<Bookmark> favorite = _userData.Favorite;
+        
+        ObservableCollection<Bookmark> bookmarks = _userData.GetBookmarks();
+        ObservableCollection<Bookmark> favorite = _userData.GetFavorite();
 
         Books = _xmlHelper.ReadBooksXml(_catalogSource);
         Books.CollectionChanged += BooksOnCollectionChangedAdd;
@@ -444,7 +446,7 @@ public class CatalogViewModel : ObservableObject
                         newBook.IconPath,
                         newBook.Description,
                         newBook,
-                        BookmarksType.NotInterested, 
+                        BookmarksType.NotInterested,
                         false, false, false, false, false, false);
                 }
             }

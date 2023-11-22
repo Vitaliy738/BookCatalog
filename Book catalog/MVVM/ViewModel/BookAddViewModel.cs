@@ -1,4 +1,5 @@
 using System;
+using System.Windows;
 using Book_catalog.Core;
 using Book_catalog.MVVM.Model;
 
@@ -25,7 +26,7 @@ public class BookAddViewModel : ObservableObject
         Year = "NONE";
         Genre = "NONE";
         ShortDescription = "NONE";
-        IconPath = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\BookIcon.png";
+        IconPath = "../../../../Icons/BookIcon.png";
 
         ChooseIcon = new RelayCommand(_ =>
         {
@@ -44,6 +45,12 @@ public class BookAddViewModel : ObservableObject
 
         AddBook = new RelayCommand(_ =>
         {
+            if (Name.Length < 3 || Author.Length < 3)
+            {
+                MessageBox.Show("The title and author must consist of at least 3 letters");
+                return;
+            }
+            
             Book book = new Book(Author, Name, Year, Genre, IconPath, ShortDescription);
             BookAdded?.Invoke(this, new BookEventArgs(book));
         });

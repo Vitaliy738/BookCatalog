@@ -39,8 +39,8 @@ public class OptionsViewModel : ObservableObject
     {
         _options = new XmlHelper();
         
-        _userSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\UserCatalog.xml";
-        _userDataSource = "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\UserData.xml";
+        _userSource = "../../../../Book catalog/UserCatalog.xml";
+        _userDataSource = "../../../../Book catalog/UserData.xml";
 
         Users = _options.ReadUsersXml(_userSource);
         

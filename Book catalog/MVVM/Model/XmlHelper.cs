@@ -25,8 +25,9 @@ public class XmlHelper
         }
         catch (Exception e)
         {
-            MessageBox.Show(e.ToString());
-            throw;
+            // MessageBox.Show(e.ToString());
+            // throw;
+            return null;
         }
     }
 
@@ -42,8 +43,9 @@ public class XmlHelper
         }
         catch (Exception e)
         {
-            MessageBox.Show(e.ToString());
-            throw;
+            // MessageBox.Show(e.ToString());
+            // throw;
+            return ;
         }
     }
 
@@ -60,8 +62,9 @@ public class XmlHelper
         }
         catch (Exception e)
         {
-            MessageBox.Show(e.ToString());
-            throw;
+            // MessageBox.Show(e.ToString());
+            // throw;
+            return;
         }
     }
 
@@ -81,8 +84,9 @@ public class XmlHelper
         }
         catch (Exception e)
         {
-            MessageBox.Show(e.ToString());
-            throw;
+            // MessageBox.Show(e.ToString());
+            // throw;
+            return null;
         }
     }
     
@@ -107,8 +111,9 @@ public class XmlHelper
         }
         catch (Exception e)
         {
-            MessageBox.Show(e.ToString());
-            throw;
+            // MessageBox.Show(e.ToString());
+            // throw;
+            return null;
         }
     }
 
@@ -125,8 +130,9 @@ public class XmlHelper
         }
         catch (Exception e)
         {
-            MessageBox.Show(e.ToString());
-            throw;
+            // MessageBox.Show(e.ToString());
+            // throw;
+            return ;
         }
         
     }
@@ -141,16 +147,17 @@ public class XmlHelper
         
             if (userToUpdate != null)
             {
-                userToUpdate.SetBookmarks(updatedUser.Bookmarks);
-                userToUpdate.SetFavorite(updatedUser.Favorite);
+                userToUpdate.SetBookmarks(updatedUser.GetBookmarks());
+                userToUpdate.SetFavorite(updatedUser.GetFavorite());
             }
         
             LoadUsersXml(path, users);
         }
         catch (Exception e)
         {
-            MessageBox.Show(e.ToString());
-            throw;
+            // MessageBox.Show(e.ToString());
+            // throw;
+            return ;
         }
     }
 }

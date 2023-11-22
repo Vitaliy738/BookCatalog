@@ -13,7 +13,7 @@ public class Book
     public Book(string author) : this(author, "NONE") {}
     public Book(string author, string title) : this(author, title, "NONE") {}
     public Book(string author, string title, string year) : this(author, title, year, "NONE") {}
-    public Book(string author, string title, string year, string genre) : this(author, title, year, genre, "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\BookIcon.png") {}
+    public Book(string author, string title, string year, string genre) : this(author, title, year, genre, "../../../../Book catalog/Icons/BookIcon.png") {}
     public Book(string author, string title, string year, string genre, string iconPath) : this(author, title, year, genre, iconPath, "NONE") {}
     public Book(string author, string title, string year, string genre, string iconPath, string description)
     {

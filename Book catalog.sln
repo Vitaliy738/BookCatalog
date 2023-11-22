@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book catalog", "Book catalog\Book catalog.csproj", "{A04A9848-35CA-436A-BDBC-22AB3A2DED3A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{39895588-BC19-4908-BAF3-7DE8A097F725} = {39895588-BC19-4908-BAF3-7DE8A097F725}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogManagement", "CatalogManagement\CatalogManagement.csproj", "{39895588-BC19-4908-BAF3-7DE8A097F725}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +17,9 @@ Global
 		{A04A9848-35CA-436A-BDBC-22AB3A2DED3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A04A9848-35CA-436A-BDBC-22AB3A2DED3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A04A9848-35CA-436A-BDBC-22AB3A2DED3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39895588-BC19-4908-BAF3-7DE8A097F725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39895588-BC19-4908-BAF3-7DE8A097F725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39895588-BC19-4908-BAF3-7DE8A097F725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39895588-BC19-4908-BAF3-7DE8A097F725}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

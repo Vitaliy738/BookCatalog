@@ -30,22 +30,12 @@ public class User
         }
     }
 
-    private ObservableCollection<Bookmark> _bookmarks;
-    public ObservableCollection<Bookmark> Bookmarks
-    {
-        get => GetBookmarks();
-        set => SetBookmarks(value);
-    }
+    public ObservableCollection<Bookmark> Bookmarks { get; internal set; }
 
-    private ObservableCollection<Bookmark> _favorite;
-    public ObservableCollection<Bookmark> Favorite
-    {
-        get => GetFavorite();
-        set => SetFavorite(value);
-    }
+    public ObservableCollection<Bookmark> Favorite { get; internal set; }
     
     public User() : this("NONE"){}
-    public User(string name) : this(name, "C:\\Users\\Asus\\RiderProjects\\Book catalog\\Book catalog\\Icons\\UserProfileIcon.png"){}
+    public User(string name) : this(name, "../../../../Icons/UserProfileIcon.png"){}
     public User(string name, string iconPath) : this(name, iconPath, new ObservableCollection<Bookmark>()){}
     public User(string name, string iconPath, ObservableCollection<Bookmark> bookmarks) : this(name, iconPath, bookmarks, new ObservableCollection<Bookmark>()){}
     public User(string name, string iconPath, ObservableCollection<Bookmark> bookmarks, ObservableCollection<Bookmark> favorite)
@@ -59,11 +49,11 @@ public class User
     // Методи для роботи з колекцією Bookmarks
     public ObservableCollection<Bookmark> GetBookmarks()
     {
-        return _bookmarks;
+        return Bookmarks;
     }
     public void SetBookmarks(ObservableCollection<Bookmark> bookmark)
     {
-        _bookmarks = bookmark;
+        Bookmarks = bookmark;
     }
     
     public void AddBookmark(Bookmark bookmark)
@@ -96,11 +86,11 @@ public class User
     // Методи для роботи з колекцією Favorite
     public ObservableCollection<Bookmark> GetFavorite()
     {
-        return _favorite;
+        return Favorite;
     }
     public void SetFavorite(ObservableCollection<Bookmark> favorite)
     {
-        _favorite = favorite;
+        Favorite = favorite;
     }
     
     public void AddFavorite(Bookmark favorite)

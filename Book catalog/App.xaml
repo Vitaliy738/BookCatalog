@@ -45,6 +45,8 @@
                  
                  <ResourceDictionary Source="../Theme/AddUser/UserAddThemeName.xaml"/>
                  <ResourceDictionary Source="../Theme/AddUser/UserAddThemeIcon.xaml"/>
+                 
+                 <ResourceDictionary Source="../Theme/Bookmarks/BookmarksThemeRemoveButton.xaml"/>
              </ResourceDictionary.MergedDictionaries>
              
              <DataTemplate DataType="{x:Type viewModel:CatalogViewModel}">

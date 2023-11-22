@@ -16,7 +16,7 @@
         <Grid>
             <TabControl>
                 <!-- Reading -->
-                <TabItem>
+                <TabItem IsSelected="{Binding IsReading, Mode=TwoWay}">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Margin="3">Reading</TextBlock>
@@ -31,8 +31,8 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid Grid.Column="0"
-                                      ItemsSource="{Binding Bookmark.Reading}"
-                                      SelectedIndex="{Binding SelectedBookIndex}"
+                                      ItemsSource="{Binding BooksTable}"
+                                      SelectedIndex="{Binding SelectedBookmarkIndex}"
 
                                       Background="#E4EBF1"
                                       BorderBrush="#EFF2F9"
@@ -40,6 +40,7 @@
 
                                       AutoGenerateColumns="False"
                                       CanUserSortColumns="False"
+                                      CanUserAddRows="False"
 
                                       BorderThickness="1"
                                       Margin="5"
@@ -49,24 +50,47 @@
                                     <DataGridTemplateColumn Width="*">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Image Source="{Binding IconPath}" Width="58" Height="58" />
-                                                    <TextBlock Text="{Binding Name}"
-                                                               Margin="5 0 0 0"
-                                                               FontSize="16" />
-                                                </StackPanel>
+                                                <Grid>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Image Source="{Binding IconPathReading}" Width="58"
+                                                               Height="58" />
+                                                        <TextBlock Text="{Binding TitleReading}"
+                                                                   Margin="5 0 0 0"
+                                                                   FontSize="16" />
+                                                    </StackPanel>
+
+                                                    <StackPanel Orientation="Horizontal"
+                                                                HorizontalAlignment="Right"
+                                                                VerticalAlignment="Center"
+                                                                Margin="0 0 10 0"
+                                                                DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+
+                                                        <Button Style="{StaticResource BookmarkRemoveButtonTheme}"
+                                                                Command="{Binding RemoveCommand}"
+                                                                Margin="5" />
+                                                    </StackPanel>
+                                                </Grid>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
                                 </DataGrid.Columns>
+                                
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding TitleReading}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.RowStyle>
                             </DataGrid>
-
                         </Grid>
                     </TabItem.Content>
                 </TabItem>
 
                 <!-- Planned -->
-                <TabItem>
+                <TabItem IsSelected="{Binding IsPlanned, Mode=TwoWay}">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Margin="3">Planned</TextBlock>
@@ -81,8 +105,8 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid Grid.Column="0"
-                                      ItemsSource="{Binding Bookmark.Planned}"
-                                      SelectedIndex="{Binding SelectedBookIndex}"
+                                      ItemsSource="{Binding BooksTable}"
+                                      SelectedIndex="{Binding SelectedBookmarkIndex}"
 
                                       Background="#E4EBF1"
                                       BorderBrush="#EFF2F9"
@@ -90,6 +114,7 @@
 
                                       AutoGenerateColumns="False"
                                       CanUserSortColumns="False"
+                                      CanUserAddRows="False"
 
                                       BorderThickness="1"
                                       Margin="5"
@@ -99,24 +124,47 @@
                                     <DataGridTemplateColumn Width="*">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Image Source="{Binding IconPath}" Width="58" Height="58" />
-                                                    <TextBlock Text="{Binding Name}"
-                                                               Margin="5 0 0 0"
-                                                               FontSize="16" />
-                                                </StackPanel>
+                                                <Grid>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Image Source="{Binding IconPathPlanned}" Width="58"
+                                                               Height="58" />
+                                                        <TextBlock Text="{Binding TitlePlanned}"
+                                                                   Margin="5 0 0 0"
+                                                                   FontSize="16" />
+                                                    </StackPanel>
+
+                                                    <StackPanel Orientation="Horizontal"
+                                                                HorizontalAlignment="Right"
+                                                                VerticalAlignment="Center"
+                                                                Margin="0 0 10 0"
+                                                                DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+
+                                                        <Button Style="{StaticResource BookmarkRemoveButtonTheme}"
+                                                                Command="{Binding RemoveCommand}"
+                                                                Margin="5" />
+                                                    </StackPanel>
+                                                </Grid>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
                                 </DataGrid.Columns>
-                            </DataGrid>
 
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding TitlePlanned}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>                                        
+                                    </Style>
+                                </DataGrid.RowStyle>
+                            </DataGrid>
                         </Grid>
                     </TabItem.Content>
                 </TabItem>
 
                 <!-- Already read -->
-                <TabItem>
+                <TabItem IsSelected="{Binding IsAlreadyRead, Mode=TwoWay}">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Margin="3">Already read</TextBlock>
@@ -131,8 +179,8 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid Grid.Column="0"
-                                      ItemsSource="{Binding Bookmark.AlreadyRead}"
-                                      SelectedIndex="{Binding SelectedBookIndex}"
+                                      ItemsSource="{Binding BooksTable}"
+                                      SelectedIndex="{Binding SelectedBookmarkIndex}"
 
                                       Background="#E4EBF1"
                                       BorderBrush="#EFF2F9"
@@ -140,6 +188,7 @@
 
                                       AutoGenerateColumns="False"
                                       CanUserSortColumns="False"
+                                      CanUserAddRows="False"
 
                                       BorderThickness="1"
                                       Margin="5"
@@ -149,16 +198,41 @@
                                     <DataGridTemplateColumn Width="*">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Image Source="{Binding IconPath}" Width="58" Height="58" />
-                                                    <TextBlock Text="{Binding Name}"
-                                                               Margin="5 0 0 0"
-                                                               FontSize="16" />
-                                                </StackPanel>
+                                                <Grid>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Image Source="{Binding IconPathAlreadyRead}" Width="58"
+                                                               Height="58" />
+                                                        <TextBlock Text="{Binding TitleAlreadyRead}"
+                                                                   Margin="5 0 0 0"
+                                                                   FontSize="16" />
+                                                    </StackPanel>
+
+                                                    <StackPanel Orientation="Horizontal"
+                                                                HorizontalAlignment="Right"
+                                                                VerticalAlignment="Center"
+                                                                Margin="0 0 10 0"
+                                                                DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+
+                                                        <Button Style="{StaticResource BookmarkRemoveButtonTheme}"
+                                                                Command="{Binding RemoveCommand}"
+                                                                Margin="5" />
+                                                    </StackPanel>
+                                                </Grid>
+                                                
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
                                 </DataGrid.Columns>
+                                
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding TitleAlreadyRead}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.RowStyle>
                             </DataGrid>
 
                         </Grid>
@@ -166,7 +240,7 @@
                 </TabItem>
 
                 <!-- Abandoned -->
-                <TabItem>
+                <TabItem IsSelected="{Binding IsAbandoned, Mode=TwoWay}">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Margin="3">Abandoned</TextBlock>
@@ -181,8 +255,8 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid Grid.Column="0"
-                                      ItemsSource="{Binding Bookmark.Abandoned}"
-                                      SelectedIndex="{Binding SelectedBookIndex}"
+                                      ItemsSource="{Binding BooksTable}"
+                                      SelectedIndex="{Binding SelectedBookmarkIndex}"
 
                                       Background="#E4EBF1"
                                       BorderBrush="#EFF2F9"
@@ -190,6 +264,7 @@
 
                                       AutoGenerateColumns="False"
                                       CanUserSortColumns="False"
+                                      CanUserAddRows="False"
 
                                       BorderThickness="1"
                                       Margin="5"
@@ -199,24 +274,48 @@
                                     <DataGridTemplateColumn Width="*">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Image Source="{Binding IconPath}" Width="58" Height="58" />
-                                                    <TextBlock Text="{Binding Name}"
-                                                               Margin="5 0 0 0"
-                                                               FontSize="16" />
-                                                </StackPanel>
+                                                <Grid>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Image Source="{Binding IconPathAbandoned}" Width="58"
+                                                               Height="58" />
+                                                        <TextBlock Text="{Binding TitleAbandoned}"
+                                                                   Margin="5 0 0 0"
+                                                                   FontSize="16" />
+                                                    </StackPanel>
+
+                                                    <StackPanel Orientation="Horizontal"
+                                                                HorizontalAlignment="Right"
+                                                                VerticalAlignment="Center"
+                                                                Margin="0 0 10 0"
+                                                                DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+
+                                                        <Button Style="{StaticResource BookmarkRemoveButtonTheme}"
+                                                                Command="{Binding RemoveCommand}"
+                                                                Margin="5" />
+                                                    </StackPanel>
+                                                </Grid>
+                                                
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
                                 </DataGrid.Columns>
+                                
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding TitleAbandoned}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.RowStyle>
                             </DataGrid>
-
                         </Grid>
                     </TabItem.Content>
                 </TabItem>
 
                 <!-- Postponed -->
-                <TabItem>
+                <TabItem IsSelected="{Binding IsPostponed, Mode=TwoWay}">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Margin="3">Postponed</TextBlock>
@@ -231,8 +330,8 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid Grid.Column="0"
-                                      ItemsSource="{Binding Bookmark.Postponed}"
-                                      SelectedIndex="{Binding SelectedBookIndex}"
+                                      ItemsSource="{Binding BooksTable}"
+                                      SelectedIndex="{Binding SelectedBookmarkIndex}"
 
                                       Background="#E4EBF1"
                                       BorderBrush="#EFF2F9"
@@ -240,6 +339,7 @@
 
                                       AutoGenerateColumns="False"
                                       CanUserSortColumns="False"
+                                      CanUserAddRows="False"
 
                                       BorderThickness="1"
                                       Margin="5"
@@ -249,24 +349,48 @@
                                     <DataGridTemplateColumn Width="*">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Image Source="{Binding IconPath}" Width="58" Height="58" />
-                                                    <TextBlock Text="{Binding Name}"
-                                                               Margin="5 0 0 0"
-                                                               FontSize="16" />
-                                                </StackPanel>
+                                                <Grid>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Image Source="{Binding IconPathPostponed}" Width="58"
+                                                               Height="58" />
+                                                        <TextBlock Text="{Binding TitlePostponed}"
+                                                                   Margin="5 0 0 0"
+                                                                   FontSize="16" />
+                                                    </StackPanel>
+
+                                                    <StackPanel Orientation="Horizontal"
+                                                                HorizontalAlignment="Right"
+                                                                VerticalAlignment="Center"
+                                                                Margin="0 0 10 0"
+                                                                DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+
+                                                        <Button Style="{StaticResource BookmarkRemoveButtonTheme}"
+                                                                Command="{Binding RemoveCommand}"
+                                                                Margin="5" />
+                                                    </StackPanel>
+                                                </Grid>
+                                                
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
                                 </DataGrid.Columns>
+                                
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding TitlePostponed}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.RowStyle>
                             </DataGrid>
-
                         </Grid>
                     </TabItem.Content>
                 </TabItem>
 
                 <!-- Favorite -->
-                <TabItem>
+                <TabItem IsSelected="{Binding IsFavorite, Mode=TwoWay}">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Margin="3">Favorite</TextBlock>
@@ -281,8 +405,8 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid Grid.Column="0"
-                                      ItemsSource="{Binding Bookmark.Favorite}"
-                                      SelectedIndex="{Binding SelectedBookIndex}"
+                                      ItemsSource="{Binding BooksTable}"
+                                      SelectedIndex="{Binding SelectedBookmarkIndex}"
 
                                       Background="#E4EBF1"
                                       BorderBrush="#EFF2F9"
@@ -290,6 +414,7 @@
 
                                       AutoGenerateColumns="False"
                                       CanUserSortColumns="False"
+                                      CanUserAddRows="False"
 
                                       BorderThickness="1"
                                       Margin="5"
@@ -299,18 +424,42 @@
                                     <DataGridTemplateColumn Width="*">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Image Source="{Binding IconPath}" Width="58" Height="58" />
-                                                    <TextBlock Text="{Binding Name}"
-                                                               Margin="5 0 0 0"
-                                                               FontSize="16" />
-                                                </StackPanel>
+                                                <Grid>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Image Source="{Binding IconPathFavorite}" Width="58"
+                                                               Height="58" />
+                                                        <TextBlock Text="{Binding TitleFavorite}"
+                                                                   Margin="5 0 0 0"
+                                                                   FontSize="16" />
+                                                    </StackPanel>
+
+                                                    <StackPanel Orientation="Horizontal"
+                                                                HorizontalAlignment="Right"
+                                                                VerticalAlignment="Center"
+                                                                Margin="0 0 10 0"
+                                                                DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+
+                                                        <Button Style="{StaticResource BookmarkRemoveButtonTheme}"
+                                                                Command="{Binding RemoveCommand}"
+                                                                Margin="5" />
+                                                    </StackPanel>
+                                                </Grid>
+                                                
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
                                 </DataGrid.Columns>
+                                
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding TitleFavorite}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.RowStyle>
                             </DataGrid>
-
                         </Grid>
                     </TabItem.Content>
                 </TabItem>

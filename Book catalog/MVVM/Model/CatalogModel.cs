@@ -37,7 +37,7 @@ public class CatalogModel
                 BookmarksType type = GetBookmarksType(book, bookmarks);
                 bool isFavorite = CheckFavorite(book, favorite);
                 
-                if(type != BookmarksType.NotInterested)
+                if(type != BookmarksType.NotInterested || isFavorite)
                 {
                     booksTable.Rows.Add(book.Author, 
                         book.Title, 
