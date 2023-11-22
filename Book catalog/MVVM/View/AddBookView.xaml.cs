@@ -7,5 +7,6 @@ public partial class AddBookView : Window
     public AddBookView()
     {
         InitializeComponent();
+        WindowStartupLocation = WindowStartupLocation.CenterScreen;
     }
 }

@@ -7,5 +7,6 @@ public partial class AddUserView : Window
     public AddUserView()
     {
         InitializeComponent();
+        WindowStartupLocation = WindowStartupLocation.CenterScreen;
     }
 }

@@ -100,7 +100,7 @@
         <Description>Гарри взрослеет, и вместе с тем жить в Хогвартсе всё страшнее. Из тюрьмы для волшебников Азкабан сбежал опасный преступник - Сириус Блэк. Мир наполнился слухами, что он ищет и хочет убить одного тринадцатилетнего парня, совсем обычного на первый взгляд. Его имя - Гарри Поттер.</Description>
         <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\book\boocover.jpg</IconPath>
       </Book>
-      <BookmarksType>Abandoned</BookmarksType>
+      <BookmarksType>Planned</BookmarksType>
     </Bookmark>
     <Bookmark>
       <Book>
@@ -200,6 +200,17 @@
         <Genre />
         <Description />
         <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\book\boocover (11).jpg</IconPath>
+      </Book>
+      <BookmarksType>Favorite</BookmarksType>
+    </Bookmark>
+    <Bookmark>
+      <Book>
+        <Author>Джоан Роулинг</Author>
+        <Title>Гарри Поттер и узник Азкабана</Title>
+        <Year>2019</Year>
+        <Genre />
+        <Description>Гарри взрослеет, и вместе с тем жить в Хогвартсе всё страшнее. Из тюрьмы для волшебников Азкабан сбежал опасный преступник - Сириус Блэк. Мир наполнился слухами, что он ищет и хочет убить одного тринадцатилетнего парня, совсем обычного на первый взгляд. Его имя - Гарри Поттер.</Description>
+        <IconPath>C:\Users\Asus\OneDrive\Desktop\icons\book\boocover.jpg</IconPath>
       </Book>
       <BookmarksType>Favorite</BookmarksType>
     </Bookmark>

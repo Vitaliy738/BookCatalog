@@ -23,6 +23,7 @@ namespace Book_catalog
         public MainWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
     }
 }

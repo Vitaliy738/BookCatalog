@@ -84,6 +84,8 @@
                                             <Button.ContextMenu>
                                                 <ContextMenu
                                                     DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
+                                                    <MenuItem Header="Favorite"
+                                                              Command="{Binding ToFavorite}" />
                                                     <MenuItem Header="Planned"
                                                               Command="{Binding ToPlanned}" />
                                                     <MenuItem Header="Already read"
@@ -112,25 +114,25 @@
                         <StackPanel Orientation="Vertical"
                                    HorizontalAlignment="Stretch">
                             
-                            <StackPanel Orientation="Horizontal"
-                                        Margin="5">
+                            <StackPanel Orientation="Horizontal" Margin="5">
                                 <TextBlock Text="Author: "
                                            FontSize="16" />
                                 <TextBlock Text="{Binding book.Author}"
                                            FontSize="16" />
                             </StackPanel>
                             
-                            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock Text="{Binding ShortDescription}" 
-                                               FontSize="16" 
-                                               TextWrapping="Wrap"
-                                               Margin="5"/>
-                                </Grid>
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <TextBlock Text="Year: "
+                                           FontSize="16" />
+                                <TextBlock Text="{Binding book.Year}"
+                                           FontSize="16" />
+                            </StackPanel>
+                            
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <TextBlock Text="Genre: "
+                                           FontSize="16" />
+                                <TextBlock Text="{Binding book.Genre}"
+                                           FontSize="16" />
                             </StackPanel>
                             
                             <StackPanel Orientation="Horizontal"
@@ -150,11 +152,11 @@
                                         Width="28"
                                         Command="{Binding ModifyBookCommand}"/>
                                 
-                                <Button Style="{StaticResource CatalogBookmarksFavoriteTheme}"
-                                        Margin="30 5 5 5"
-                                        Height="28"
-                                        Width="28"
-                                        Command="{Binding ToFavorite}"/>
+                                <!-- <Button Style="{StaticResource CatalogBookmarksFavoriteTheme}" -->
+                                <!--         Margin="30 5 5 5" -->
+                                <!--         Height="28" -->
+                                <!--         Width="28" -->
+                                <!--         Command="{Binding ToFavorite}"/> -->
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>

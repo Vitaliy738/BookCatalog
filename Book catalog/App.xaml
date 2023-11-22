@@ -8,45 +8,46 @@
     <Application.Resources>
          <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
-                 <ResourceDictionary Source="../Theme/SearchBoxTheme.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/SearchBoxTheme.xaml"/>
                  
-                 <ResourceDictionary Source="../Theme/Menu/MenuThemeButton.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Menu/MenuThemeButton.xaml"/>
                  
-                 <ResourceDictionary Source="/Theme/Home/HomeThemeUserIcon.xaml"/>
-                 <ResourceDictionary Source="/Theme/Home/HomeThemeButton.xaml"/>
                  
-                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeFilterButton.xaml"/>
-                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeSortCollapsedButton.xaml"/>
-                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeNameSearchBox.xaml"/>
-                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeAuthorSearchBox.xaml"/>
-                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeGenreSearchBox.xaml"/>
-                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeYearSearchBox.xaml"/>
-                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeButton.xaml"/>
-                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeFilterButton2.xaml"/>
-                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeBookmarksToolTip.xaml"/>
-                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeOptionsButton.xaml"/>
-                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeRowDetailsUpArrow.xaml"/>
-                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeFavoriteButton.xaml"/>
-                 <ResourceDictionary Source="/Theme/Catalog/CatalogThemeFavoriteRow.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Home/HomeThemeUserIcon.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Home/HomeThemeButton.xaml"/>
                  
-                 <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeAuthorBox.xaml"/>
-                 <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeNameBox.xaml"/>
-                 <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeYearBox.xaml"/>
-                 <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeGenreBox.xaml"/>
-                 <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeDescriptionBox.xaml"/>
-                 <ResourceDictionary Source="../Theme/BookAddWindow/BookAddThemeIconButton.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Catalog/CatalogThemeFilterButton.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Catalog/CatalogThemeSortCollapsedButton.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Catalog/CatalogThemeNameSearchBox.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Catalog/CatalogThemeAuthorSearchBox.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Catalog/CatalogThemeGenreSearchBox.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Catalog/CatalogThemeYearSearchBox.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Catalog/CatalogThemeButton.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Catalog/CatalogThemeFilterButton2.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Catalog/CatalogThemeBookmarksToolTip.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Catalog/CatalogThemeOptionsButton.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Catalog/CatalogThemeRowDetailsUpArrow.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Catalog/CatalogThemeFavoriteButton.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Catalog/CatalogThemeFavoriteRow.xaml"/>
                  
-                 <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeAuthorBox.xaml"/>
-                 <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeNameBox.xaml"/>
-                 <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeYearBox.xaml"/>
-                 <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeGenreBox.xaml"/>
-                 <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeDescriptionBox.xaml"/>
-                 <ResourceDictionary Source="../Theme/ModifyBook/ModifyThemeIconButton.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/BookAddWindow/BookAddThemeAuthorBox.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/BookAddWindow/BookAddThemeNameBox.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/BookAddWindow/BookAddThemeYearBox.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/BookAddWindow/BookAddThemeGenreBox.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/BookAddWindow/BookAddThemeDescriptionBox.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/BookAddWindow/BookAddThemeIconButton.xaml"/>
                  
-                 <ResourceDictionary Source="../Theme/AddUser/UserAddThemeName.xaml"/>
-                 <ResourceDictionary Source="../Theme/AddUser/UserAddThemeIcon.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/ModifyBook/ModifyThemeAuthorBox.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/ModifyBook/ModifyThemeNameBox.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/ModifyBook/ModifyThemeYearBox.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/ModifyBook/ModifyThemeGenreBox.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/ModifyBook/ModifyThemeDescriptionBox.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/ModifyBook/ModifyThemeIconButton.xaml"/>
                  
-                 <ResourceDictionary Source="../Theme/Bookmarks/BookmarksThemeRemoveButton.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/AddUser/UserAddThemeName.xaml"/>
+                 <ResourceDictionary Source="pack://application:,,,/Theme/AddUser/UserAddThemeIcon.xaml"/>
+                 
+                 <ResourceDictionary Source="pack://application:,,,/Theme/Bookmarks/BookmarksThemeRemoveButton.xaml"/>
              </ResourceDictionary.MergedDictionaries>
              
              <DataTemplate DataType="{x:Type viewModel:CatalogViewModel}">
