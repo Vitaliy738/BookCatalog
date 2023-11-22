@@ -26,9 +26,9 @@ public class XmlHelper
         catch (Exception e)
         {
             MessageBox.Show("A handled exception just occured: " 
-                            + e.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            + e.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return null;
         }
-        return null;
     }
 
     public void LoadUsersXml(string path, ObservableCollection<User> users)
@@ -44,7 +44,8 @@ public class XmlHelper
         catch (Exception e)
         {
             MessageBox.Show("A handled exception just occured: " 
-                            + e.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            + e.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return;
         }
     }
 
@@ -62,7 +63,8 @@ public class XmlHelper
         catch (Exception e)
         {
             MessageBox.Show("A handled exception just occured: " 
-                            + e.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            + e.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return;
         }
     }
 
@@ -83,10 +85,9 @@ public class XmlHelper
         catch (Exception e)
         {
             MessageBox.Show("A handled exception just occured: " 
-                            + e.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            + e.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return null;
         }
-
-        return null;
     }
     
     public ObservableCollection<Book> ReadBooksXml(string path)
@@ -111,10 +112,9 @@ public class XmlHelper
         catch (Exception e)
         {
             MessageBox.Show("A handled exception just occured: " 
-                            + e.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
-        }
-
-        return null;
+                            + e.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return null;
+        }        
     }
 
     public void LoadBooksXml(string path, ObservableCollection<Book> books)
@@ -131,7 +131,8 @@ public class XmlHelper
         catch (Exception e)
         {
             MessageBox.Show("A handled exception just occured: " 
-                            + e.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            + e.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return;
         }
     }
     
@@ -154,7 +155,8 @@ public class XmlHelper
         catch (Exception e)
         {
             MessageBox.Show("A handled exception just occured: " 
-                            + e.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            + e.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return;
         }
     }
 }

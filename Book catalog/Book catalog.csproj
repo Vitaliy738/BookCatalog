@@ -92,12 +92,6 @@
       <Resource Include="Icons\heart (3).png" />
       <None Remove="Icons\favorite_bookmark.png" />
       <Resource Include="Icons\favorite_bookmark.png" />
-      <None Remove="UserData.xml" />
-      <Resource Include="UserData.xml" />
-      <None Remove="UserCatalog.xml" />
-      <Resource Include="UserCatalog.xml" />
-      <None Remove="BookCatalog.xml" />
-      <Resource Include="BookCatalog.xml" />
       <None Remove="Icons\remove.png" />
       <Resource Include="Icons\remove.png" />
       <None Remove="Icons\trash.png" />
